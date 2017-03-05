@@ -1,0 +1,68 @@
+<?php 
+$user = $this->user;
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/update-description'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('class', 'hashtag-form');
+$form->setAttribute('id', 'hashtagForm');
+$form->setAttribute('autocomplete', 'off');
+?>
+
+<div id="box-user-summary">
+	<div class="user-summary-wrap">
+		<div class="user-summary-inner clearfix">
+    		<div class="user-summary-thumb">
+    			<img src="assets/img/asian_woman_250px.jpg" />
+    		</div>
+    		<div class="user-summary-info ">
+    			<h3><?php echo $user['display_name'] ?></h3>
+    			<div class="e-wrap" title="<?php echo $user['email'] ?>"><i class="fa fa-envelope"></i> <?php echo $user['email'] ?></div>
+    			<div class="hashtags">
+    				<?php foreach($user['hashtags'] as $hashtag) { ?>
+    				<a href="javascript:;"><?php printf('#%s', $hashtag) ?></a>
+    				<?php } ?>
+    			</div>
+    		</div>
+		</div>
+		<div class="user-summary-actions">
+			<a href="javascript:;" class="show-less">Show Less <i class="fa fa-angle-double-left"></i></a>
+			<a href="javascript:;" class="show-more">Show More <i class="fa fa-angle-double-right"></i></a>
+		</div>
+	</div>	
+</div>
+
+<div class="page-quick-sidebar-wrapper sidebar-right" data-close-on-body-click="false">
+	<div class="page-quick-sidebar-header">
+		<h3 class="quick-sidebar-heading">User Setting</h3>
+		<a href="javascript:;" class="quick-sidebar-toggler sidebar-right-toggler"></a>
+	</div>
+	<div class="page-quick-sidebar-body">
+		<div class="user-info text-center">
+        	<div class="user-thumb">
+        		<img src="assets/img/asian_woman_250px.jpg" />
+        	</div>
+        	<h3 class="user-heading color-blue"><?php echo $user['display_name'] ?></h3>
+        	<p><?php echo $user['email'] ?></p>
+        	<a href="<?php echo $this->url('zfcuser/logout') ?>" class="btn btn-circle btn-mw100 grey-cascade">Sign Out</a>
+        </div>
+        
+        <?php echo $this->form()->openTag($form) ?>
+        <input type="hidden" id="latitude" name="latitude" value="<?php echo $user['latitude'] ?>">
+        <input type="hidden" id="longitude" name="longitude" value="<?php echo $user['longitude'] ?>">
+        <div class="form-group">
+        	<?php echo $this->formElement($form->get('description')); ?>
+        </div>
+        <div class="form-actions text-center">
+        	<button type="submit" class="btn btn-circle btn-mw100 blue-steel">Save</button>
+        </div>
+        <?php echo $this->form()->closeTag() ?>
+        
+        <div class="text-center">
+        	<p class="mb-15"><a href="javascript:;" class="btn btn-social">
+        		<i class="fa fa-facebook"></i> Share to Facebook
+        	</a></p>
+        	<p><a href="javascript:;" class="font-blue-steel">Change Password</a></p>
+        </div>
+	</div>
+</div>

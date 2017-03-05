@@ -1,0 +1,92 @@
+<?php 
+$this->headTitle()->prepend('Đăng nhập');
+
+if($this->redirect) {
+    $formUrl = $this->url('zfcuser/login', [], [
+    				'query' => [
+    				    'redirect' => $this->escapeHtml($this->redirect)
+    				],
+    ]);
+} else {
+    $formUrl = $this->url('zfcuser/login');
+}
+$form = $this->loginForm;
+$form->prepare();
+$form->setAttribute('action', $formUrl);
+$form->setAttribute('method', 'post');
+$form->setAttribute('class', 'form');
+$form->setAttribute('role', 'form');
+
+$facebook_login_url = '';
+if($this->redirect) {
+	$facebook_login_url = $this->url(
+	    'scn-social-auth-user/login/provider',
+	    array('provider' => 'facebook'),
+	    array(
+	    	'query' => array(
+				'redirect' => $this->escapeHtml($this->redirect)
+	        ),
+	    )
+	);
+} else {
+	$facebook_login_url = $this->url(
+		'scn-social-auth-user/login/provider',
+		array('provider' => 'facebook')
+	);
+}
+?>
+
+<div class="row">
+    <div class="col-xs-12 col-md-8 text-center padding-bottom-20 col-md-offset-2">
+        <h2 class="light-header no-margin">Đăng nhập</h2>
+    </div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="box-login shadow-1 bg-white padding-30" style="width:445px;margin:0 auto;">
+			<div>
+				<a href="<?php echo $facebook_login_url ?>" class="btn btn-block btn-social btn-facebook sbold fs-15">
+					<span class="fa fa-facebook fs-20"></span> 
+					Đăng nhập bằng Facebook
+				</a>
+    		</div>
+    		<div class="input-or-separator margin-top-10 margin-bottom-10">
+    			<div class="row row-m-5">
+    				<div class="col-p-5 col-xs-5"><hr></div>
+    				<div class="col-p-5 col-xs-2">
+    					<div class="input-or">hoặc</div>
+    				</div>
+    				<div class="col-p-5 col-xs-5"><hr></div>
+    			</div>
+    		</div>
+    		<?php echo $this->form()->openTag($form) ?>
+    		<?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+            			->setMessageSeparatorString('</div><div class="alert alert-danger">')
+            			->setMessageCloseString('</div>')
+            			->render($form->get('identity')); ?>
+			<fieldset>
+				<div class="form-group">
+					<div class="input-icon">
+						<i class="fa fa-envelope"></i>
+						<?php echo $this->formElement($form->get('identity')); ?>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-icon">
+						<i class="fa fa-lock"></i>
+						<?php echo $this->formElement($form->get('credential')); ?>
+					</div>
+				</div>
+				<div class="margin-top-10 margin-bottom-10">
+    				<button type="submit" class="btn btn-lg btn-block btn-primary sbold uppercase">Đăng nhập</button>
+    			</div>
+				<p class="margin-bottom-0 text-center">Chưa có tài khoản? <a href="/user/register" data-target="#modal_signup" data-toggle="modal">Đăng ký</a></p>
+			</fieldset>
+			<?php echo $this->form()->closeTag() ?>	
+			
+			<?php
+			 ?>
+		</div>
+	</div>
+</div>

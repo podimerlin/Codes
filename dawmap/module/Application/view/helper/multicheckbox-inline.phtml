@@ -1,0 +1,6 @@
+<?php $currentValue = $element->getValue(); ?>
+<?php foreach ($element->getValueOptions() as $key => $value): ?>
+<label class="checkbox-inline">
+	<input type="checkbox" name="<?php echo $element->getName() ?>[]" value="<?php echo $key; ?>" <?php echo ($currentValue == $key) ? 'checked="checked"' : '' ?> /> <?php echo $value ?>
+</label>
+<?php endforeach; ?>

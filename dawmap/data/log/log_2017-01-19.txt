@@ -1,0 +1,19 @@
+2017-01-19T23:16:04+07:00 ERR (3): Exception:n1: Connect Error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+n2: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+nTrace:n#0 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\Db\Adapter\Driver\Pdo\Connection.php(353): Zend\Db\Adapter\Driver\Pdo\Connection->connect()
+#1 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\Db\Adapter\Adapter.php(190): Zend\Db\Adapter\Driver\Pdo\Connection->execute('SELECT `u`.* FR...')
+#2 C:\Users\MerC\Documents\Codes\dawmap\module\ZfcUser\src\ZfcUser\Mapper\User.php(56): Zend\Db\Adapter\Adapter->query('SELECT `u`.* FR...', 'execute')
+#3 C:\Users\MerC\Documents\Codes\dawmap\module\Application\src\Application\Service\App.php(41): ZfcUser\Mapper\User->getUsers(Array)
+#4 C:\Users\MerC\Documents\Codes\dawmap\module\Application\src\Application\Controller\ApiController.php(13): Application\Service\App->getPublicMarkers()
+#5 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractActionController.php(82): Application\Controller\ApiController->indexAction()
+#6 [internal function]: Zend\Mvc\Controller\AbstractActionController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#7 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#8 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#9 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\Mvc\Controller\AbstractController.php(118): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#10 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\Mvc\DispatchListener.php(93): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#11 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#12 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(444): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#13 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\EventManager\EventManager.php(205): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 C:\Users\MerC\Documents\Codes\dawmap\vendor\zendframework\zendframework\library\Zend\Mvc\Application.php(314): Zend\EventManager\EventManager->trigger('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#15 C:\Users\MerC\Documents\Codes\dawmap\public\index.php(21): Zend\Mvc\Application->run()
+#16 {main}

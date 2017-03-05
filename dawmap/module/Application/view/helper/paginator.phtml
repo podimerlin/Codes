@@ -1,0 +1,68 @@
+<?php 
+$params = [];
+$options = [];
+if(isset($this->action)) $params['action'] = $this->action;
+if(isset($this->query)) $options = ['query' => $this->query];
+$href = $this->url($this->route, $params, $options);
+?>
+<div class="pagination-wrap">
+  <div class="row">
+	<div class="col-xs-5">
+		<div class="pagination-info">
+			Đang hiển thị từ <?php echo $this->firstItemNumber ?> đến <?php echo $this-> lastItemNumber?> của <?php echo $this->totalItemCount ?> kết quả
+		</div>
+	</div>
+	<div class="col-xs-7">			
+		<?php if ($this->pageCount): ?>
+     	<div class="pagination_numbers paging_simple_numbers">
+      		<ul class="pagination pull-right">
+             <!-- Previous page link -->
+             <?php if (isset($this->previous)): ?>
+             <li class="paginate_button previous">
+                 <a href="<?php echo $href ?>?page=<?php echo $this->previous; ?>" data-page="<?php echo $this->previous; ?>">
+                     <span aria-hidden="true">&larr;</span>
+                 </a>
+             </li>
+             <?php else: ?>
+             <li class="paginate_button previous disabled">
+                 <a href="javascript:;">
+                     <span aria-hidden="true">&larr;</span>
+                 </a>
+             </li>
+             <?php endif; ?>
+
+             <!-- Numbered page links -->
+             <?php foreach ($this->pagesInRange as $page): ?>
+                 <?php if ($page != $this->current): ?>
+                 <li class="paginate_button">
+                     <a href="<?php echo $href ?>?page=<?php echo $page; ?>" data-page="<?php echo $page ?>">
+                         <?php echo $page; ?>
+                     </a>
+                 </li>
+                 <?php else: ?>
+                 <li class="paginate_button active">
+                     <a href="javascript:;"><?php echo $page; ?></a>
+                 </li>
+                 <?php endif; ?>
+             <?php endforeach; ?>
+
+             <!-- Next page link -->
+             <?php if (isset($this->next)): ?>
+             <li class="paginate_button next">
+                 <a href="<?php echo $href ?>?page=<?php echo $this->next; ?>" data-page="<?php echo $this->next ?>">
+                     <span aria-hidden="true">&rarr;</span>
+                 </a>
+             </li>
+             <?php else: ?>
+             <li class="paginate_button next disabled">
+                 <a href="javascript:;">
+                     <span aria-hidden="true">&rarr;</span>
+                 </a>
+             </li>
+             <?php endif; ?>
+     		</ul>
+     	</div>
+ 		<?php endif; ?>
+	</div>
+  </div>
+</div>

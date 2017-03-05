@@ -1,0 +1,11 @@
+<?php 
+$element = $this->element;
+?>
+<div class="checklist">
+    <?php foreach ($element->getValueOptions() as $option): ?>
+    <label>
+    	<input type="checkbox" name="<?php echo $element->getName() ?>[]" value="<?php echo $option['value']; ?>" <?php echo ($option['selected']) ? 'checked="checked"' : '' ?> /> 
+    	<span><?php echo $option['label'] ?></span>
+    </label>
+    <?php endforeach; ?>
+</div>

@@ -1,0 +1,129 @@
+<?php 
+$homeUrl = $this->url('home');
+$serverUrl = $this->serverurl();
+?>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<base href="<?php echo $serverUrl ?>" />
+<meta charset="utf-8" />
+
+<?php echo $this->headTitle() ?>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:url"           content="<?php echo $serverUrl ?>" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Dawmap" />
+<meta property="og:description"   content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+<meta property="og:image"         content="<?php echo sprintf('%s%s', $serverUrl, '/assets/img/logo.jpg') ?>" />
+<meta property="og:image:width" content="720" />
+<meta property="og:image:height" content="480" />
+
+<link rel="shortcut icon" href="<?php echo $this->basePath('assets/img/favicon.ico') ?>" />
+<?php 
+$iScript = 1; $iStyle = 1;
+$this->headLink()
+  	->offsetSetStylesheet($iStyle++, $this->basePath() . '/assets/plugins/bootstrap/css/bootstrap.min.css')
+  	->offsetSetStylesheet($iStyle++, $this->basePath() . '/assets/plugins/simple-line-icons/simple-line-icons.min.css')
+  	->offsetSetStylesheet($iStyle++, $this->basePath() . '/assets/plugins/font-awesome/css/font-awesome.min.css')
+  	->offsetSetStylesheet($iStyle++, $this->basePath() . '/assets/plugins/react-bootstrap-typeahead/css/Typeahead.css')
+   	->offsetSetStylesheet($iStyle++, $this->basepath() . '/assets/css/components.css');
+	
+$iStyle = 200;
+$this->headLink()
+	->offsetSetStylesheet($iStyle++, $this->basePath() . '/assets/css/style.css');
+
+echo $this->headLink();
+
+$this->headScript()
+    ->offsetSetFile($iScript++, 'https://maps.googleapis.com/maps/api/js')
+    //->offsetSetFile($iScript++, 'https://connect.facebook.net/en_US/all.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/jquery.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/bootstrap/js/bootstrap.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/react/react.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/react/react-dom.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/react/react-dom-server.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/react/react-bootstrap.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/plugins/react-bootstrap-typeahead/js/react-bootstrap-typeahead.min.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/scripts/google_js/markerwithlabel.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/scripts/google_js/infobox.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/js/main.js')
+    ->offsetSetFile($iScript++, $this->basePath() . '/assets/scripts/app.js')
+    ;
+
+$bodyClass = '';
+if($this->zfcUserIdentity()) {
+    $bodyClass .= 'logged-in';
+}
+?>
+</head>
+<body class="<?php echo $bodyClass ?>">
+<script>
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '1817651311808984',
+		xfbml      : true,
+		version    : 'v2.8'
+	});
+	FB.AppEvents.logPageView();
+};
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="page-overlay"></div>
+
+<div id="app"><?php echo $this->content ?></div>
+
+<div class="page-quick-sidebar-wrapper" data-close-on-body-click="false">
+	<div class="page-quick-sidebar-header">
+		<div class="quick-sidebar-logo">
+			<a href="javascript:;"><img src="assets/img/logo.png" /></a>
+		</div>
+		<a href="javascript:;" class="quick-sidebar-toggler sidebar-left-toggler"></a>
+ 	</div>
+ 	<div class="page-quick-sidebar-body">
+     	<nav class="mainmenu">
+     		<ul>
+     			<li class="active"><a href="javascript:;">Home</a></li>
+     			<li><a href="#intro" data-toggle="modal">Intro</a></li>
+     			<li><a href="javascript:;">Feedback</a></li>
+     			<li><a href="javascript:;">FAQ</a></li>
+     		</ul>
+     	</nav>
+ 		<a class="btn btn-social" id="shareBtn" href="<?php echo $serverUrl ?>">
+ 			<i class="fa fa-facebook"></i> Share to Facebook
+ 		</a>
+ 	</div>
+</div>
+
+<div class="modal fade" id="intro" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-full">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+            	<h2 class="sbold">Introduction</h2>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php echo $this->headscript(); ?>
+<?php echo $this->inlineScript() ?>
+</body>
+</html>

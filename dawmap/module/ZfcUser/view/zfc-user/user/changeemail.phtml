@@ -1,0 +1,78 @@
+<?php $this->headTitle()->prepend('Change Email') ?>
+
+<?php echo $this->partial('zfc-user/partial/profile-sidebar'); ?>
+
+<div class="profile-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet light">
+				<div class="portlet-title tabbable-line">
+					<div class="caption caption-md">
+						<i class="icon-globe theme-font hide"></i>
+						<span class="caption-subject font-blue-madison bold uppercase">Change Email</span>
+					</div>
+				</div>
+				<div class="portlet-body form">
+				
+					<?php if ($status === true) : ?>
+					<div class="note note-success note-bordered">
+			            <?php echo $this->translate('Email address changed successfully.'); ?>
+			        </div>
+					<?php elseif ($status === false) : ?>
+					<div class="note note-danger note-bordered">
+			            <?php echo $this->translate('Unable to update your email address. Please try again.'); ?>
+			        </div>
+					<?php endif; ?>
+					<?php
+					$form = $this->changeEmailForm;
+					$form->prepare();
+					$form->setAttribute('action', $this->url('zfcuser/changeemail'));
+					$form->setAttribute('method', 'post');
+					$form->setAttribute('class', 'form-horizontal');
+					$form->setAttribute('role', 'form');
+					?>
+					<?php echo $this->form()->openTag($form) ?>
+					<div class="form-body">
+						<div class="form-group <?php echo count($form->get('newIdentity')->getMessages()) > 0 ? 'has-error' : '' ?>">
+		    				<?php echo $this->formLabel($form->get('newIdentity')); ?>
+		    				<div class="col-lg-8">
+		    					<?php echo $this->formElement($form->get('newIdentity')); ?>
+		    					<?php echo $this->formElementErrors()
+										->setMessageOpenFormat('<div class="help-block">')
+	            						->setMessageSeparatorString('</div><div class="help-block">')
+	            						->setMessageCloseString('</div>')
+	            						->render($form->get('newIdentity')); ?>
+			    			</div>
+		    			</div>
+	    				<div class="form-group <?php echo count($form->get('newIdentityVerify')->getMessages()) > 0 ? 'has-error' : '' ?>">
+			    			<?php echo $this->formLabel($form->get('newIdentityVerify')); ?>
+			    			<div class="col-lg-8">
+			    				<?php echo $this->formElement($form->get('newIdentityVerify')); ?>
+			    				<?php echo $this->formElementErrors($form->get('newIdentityVerify')); ?>
+				    		</div>
+	    				</div>
+    					<div class="form-group <?php echo count($form->get('credential')->getMessages()) > 0 ? 'has-error' : '' ?>">
+		    				<?php echo $this->formLabel($form->get('credential')); ?>
+		    				<div class="col-lg-8">
+		    					<?php echo $this->formElement($form->get('credential')); ?>
+		    					<?php echo $this->formElementErrors($form->get('credential')); ?>
+			    			</div>
+    					</div>
+    					<?php echo $this->formElement($form->get('identity')); ?>
+    					<?php if ($this->redirect): ?>
+        				<input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
+    					<?php endif ?>
+					</div>
+    				<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-2 col-md-8">
+								<button type="submit" class="btn green">Save Change</button>
+							</div>
+						</div>
+					</div>
+					<?php echo $this->form()->closeTag() ?>				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

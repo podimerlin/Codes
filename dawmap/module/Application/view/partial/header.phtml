@@ -1,0 +1,64 @@
+<div id="header">
+    <div class="header">
+    	<div class="header-main clearfix">
+    		<div class="comp pull-left">
+           		<a href="<?php echo $this->url('home') ?>" class="site-logo">
+                	<img src="<?php echo $this->basePath('img/logo.png') ?>" alt="" class="img-responsive" >
+          		</a>
+      		</div>
+            <a href="javascript:;" class="mobi-toggler" data-toggle="dropdown" data-target="#headNav"><i class="fa fa-bars"></i></a>
+            <div class="comp-group" id="headNav">
+                <?php if($this->zfcUserIdentity()) { ?>
+                <div class="comp pull-right">
+        			<div class="top-menu clearfix">
+                   		<ul class="nav navbar-nav pull-right">
+                   			<?php $avatar = $this->zfcUserIdentity()->getAvatar() ?>
+                   			<li class="dropdown dropdown-user dropdown-light">
+                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    <?php if($avatar && file_exists('./public/uploads/avatar/' . $avatar)) { ?>
+                                    <img alt="" class="img-circle" src="<?php echo $this->basepath('uploads/avatar/' . $avatar) ?>">
+                                    <?php } else { ?>
+                                    <img alt="" class="img-circle" src="<?php echo $this->basepath('img/no-avatar-32.jpg') ?>">
+                                    <?php } ?>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-default">
+                                    <li>
+                                        <a href="<?php echo $this->url('zfcuser') ?>">
+                                      		<i class="icon-user"></i> Tài khoản</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $this->url('zfcuser/changepassword') ?>">
+                                      		<i class="icon-lock"></i> Đổi mật khẩu</a>
+                                    </li>
+                                    <li class="divider"> </li>
+                                    <li>
+                                        <a href="<?php echo $this->url('zfcuser/logout') ?>">
+                                            <i class="icon-logout"></i> Thoát </a>
+                                    </li>
+                                </ul>
+                            </li>                            
+                  		</ul>
+             		</div>
+        		</div>
+                <?php } else { ?>
+                <div class="comp pull-right show-signin">
+                	<a href="<?php echo $this->url('zfcuser/login-ajax') ?>" data-target="#modal_signin" data-toggle="modal" class="hdr-btn">
+                		Đăng nhập
+                	</a>
+                </div>
+                <div class="comp pull-right show-signup">
+                	<a href="<?php echo $this->url('zfcuser/register') ?>" data-target="#modal_signup" data-toggle="modal" class="hdr-btn">
+                		Đăng ký
+                	</a>
+                </div>
+                <div class="comp pull-right show-become-tutor">
+                	<a href="<?php echo $this->url('zfcuser/register-tutor') ?>" data-target="#modal_become_tutor" data-toggle="modal" class="btn btn-outline orange">
+                		Trở thành gia sư
+                	</a>
+                </div>
+                <?php } ?>
+            </div>
+    	</div>
+    </div>
+</div>
+<?php echo $this->partial('partial/modal') ?>

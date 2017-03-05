@@ -1,0 +1,13 @@
+<?php 
+$element = $this->element;
+$currentValue = $element->getValue(); 
+?>
+<div class="radio-list">
+    <?php foreach ($element->getValueOptions() as $key => $value): ?>
+    <label>
+    	<input type="radio" name="<?php echo $element->getName() ?>" value="<?php echo $key ?>" <?php echo ($currentValue == $key) ? 'checked="checked"' : '' ?> /> 
+    	<span class="radio-circle"><i></i></span>
+    	<span><?php echo $value; ?></span>
+    </label>
+    <?php endforeach; ?>
+</div>

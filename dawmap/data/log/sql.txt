@@ -1,0 +1,644 @@
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%apple%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%apple%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%i have a pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%hahaha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%hahaha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%hahaha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%i have a pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%i have a pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Here%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%Ga%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%ha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%ha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%ha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%ha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%haha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%haha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%haha%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%gaga%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%gaga%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#gagaga%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#gagaga%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%samsung%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%samsung%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%I%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%a pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen ga%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%táo%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#xiaogongislove%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%#sex%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%food%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`description` LIKE '%pen%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%cafe%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%cafe%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%catcafe%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%catcafe%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%apple%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%apple%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%apple%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%24hr%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%locksmith%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%cleaning%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%kekeke%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` WHERE (`u`.`hashtag` LIKE '%apple%') ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
+SELECT `u`.* FROM `user` AS `u` ORDER BY `u`.`date_added` DESC
+
