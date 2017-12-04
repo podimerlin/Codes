@@ -16,6 +16,6 @@ def callReq(symbol, func):
         #payload = { 'apikey' : apikey, 'function' : 'TIME_SERIES_DAILY', 'symbol' : symbol }
         url += '?apikey=' + apikey + "&function=TIME_SERIES_DAILY&symbol=" + symbol 
     elif func == 'SMA':
-        url += '?apikey=' + apikey + '&function=SMA&symbol=' + symbol + '&interval=daily&time_period=60&series_type=close'
+        url += '?apikey=' + apikey + '&function=SMA&symbol=' + symbol + '&interval=daily&time_period=200&series_type=close'
     res = requests.get(url)
     return res
