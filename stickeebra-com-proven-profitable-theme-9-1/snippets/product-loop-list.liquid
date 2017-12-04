@@ -1,0 +1,123 @@
+<article class="product animated fadeIn" itemscope itemtype="http://schema.org/Product">
+    {% unless product.metafields.collection.featured-image %}
+  <header class="product-header">
+    <span data-profits-panda-id="{{ product.id }}" style="display:none"></span>
+
+    <h2 class="product-title" itemprop="name">
+      <a class="product-image-link" href="{{ product.url | within:collection }}" title="View {{ product.title | escape }}" itemprop="url">
+        {% if product.metafields.title.short %}
+        {{ product.metafields.title.short }}
+        {% else %}
+        {{ product.title | strip_html | truncatewords: 20}}
+        {% endif %}
+      </a>
+    </h2>
+    <div class="product-pricing" temprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <span itemprop="price" class="product-price">{{ product.variants.first.price | money | remove: '.00' }}</span>
+      {% if product.variants.first.compare_at_price > product.variants.first.price %} 
+      <span class="product-price-old">{{ product.variants.first.compare_at_price | money | remove: '.00' }}</span>
+      {% endif %}
+    </div><!-- product-pricing -->
+    <div class="product-image">
+      <a class="product-image-link" href="{{ product.url | within:collection }}" title="View {{ product.title | escape }}" itemprop="url">
+        <img class="product-image lazy" itemprop="image" data-original="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}"/>
+      </a>
+    </div><!--product-image-->
+  </header><!--product-header-->
+  {% else %}
+   <header class="product-header">
+    <div class="product-image">
+      <a class="product-image-link" href="{{ product.url | within:collection }}" title="View {{ product.title | escape }}" itemprop="url">
+        <img class="product-image lazy" itemprop="image" data-original="{{ product.metafields.collection.featured-image }}" alt="{{ product.title | escape }}"/>
+      </a>
+    </div><!--product-image-->
+  </header><!--product-header-->
+  {% endunless %}  
+  {% if product.metafields.video_template.embed1 %}
+  	<div class="product-video">
+      	{% if product.metafields.video_template.banner %}
+    		<span>{{ product.metafields.video_template.banner }}</span>
+    	{% endif %}
+		{% unless product.metafields.video_template.image1 %}
+        	{{ product.metafields.video_template.embed1 }}
+  		{%endunless%}
+		{%if product.metafields.video_template.image1%}
+			<div class = "video-with-image">
+				<a class="product-video-popup" href='#product-video-1'>
+      {% if product.metafields.video_template.image1 %}
+      <img class="lazy" data-original="{{ product.metafields.video_template.image1 }}">
+      {% else %}
+      {{ product.metafields.video_template.embed1 }}
+      {% endif %}
+    </a>
+    </div>
+      <div style="display:none">
+    <div id="product-video-1">
+      {{ product.metafields.video_template.embed1 }}
+    </div>
+  </div>
+    	{%endif%}
+    </div>
+  {%elsif product.metafields.video_template.image1%}
+	<div class="product-video">
+   		{% if product.metafields.video_template.banner %}
+    		<span>{{ product.metafields.video_template.banner }}</span>
+    	{% endif %}
+		<div class = "video-with-image">
+			<a class="product-video-popup" href='#product-video-1'>
+       			<img class="lazy" data-original="{{ product.metafields.video_template.image1 }}">
+  			</a>
+		</div>
+ 	</div>
+  {% endif %}  
+  {%comment%}
+  {% if product.metafields.video_template.embed1 %}
+  <div class="product-video">
+    {% if product.metafields.video_template.banner %}
+    <span>{{ product.metafields.video_template.banner }}</span>
+    {% endif %}
+    <a class="product-video-popup" href='#product-video-1'>
+      {% if product.metafields.video_template.image1 %}
+      <img class="lazy" data-original="{{ product.metafields.video_template.image1 }}">
+      {% else %}
+      {{ product.metafields.video_template.embed1 }}
+      {% endif %}
+    </a>
+  </div><!-- product-video -->
+  <div style="display:none">
+    <div id="product-video-1">
+      {{ product.metafields.video_template.embed1 }}
+    </div>
+  </div>
+  {% endif %}
+  {%endcomment%}
+  <div class="product-details">
+    <p onclick="location.href='{{ product.url }}'" style="cursor:pointer;">
+      {% if product.metafields.description.short %}
+      {{ product.metafields.description.short }}
+      {% else %}
+      {{ product.description | strip_html | truncatewords: 40}}
+      {% endif %}
+    </p>
+    {% if product.available %}
+    {% if product.variants.size > 1 %}
+    <a class="btn btn-secondary" href="{{ product.url | within:collection }}" title="View {{ product.title | escape }}" itemprop="url">More Info</a>   
+    {% else %}
+    {% assign variant = product.variants.first %}
+    <a class="more-info" href="{{ product.url }}" title="{{ product.title }}" itemprop="url">{%if settings.view_product_details !=""%}{{ settings.view_product_details }}{%else%}Click here for details{%endif%}</a>    
+    <form id="product-{{ product.id }}" action="/cart/add" method="post"> 
+      <input type="hidden" name="id" value="{{ variant.id }}" />
+      <input id="product-quantity-{{product.id}}" name="quantity" type="hidden" value="1">
+      <input type="submit" id="add-{{ product.id}}" class="btn" name="add" value="Add to cart" />
+    </form> 
+    {% endif %}
+    {% else %}
+    <p class="lead">         	
+    	{% if product.metafields.pdetails.outofstock %}
+    		{{ product.metafields.pdetails.outofstock }}
+    	{%else%}  
+  			{{ settings.out_of_stock_text }}
+  		{%endif%}</p>
+    {% endif %}
+  </div><!--product-details-->
+</article><!--product-->

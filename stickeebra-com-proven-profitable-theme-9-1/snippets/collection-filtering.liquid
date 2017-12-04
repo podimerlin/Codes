@@ -1,0 +1,170 @@
+{% if settings.collection_use_filters %}
+<div class="sidebar-links">
+  {% capture prices_list %}{{ settings.collection_filter_by_price }}{% endcapture %}
+  {% capture generic_filters_list %}{{ settings.collection_filter_by_generic }}{% endcapture %}
+  {% capture generic_filters_list_2 %}{{ settings.collection_filter_by_generic_2 }}{% endcapture %}
+  {% capture generic_filters_list_3 %}{{ settings.collection_filter_by_generic_3 }}{% endcapture %}
+  {% capture collection_url %} {{collection.url}} {%endcapture%} 	
+  
+  {% assign prices = prices_list | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  {% assign generic_filters = generic_filters_list | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  {% assign generic_filters_2 = generic_filters_list_2 | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  {% assign generic_filters_3 = generic_filters_list_3 | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  
+  {% assign show_prices = false %}
+  {% for price in prices %}
+  {% for collection in collections %}
+  {% if collection.tags contains price %}
+  {% assign show_prices = true %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+
+  {% assign show_generic_filters = false %}
+  {% for generic in generic_filters %}
+  {% for collection in collections %}
+  {% if collection.tags contains generic %}
+  {% assign show_generic_filters = true %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+  
+  {% assign show_generic_filters_2 = false %}
+  {% for generic_2 in generic_filters_2 %}
+  {% for collection in collections %}
+  {% if collection.tags contains generic_2 %}
+  {% assign show_generic_filters_2 = true %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+  
+  {% assign show_generic_filters_3 = false %}
+  {% for generic_3 in generic_filters_3 %}
+  {% for collection in collections %}
+  {% if collection.tags contains generic_3 %}
+  {% assign show_generic_filters_3 = true %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+  
+  {% if settings.collection_show_filter_type %}
+  <h6 class="filters-title">{{ settings.collection_filter_type_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-1" class="filter1 filters">
+    {% assign all_product_tpes = '' %}
+    {% for collection in collections %}
+    {% for product_type in collection.all_types %}
+    {% unless all_product_types contains product_type %}
+    {% capture all_product_types %}{{ all_product_types }}{{ product_type }},{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% endfor %}
+    {% assign types = all_product_types | split: ',' %}
+    {% for product_type in types %}
+    <li>{{ product_type | link_to_type  }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if settings.collection_show_filter_vendor %}
+  <h6 class="filters-title">{{ settings.collection_filter_vendor_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-2" class="filter2 filters">
+    {% for product_vendor in shop.vendors %}
+    <li>{{ product_vendor | link_to_vendor  }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if settings.collection_show_filter_price %}
+  {% if show_prices %}
+  <h6 class="filters-title">{{ settings.collection_filter_price_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-3" class="filter3 filters">
+    {% assign all_filter_tags = '' %}
+    {% for price in prices %}
+    {% for collection in collections %}
+    {% if collection.tags contains price %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ price }},{% endcapture %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    {% for price in prices %}
+    {% if all_filter_tags contains price %}
+    {% capture url %}/collections/all/{{ price }}{% endcapture %}
+    <li class="{{ price | handle }}">{{ price | link_to: url }}</li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+
+  {% if settings.collection_show_filter_generic %}
+  {% if show_generic_filters %}
+  <h6 class="filters-title">{{ settings.collection_filter_generic_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-4" class="filter4 filters">
+    {% assign all_filter_tags = '' %}
+    {% for generic in generic_filters %}
+    {% for collection in collections %}
+    {% if collection.tags contains generic %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ generic }},{% endcapture %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %} 
+    {% for generic in generic_filters %}
+    {% if all_filter_tags contains generic %}
+    {% capture url %}/collections/all/{{ generic | handleize }}{% endcapture %}
+    <li class="{{ generic | handle }}"><a href = "{{url}}">{{ generic }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+  
+  {% if settings.collection_show_filter_generic_2 %}
+  {% if show_generic_filters_2 %}
+  <h6 class="filters-title">{{ settings.collection_filter_generic_title_2 }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-5" class="filter5 filters">
+    {% assign all_filter_tags = '' %}
+    {% for generic_2 in generic_filters_2 %}
+    {% for collection in collections %}
+    {% if collection.tags contains generic_2 %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ generic_2 }},{% endcapture %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    {% for generic_2 in generic_filters_2 %}
+    {% if all_filter_tags contains generic_2 %}
+ 	{% capture url %}/collections/all/{{ generic_2 | handleize}}{% endcapture %}
+    <li class="{{ generic_2 | handle }}"><a href = "{{url}}">{{ generic_2 }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+
+  {% if settings.collection_show_filter_generic_3 %}
+  {% if show_generic_filters_3 %}
+  <h6 class="filters-title">{{ settings.collection_filter_generic_title_3 }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-6" class="filter6 filters">
+    {% assign all_filter_tags = '' %}
+    {% for generic_3 in generic_filters_3 %}
+    {% for collection in collections %}
+    {% if collection.tags contains generic_3 %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ generic_3 }},{% endcapture %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    {% for generic_3 in generic_filters_3 %}
+    {% if all_filter_tags contains generic_3 %}
+    {% capture url %}/collections/all/{{ generic_3 | handleize }}{% endcapture %}
+    {%comment%}
+    <li class="{{ generic_3 | handle }}">{{ generic_3 | link_to: url }}</li>
+    {%endcomment%}
+    <li class="{{ generic_3 | handle }}"><a href = "{{url}}">{{ generic_3 }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+ 
+</div><!--sidebar-links-->
+{% endif %}
+
+

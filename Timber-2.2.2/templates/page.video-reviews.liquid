@@ -1,0 +1,46 @@
+<div id="videos-page" class="container-wrapper textile">
+  <h1>{{ page.title }}</h1>
+  {{ page.content }}
+</div><!-- generic-page -->
+
+{{ 'jQuery.min.js' | asset_url | script_tag }}
+<script>
+  var allvideos = $('.stickeevideo > div');
+  for (var i=0; i<allvideos.length; i++) {
+
+    var curr = allvideos[i];
+    if (i==0 || i%3 == 0) {
+      var onerow = $(curr).nextAll('div:lt(2)').andSelf();
+      $(onerow).wrapAll('<div class="row">');
+    }
+    $(curr).addClass('col');
+    $(curr).addClass('col30');
+    
+  }
+  
+</script>
+<style>
+  .stickeevideo > .row >  div {
+  	margin: 0 10px;
+  }
+  
+  @media screen and (min-width: 37.6em) {
+  	.stickeevideo > .row > .col30 > .wistia_responsive_wrapper{
+      height: 250px !important;
+    }
+    .stickeevideo > .row  {
+      height: 250px !important;
+    }
+  }
+  @media screen and (max-width: 37.5em) {
+     .stickeevideo > .row > div {
+       margin: 0px;
+       height: 100%;
+     }
+    
+      .stickeevideo > .row > .col {
+        margin: 2px !important;
+      }
+  }
+  
+</style>

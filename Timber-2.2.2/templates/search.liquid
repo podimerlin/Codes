@@ -1,0 +1,63 @@
+<div id="generic-page" class="container-wrapper textile">
+  <header id="template-header" class="search-header">
+    <h1>Search</h1>
+  </header>
+  <div id="search-results">
+    {% if search.performed %}
+    <form id="search-page-form" action="/search" class="clearfix" method="get">
+      <fieldset>
+        <input type="text" name="q" value="{{search.terms | escape}}" size="25" />
+        <label>Filter By</label>
+        <select name="type" class="select-style">
+          <option value="all" selected>All</option>
+          <option value="article">Articles</option>
+          <option value="product">Products</option>
+          <option value="page">Pages</option>
+        </select> 
+        <input type="submit" class="btn btn-tertiary" value="Search Again" />
+      </fieldset>
+    </form>
+    <p class="lead">Search results for "{{search.terms}}":</p>
+    {% paginate search.results by 10 %}  
+    {% if search.results == empty %}  
+    <p class="lead">Sorry, your search for "{{search.terms | escape}}" did not get any results.</p>
+    {% else %}  
+    <ul id="search-results-listing">
+      {% for item in search.results %} 
+      {% if item.handle == 'usda-certified-organic-face-and-eye-cream-sensitive-collection-1x' %}
+      {% elsif item.handle == 'usda-certified-organic-face-and-eye-cream-sensitive-collection-2x' %}
+      {% elsif item.handle == 'usda-certified-organic-face-and-eye-cream-sensitive-collection-3x' %}
+      {% else %}
+      <li class="{% cycle 'odd', 'even' %}">
+        {% if item.featured_image %}
+        <a class="search-results-image pull-left" href="{{item.url}}" title="">{{ item.featured_image | product_img_url: 'grande' | img_tag }}</a><!-- searchResultsImage -->
+        {% endif %}
+        <h3>{{ item.title | link_to: item.url }} {% if item.price %}<span class="search-item-price">{{ item.price | money }}</span>{% endif %}<span data-profits-panda-id="{{ item.id }}" style="display:none"></span></h3>
+        <p class="secondary">{{ item.content | strip_html | truncatewords: 60 | highlight: search.terms }}</p>
+        <div class="clearfix"></div><!-- clearFix -->     		
+      </li> 
+      {% endif %}
+      {% endfor %}
+    </ul><!-- searchResultsListings -->                                     
+    {% endif %}   
+    {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+    {% endif %}
+    {% endpaginate %}
+    {% else %}
+    <form id="search-page-form" action="/search" class="clearfix" method="get">
+      <fieldset>
+        <input type="text" name="q" value="{{search.terms | escape}}" size="25" />
+        <label>Filter By</label>
+        <select name="type" class="select-style">
+          <option value="all" selected>All</option>
+          <option value="article">Articles</option>
+          <option value="product">Products</option>
+          <option value="page">Pages</option>
+        </select> 
+        <input type="submit" class="btn btn-tertiary" value="Search" />
+      </fieldset>
+    </form>
+    {% endif %}
+  </div><!-- search-results -->
+</div><!-- generic-page -->

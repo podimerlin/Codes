@@ -1,0 +1,32 @@
+/* ----------------------------------------------------------------
+SASS
+-----------------------------------------------------------------*/
+/* colors */
+$primary-color: {{ settings.primary_color }};
+$secondary-bg-color: #f7f7f7;
+$btn-bg-color: {{ settings.button_bg_color }};
+$btn-bg-color-hover: {{ settings.button_hover_bg_color }};
+$btn-txt-color: {{ settings.button_text_color }};
+/* ----------------------------------------------------------------
+Utility Nav
+-----------------------------------------------------------------*/
+#utility-nav-wrapper {width:100%;background:$secondary-bg-color;text-align:center;vertical-align: middle;height:40px;line-height:40px;}
+#utility-nav-wrapper h4 {text-align:right; width:63%; {% if settings.use_header_flags %}width: 40%; text-align: left;  float: left;{%endif%} height:40px;line-height:40px;margin-bottom:0;color:$primary-color;display:inline-block;font-weight:400;font-size:17px;font-size:1.7rem;}
+/*932px*/@media screen and (max-width: 58.25em) {#utility-nav-wrapper h4{width: 45%; font-size: 15px; font-size: 1.5rem;}}
+#utility-nav a.cart-button, 
+#utility-nav a.cart-button:link, 
+#utility-nav a.cart-button:visited {margin-left:5px;color:$btn-txt-color;font-weight:400;font-size:17px;font-size:1.7rem;}
+a.cart-button,
+a.cart-button:link,
+a.cart-button:visited {display:block;background:$btn-bg-color;color:$btn-txt-color;height:40px;line-height:40px;font-size:17px;font-size:1.7rem;padding:0 11px;}
+a.cart-button:hover,
+a.cart-button:focus,
+a.cart-button:active {background:$btn-bg-color-hover;}
+{% if settings.font_choice == 'Helvetica-Neue' or settings.font_choice == 'Times-New-Roman' or settings.font_choice == 'Garamond-Futura' or settings.font_choice == 'Open-Sans'  %}
+#utility-nav-wrapper h4{font-size:15px;font-size:1.5rem;}
+#utility-nav a.cart-button, #utility-nav a.cart-button:link, #utility-nav a.cart-button:visited{font-size: 15px; font-size:1.5rem;}
+{%endif%}
+/* ----------------------------------------------------------------
+Footer
+-----------------------------------------------------------------*/
+#footer-cart .cart-button {position:fixed;bottom:0px;right:0;min-width:100px;z-index:9999;display: none;}

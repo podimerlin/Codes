@@ -1,0 +1,115 @@
+{%  include 'subscription-cart-footer' %} 
+{% assign collexion = collections.all.products %}
+{% include 'collection-scripts' %}
+<div id="cart-page" class="container-wrapper textile">
+  <main id="main-content">
+    {%comment%}
+    {% if cart.item_count > 0 %}
+    <div id="cart-status-bar" class="round-borders">
+      <span class="cart-status-item"><i class="fa fa-lock"></i>Secure Checkout</span>
+      <span class="cart-status-item">1 Shopping Cart</span>
+      <span class="cart-status-item">2 Shipping Info</span>
+      <span class="cart-status-item no-border">3 Complete</span>
+      <div id="progress-bar"><div class="cart-progress"></div></div>
+    </div><!--cart-status-bar-->
+    {% endif %}
+    {%endcomment%}
+    {% if cart.item_count == 0 %}
+    <header style="margin-bottom:25px">
+      <h1>Your Shopping Cart</h1>
+    </header>
+    {{ 'redirect.js' | asset_url | script_tag }}
+    <p class="lead">Looks like you don't have anything in your cart yet. Below are a few of our favorites to get you started.</p>
+    <div class="grid-view">
+      {% for product in collections.all.products limit:12 %}
+      {% include 'product-loop-grid' %}
+      {% endfor %}
+      <span class="product-break"></span>
+      <span class="product-break"></span>    
+    </div><!-- grid-view -->
+    {% else %}  
+    <header>
+      <h1>Your Shopping Cart</h1>
+    </header>
+    <form action="/cart" method="post" id="cartform">
+      <script type="text/javascript">
+        function remove_item(id) {
+          document.getElementById('updates_'+id).value = 0;
+          document.getElementById('cartform').submit();
+        }
+      </script>
+      <br><br><br>
+      
+      <input type="submit" id="checkout" class="btn btn-secondary" name="checkout" value="Checkout Now!" />
+      <ul id="cart-items-list" class="clearfix">
+        <li id="cart-header">
+          <div id="items-header" class="cart-column">Product Name</div>
+          <div id="price-header" class="cart-column">Unit Price</div>
+          <div id="qty-header" class="cart-column">Qty</div>
+          <div id="total-header" class="cart-column">Subtotal</div>
+        </li><!--cart-item-list-->
+        {% for item in cart.items %}
+        <li class="cart-row clearfix">
+          <div class="cart-column">
+            <img class="item-image" src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" />              
+          </div><!--cart-column-->
+          <div class="cart-column title-image-col">
+            <h3><a href="{{ item.product.url }}">{{ item.title }}</a></h3>
+          </div><!--cart-column title-image-col-->
+          <div class="cart-column item-price">{{ item.price | money }}</div>               
+          <div class="cart-column item-edit">
+            <input type="text" size="4" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}"{% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %} max="{{ item.variant.inventory_quantity }}" {% endunless %} onfocus="this.select();"/>
+            <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="item-delete fa fa-times"></a>
+          </div>
+          <div class="cart-column no-border">{{ item.line_price | money }}</div>
+        </li><!--cart-row-->
+        {% endfor %}
+      </ul><!--cart-details-->
+      <div id="cart-bottom">
+        <div class="cart-comments">
+          <a href="/collections/all" title="Continue Shopping"><h2>Continue Shopping<i class="fa fa-caret-right"></i></h2></a>
+          <h3>Order Comments</h3>
+          <textarea id="order-comments" name="attributes[order comments]"rows="5" cols="60" value="">{{ cart.attributes["order comments"] }}</textarea>
+        </div>
+        <div class="cart-checkout">
+          <input type="submit" id="update-cart" name="update" value="Update cart" />
+          <div class="cart-total">
+            <h2>Subtotal</h2>
+            <hr />
+            <h2 class="total-price">{{ cart.total_price | money }}</h2>
+          </div><!--cart-total-->
+          <input type="submit" id="checkout-second" class="btn btn-secondary" name="checkout" value="Proceed To Checkout" />
+        </div><!--cart-checkout-->
+      </div><!--cart-bottom-->
+    </form><!--cartform-->
+    {% endif %}
+  </main><!--main-content-->
+    {% include 'cart-sidebar' %}
+  {%if settings.use_cart_yotpo_carousel%}
+  <div class="yotpo yotpo-reviews-carousel" 
+data-mode="top_rated" 
+data-type="both" 
+data-count="3" 
+data-show-bottomline="1" 
+data-autoplay-enabled="1" 
+data-autoplay-speed="3000" 
+data-show-navigation="1" 
+data-header-customisation-alignment="left" 
+data-background-color="#ffffff">&nbsp;</div>
+  {%endif%}
+</div><!-- cart-page -->
+{{ 'jQuery.min.js' | asset_url | script_tag }}
+<script>
+  $('#cartform').submit(function() {
+    var products = $('#cartform .title-image-col h3 a');
+    var str = "";
+    for (var i=0; i<products.length; i++) {
+		str = str.concat(products[i].text);
+      	str = str.concat(", ");
+    }
+    fbq('track', 'InitiateCheckout',{content_name: str});
+    return true;
+});
+  
+  
+</script>

@@ -1,0 +1,286 @@
+{% if settings.collection_use_filters %}
+<div class="sidebar-links">
+  {% capture prices_list %}{{ settings.collection_filter_by_price }}{% endcapture %}
+  {% capture generic_filters_list %}{{ settings.collection_filter_by_generic }}{% endcapture %}
+  {% capture generic_filters_list_2 %}{{ settings.collection_filter_by_generic_2 }}{% endcapture %}
+  {% capture generic_filters_list_3 %}{{ settings.collection_filter_by_generic_3 }}{% endcapture %}
+
+  {% assign prices = prices_list | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  {% assign generic_filters = generic_filters_list | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  {% assign generic_filters_2 = generic_filters_list_2 | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+  {% assign generic_filters_3 = generic_filters_list_3 | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+
+  {% assign show_product_types = false %}
+  {% for product_type in collection.all_types %}
+  {% if collection.tags contains product_type %}
+  {% assign show_product_types = true %}
+  {% endif %}
+  {% endfor %}
+  
+  {% assign show_product_vendors = false %}
+  {% for product_vendor in shop.vendors %}
+  {% if collection.tags contains product_vendor %}
+  {% assign show_product_vendors = true %}
+  {% endif %}
+  {% endfor %}
+  
+  {% assign show_prices = false %}
+  {% for price in prices %}
+  {% if collection.tags contains price %}
+  {% assign show_prices = true %}
+  {% endif %}
+  {% endfor %}
+
+  {% assign show_generic_filters = false %}
+  {% for generic in generic_filters %}
+  {% if collection.tags contains generic %}
+  {% assign show_generic_filters = true %}
+  {% endif %}
+  {% endfor %}
+
+  {% assign show_generic_filters_2 = false %}
+  {% for generic_2 in generic_filters_2 %}
+  {% if collection.tags contains generic_2 %}
+  {% assign show_generic_filters_2 = true %}
+  {% endif %}
+  {% endfor %}
+
+  {% assign show_generic_filters_3 = false %}
+  {% for generic_3 in generic_filters_3 %}
+  {% if collection.tags contains generic_3 %}
+  {% assign show_generic_filters_3 = true %}
+  {% endif %}
+  {% endfor %}
+
+  {% if settings.collection_show_filter_type %}
+  {% if show_product_types %}
+  <h6 class="filters-title">{{ settings.collection_filter_type_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-1" class="filter1 filters">
+	{% assign all_filter_tags = '' %}
+    {% for product_type in collection.all_types %}
+    {% if collection.tags contains product_type %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ product_type }},{% endcapture %}
+    {% endif %}
+    {% endfor %} 
+    {% assign new_tags = '' %}
+    {% for tag in current_tags %}
+    {% unless all_filter_tags contains tag %}
+    {% capture new_tags %}{{ new_tags }}+{{ tag | handle }}{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
+    {% for product_type in collection.all_types %}
+    {% if collection.tags contains product_type %}
+    {% if current_tags contains product_type %}
+    {% capture type_style %}{{ product_type }} <span class="fa fa-minus"></span>{% endcapture %}
+    <li class="{{ price | handle }} active-filter">{{ type_style | link_to_remove_tag: product_type }}</li>
+    {% else %}
+    {% if collection.url != '' %}
+    {% capture url %}{{ collection.url }}/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ product_type | handle }}{% endcapture %}
+    {% else %}
+    {% capture url %}/collections/all/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ product_type | handle }}{% endcapture %}
+    {% endif %}
+    {% capture type_style %}{{ product_type | replace:'cf732e699840747aee07df5f56d403e0'' 'b2f67d255a8791e6ab9d33f58cedc1e7''5bc8efe980fb722aff759f6d71c80c0c'0'50d39e0dbec516cac7c715b27c9b400e''8eebf42c7f43cce365b44508dcb24eed'0'fb20e5152d202d4d4a2766acb31ea7d0''5bc8efe980fb722aff759f6d71c80c0c'5'7169b6e7c5342d0164cc21cfa032027f''8eebf42c7f43cce365b44508dcb24eed'5'fbc1566bb297c25b1b1386d559118903''c1f74c0610d893fc715b5fc26a5709d8'000' }} <span class="fa fa-plus"></span>{% endcapture %}
+    <li class="{{ product_type | handle }}">{{ type_style | link_to: url }}</li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+  
+  {% if settings.collection_show_filter_vendor %}
+  {% if show_product_vendors %}
+  <h6 class="filters-title">{{ settings.collection_filter_vendor_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-2" class="filter2 filters">
+  {% assign all_filter_tags = '' %}
+    {% for product_vendor in shop.vendors %}
+    {% if collection.tags contains product_vendor %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ product_vendor }},{% endcapture %}
+    {% endif %}
+    {% endfor %} 
+    {% assign new_tags = '' %}
+    {% for tag in current_tags %}
+    {% unless all_filter_tags contains tag %}
+    {% capture new_tags %}{{ new_tags }}+{{ tag | handle }}{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
+    {% for product_vendor in shop.vendors %}
+    {% if collection.tags contains product_vendor %}
+    {% if current_tags contains product_vendor %}
+    {% capture vendor_style %}{{ product_vendor }} <span class="fa fa-minus"></span>{% endcapture %}
+    <li class="{{ price | handle }} active-filter">{{ vendor_style | link_to_remove_tag: product_vendor }}</li>
+    {% else %}
+    {% if collection.url != '' %}
+    {% capture url %}{{ collection.url }}/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ product_vendor | handle }}{% endcapture %}
+    {% else %}
+    {% capture url %}/collections/all/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ product_vendor | handle }}{% endcapture %}
+    {% endif %}
+    {% capture vendor_style %}{{ product_vendor | replace:'cf732e699840747aee07df5f56d403e0'' 'b2f67d255a8791e6ab9d33f58cedc1e7''5bc8efe980fb722aff759f6d71c80c0c'0'50d39e0dbec516cac7c715b27c9b400e''8eebf42c7f43cce365b44508dcb24eed'0'fb20e5152d202d4d4a2766acb31ea7d0''5bc8efe980fb722aff759f6d71c80c0c'5'7169b6e7c5342d0164cc21cfa032027f''8eebf42c7f43cce365b44508dcb24eed'5'fbc1566bb297c25b1b1386d559118903''c1f74c0610d893fc715b5fc26a5709d8'000' }} <span class="fa fa-plus"></span>{% endcapture %}
+    <li class="{{ product_vendor | handle }}">{{ vendor_style | link_to: url }}</li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+  
+  {% if settings.collection_show_filter_price %}
+  {% if show_prices %}
+  <h6 class="filters-title">{{ settings.collection_filter_price_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-3" class="filter3 filters">
+    {% assign all_filter_tags = '' %}
+    {% for price in prices %}
+    {% if collection.tags contains price %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ price }},{% endcapture %}
+    {% endif %}
+    {% endfor %} 
+    {% assign new_tags = '' %}
+    {% for tag in current_tags %}
+    {% unless all_filter_tags contains tag %}
+    {% capture new_tags %}{{ new_tags }}+{{ tag | handle }}{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
+    {% for price in prices %}
+    {% if collection.tags contains price %}
+    {% if current_tags contains price %}
+    {% capture price_style %}{{ price }} <span class="fa fa-minus"></span>{% endcapture %}
+    <li class="{{ price | handle }} active-filter">{{ price_style | link_to_remove_tag: price }}</li>
+    {% else %}
+    {% if collection.url != '' %}
+    {% capture url %}{{ collection.url }}/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ price | handle }}{% endcapture %}
+    {% else %}
+    {% capture url %}/collections/all/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ price | handle }}{% endcapture %}
+    {% endif %}
+    {% capture price_style %}{{ price | replace:'cf732e699840747aee07df5f56d403e0'' 'b2f67d255a8791e6ab9d33f58cedc1e7''5bc8efe980fb722aff759f6d71c80c0c'0'50d39e0dbec516cac7c715b27c9b400e''8eebf42c7f43cce365b44508dcb24eed'0'fb20e5152d202d4d4a2766acb31ea7d0''5bc8efe980fb722aff759f6d71c80c0c'5'7169b6e7c5342d0164cc21cfa032027f''8eebf42c7f43cce365b44508dcb24eed'5'fbc1566bb297c25b1b1386d559118903''c1f74c0610d893fc715b5fc26a5709d8'000' }} <span class="fa fa-plus"></span>{% endcapture %}
+    <li class="{{ price | handle }}">{{ price_style | link_to: url }}</li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+
+  {% if settings.collection_show_filter_generic %}
+  {% if show_generic_filters %}
+  <h6 class="filters-title">{{ settings.collection_filter_generic_title }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-4" class="filter4 filters">
+    {% assign all_filter_tags = '' %}
+    {% for generic in generic_filters %}
+    {% if collection.tags contains generic %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ generic }},{% endcapture %}
+    {% endif %}
+    {% endfor %} 
+    {% assign new_tags = '' %}
+    {% for tag in current_tags %}
+    {% unless all_filter_tags contains tag %}
+    {% capture new_tags %}{{ new_tags }}+{{ tag | handle }}{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
+    {% for generic in generic_filters %}
+    {% if collection.tags contains generic %}
+    {% if current_tags contains generic %}
+    {% capture generic_style %}{{ generic }} <span class="fa fa-minus"></span>{% endcapture %}
+    <li class="{{ generic | handle }} active-filter">{{ generic_style | link_to_remove_tag: generic }}</li>
+    {% else %}
+    {% if collection.url != '' %}
+    {% capture url %}{{ collection.url }}/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ generic | handle }}{% endcapture %}
+    {% else %}
+    {% capture url %}/collections/all/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ generic | handle }}{% endcapture %}
+    {% endif %}
+    {% capture generic_style %}{{ generic }} <span class="fa fa-plus"></span>{% endcapture %}
+    <li class="{{ generic | handle }}">{{ generic_style | link_to: url }}</li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+
+  {% if settings.collection_show_filter_generic_2 %}
+  {% if show_generic_filters_2 %}
+  <h6 class="filters-title">{{ settings.collection_filter_generic_title_2 }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-5" class="filter5 filters">
+    {% assign all_filter_tags = '' %}
+    {% for generic_2 in generic_filters_2 %}
+    {% if collection.tags contains generic_2 %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ generic_2 }},{% endcapture %}
+    {% endif %}
+    {% endfor %} 
+    {% assign new_tags = '' %}
+    {% for tag in current_tags %}
+    {% unless all_filter_tags contains tag %}
+    {% capture new_tags %}{{ new_tags }}+{{ tag | handle }}{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
+    {% for generic_2 in generic_filters_2 %}
+    {% if collection.tags contains generic_2 %}
+    {% if current_tags contains generic_2 %}
+    {% capture generic_style_2 %}{{ generic_2 }} <span class="fa fa-minus"></span>{% endcapture %}
+    <li class="{{ generic_2 | handle }} active-filter">{{ generic_style_2 | link_to_remove_tag: generic_2 }}</li>
+    {% else %}
+    {% if collection.url != '' %}
+    {% capture url %}{{ collection.url }}/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ generic_2 | handle }}{% endcapture %}
+    {% else %}
+    {% capture url %}/collections/all/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ generic_2 | handle }}{% endcapture %}
+    {% endif %}
+    {% capture generic_style_2 %}{{ generic_2 }} <span class="fa fa-plus"></span>{% endcapture %}
+    <li class="{{ generic_2 | handle }}">{{ generic_style_2 | link_to: url }}</li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+
+  {% if settings.collection_show_filter_generic_3 %}
+  {% if show_generic_filters_3 %}
+  <h6 class="filters-title">{{ settings.collection_filter_generic_title_3 }} <i class="fa fa-caret-down"></i></h6>
+  <ul id="filters-6" class="filter6 filters">
+    {% assign all_filter_tags = '' %}
+    {% for generic_3 in generic_filters_3 %}
+    {% if collection.tags contains generic_3 %}
+    {% capture all_filter_tags %}{{ all_filter_tags }},{{ generic_3 }},{% endcapture %}
+    {% endif %}
+    {% endfor %} 
+    {% assign new_tags = '' %}
+    {% for tag in current_tags %}
+    {% unless all_filter_tags contains tag %}
+    {% capture new_tags %}{{ new_tags }}+{{ tag | handle }}{% endcapture %}
+    {% endunless %}
+    {% endfor %}
+    {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
+    {% for generic_3 in generic_filters_3 %}
+    {% if collection.tags contains generic_3 %}
+    {% if current_tags contains generic_3 %}
+    {% capture generic_style_3 %}{{ generic_3 }} <span class="fa fa-minus"></span>{% endcapture %}
+    <li class="{{ generic_3 | handle }} active-filter">{{ generic_style_3 | link_to_remove_tag: generic_3 }}</li>
+    {% else %}
+    {% if collection.url != '' %}
+    {% capture url %}{{ collection.url }}/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ generic_3 | handle }}{% endcapture %}
+    {% else %}
+    {% capture url %}/collections/all/{% if new_tags != '' %}{{ new_tags }}+{% endif %}{{ generic_3 | handle }}{% endcapture %}
+    {% endif %}
+    {% capture generic_style_3 %}{{ generic_3 }} <span class="fa fa-plus"></span>{% endcapture %}
+    <li class="{{ generic_3 | handle }}">{{ generic_style_3 | link_to: url }}</li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+  
+{%if current_tags %}  
+  {%if collection.url != ''%}
+  		<a href = "{{ collection.url }}"  class = "remove-filters-link">Remove All Filters</a>
+  {%else%}
+   		<a href = "/collections/all"  class = "remove-filters-link">Remove All Filters</a>
+  {%endif%}
+{%endif%}
+
+</div><!--sidebar-links-->
+{% endif %}

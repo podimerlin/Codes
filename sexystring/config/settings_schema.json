@@ -1,0 +1,2579 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/d3na5540m3ht7m.cloudfront.net\/onestopshop\/sitefiles\/images\/oss-logo.png",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Need Help With Your Proven Profitable Theme?"
+      },
+      {
+        "type": "paragraph",
+        "content": "."
+      },
+      {
+        "type": "paragraph",
+        "content": "We are here to help! Please [contact us](https:\/\/support.rapidcrush.com\/anonymous_requests\/new?ticket%5Bfields%5D%5B20569956%5D=onestopshop) if you have any questions or need help with your Proven Profitable Theme."
+      }
+    ]
+  },
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logos"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_logo",
+        "label": "Use Logo"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Select Logo",
+        "info": "For the best results upload a logo no wider than 235px and no taller than 110px.",
+        "max-width": 235,
+        "max-height": 110
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Favorite Icon",
+        "info": "Uploading an image to use as your site's favicon. Ideally 32px x 32px"
+      },
+      {
+        "type": "select",
+        "id": "font_choice",
+        "options": [
+          {
+            "value": "Lato-Oswald",
+            "label": "Lato \/ Oswald"
+          },
+          {
+            "value": "Arimo-Patua-One",
+            "label": "Arimo \/ Patua One"
+          },
+          {
+            "value": "Garamond-Futura",
+            "label": "Garamond \/ Futura"
+          },
+          {
+            "value": "Open-Sans",
+            "label": "Open Sans"
+          },
+          {
+            "value": "Helvetica-Neue",
+            "label": "Helvetica Neue"
+          },
+          {
+            "value": "Times-New-Roman",
+            "label": "Times New Roman"
+          }
+        ],
+        "label": "Font Choice"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_wide_layout",
+        "label": "Use Wide Layout",
+        "info": "Changes max-width of site layout to 1300px (default is 950px)."
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "main_nav_bg_color",
+        "label": "Main Navigation Background"
+      },
+      {
+        "type": "color",
+        "id": "main_nav_link_color",
+        "label": "Main Navigation Link"
+      },
+      {
+        "type": "color",
+        "id": "main_nav_link_hover_color",
+        "label": "Main Navigation Link Hover"
+      },
+      {
+        "type": "header",
+        "content": "Content Colors"
+      },
+      {
+        "type": "color",
+        "id": "primary_text_color",
+        "label": "Primary Text"
+      },
+      {
+        "type": "color",
+        "id": "secondary_text_color",
+        "label": "Secondary Text"
+      },
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link"
+      },
+      {
+        "type": "color",
+        "id": "link_hover_color",
+        "label": "Link Hover"
+      },
+      {
+        "type": "header",
+        "content": "Button Colors"
+      },
+      {
+        "type": "color",
+        "id": "button_bg_color",
+        "label": "Button Background"
+      },
+      {
+        "type": "color",
+        "id": "button_hover_bg_color",
+        "label": "Button Hover Background"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button Text"
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_bg_color",
+        "label": "Secondary Button Background"
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_hover_bg_color",
+        "label": "Secondary Button Hover Background"
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_text_color",
+        "label": "Secondary Button Text"
+      },
+      {
+        "type": "header",
+        "content": "Social Media Accounts - Enter in full url eg: http:\/\/www.facebook.com\/name."
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "twitter_url",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_url",
+        "label": "Pinterest"
+      },
+      {
+        "type": "text",
+        "id": "google_plus_url",
+        "label": "Google+"
+      },
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "youtube_url",
+        "label": "YouTube"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_slogan",
+        "label": "Store Slogan",
+        "info": "Wrap words in <strong> <\/strong> tag to bold words. Max 50 character length."
+      },
+      {
+        "type": "header",
+        "content": "Flags in Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_flags",
+        "label": "Use Header Flags Section"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_flag_1",
+        "label": "Use Header Flag 1"
+      },
+      {
+        "type": "image",
+        "id": "Header_flag_1.png",
+        "label": "Select Header Flag 1"
+      },
+      {
+        "type": "text",
+        "id": "flag_1_url",
+        "label": "Flag 1 Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_flag_2",
+        "label": "Use Header Flag 2"
+      },
+      {
+        "type": "image",
+        "id": "Header_flag_2.png",
+        "label": "Select Header Flag 2"
+      },
+      {
+        "type": "text",
+        "id": "flag_2_url",
+        "label": "Flag 2 Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_flag_3",
+        "label": "Use Header Flag 3"
+      },
+      {
+        "type": "image",
+        "id": "Header_flag_3.png",
+        "label": "Select Header Flag 3"
+      },
+      {
+        "type": "text",
+        "id": "flag_3_url",
+        "label": "Flag 3 Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_flag_4",
+        "label": "Use Header Flag 4"
+      },
+      {
+        "type": "image",
+        "id": "Header_flag_4.png",
+        "label": "Select Header Flag 4"
+      },
+      {
+        "type": "text",
+        "id": "flag_4_url",
+        "label": "Flag 4 Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_flag_5",
+        "label": "Use Header Flag 5"
+      },
+      {
+        "type": "image",
+        "id": "Header_flag_5.png",
+        "label": "Select Header Flag 5"
+      },
+      {
+        "type": "text",
+        "id": "flag_5_url",
+        "label": "Flag 5 Url"
+      },
+      {
+        "type": "header",
+        "content": "Search Section"
+      },
+      {
+        "type": "text",
+        "id": "search_placeholder_text",
+        "label": "Search Box Placeholder Text"
+      },
+      {
+        "type": "text",
+        "id": "phone_headline",
+        "label": "Headline Above Phone Number"
+      },
+      {
+        "type": "text",
+        "id": "store_phone",
+        "label": "Store Phone Number"
+      },
+      {
+        "type": "text",
+        "id": "main_nav_cta_text",
+        "label": "Main Nav CTA Text",
+        "info": "Max 25 character length."
+      },
+      {
+        "type": "checkbox",
+        "id": "bold_main_nav_cta",
+        "label": "Bold Main Nav CTA Text",
+        "info": "If you do not want all of the text bold do not check this and wrap words in <strong> <\/strong> tag to bold words."
+      },
+      {
+        "type": "text",
+        "id": "main_nav_cta_url",
+        "label": "Main Nav CTA URL"
+      },
+      {
+        "type": "textarea",
+        "id": "main_nav_cta_js",
+        "label": "Main Nav CTA JavaScript",
+        "info": "You must include <script> tags."
+      },
+      {
+        "type": "textarea",
+        "id": "header_code_injection",
+        "label": "Header Code Injection",
+        "info": "This is to add any additional code right before the closing <\/head> tag on all pages. You must include proper HTML and\/or script tags."
+      }
+    ]
+  },
+  {
+    "name": "Header - Promo ",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Promo",
+        "info": "Setup your Promo this section is located in the Header between the search and phone number."
+      },
+      {
+        "type": "checkbox",
+        "id": "use_header_promo",
+        "label": "Use Promo Section"
+      },
+      {
+        "type": "text",
+        "id": "header_promo_link",
+        "label": "Promo Link",
+        "info": "If used will wrap the content in a link."
+      },
+      {
+        "type": "textarea",
+        "id": "header_promo_content",
+        "label": "Promo Content",
+        "info": "<strong>Will Be Red<\/strong>"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Show Social Media Accounts",
+        "info": "Define social media accounts under the \"Branding\" section. For best results upload images 25px wide by 25px tall."
+      },
+      {
+        "type": "header",
+        "content": "Social Media Section"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_social",
+        "label": "Use Social Media Section"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_use_facebook",
+        "label": "Use Facebook"
+      },
+      {
+        "type": "image",
+        "id": "facebook_icon.jpg",
+        "label": "Facebook Icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_use_twitter",
+        "label": "Use Twitter"
+      },
+      {
+        "type": "image",
+        "id": "twitter_icon.jpg",
+        "label": "Twitter Icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_use_pinterest",
+        "label": "Use Pinterest"
+      },
+      {
+        "type": "image",
+        "id": "pinterest_icon.jpg",
+        "label": "Pinterest Icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_use_google_plus",
+        "label": "Use Google+"
+      },
+      {
+        "type": "image",
+        "id": "google_plus_icon.jpg",
+        "label": "Google+ Icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_use_instagram",
+        "label": "Use Instagram"
+      },
+      {
+        "type": "image",
+        "id": "instagram_icon.jpg",
+        "label": "Instagram Icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_use_youtube",
+        "label": "Use YouTube"
+      },
+      {
+        "type": "image",
+        "id": "youtube_icon.jpg",
+        "label": "YouTube Icon"
+      },
+      {
+        "type": "header",
+        "content": "Navigation Section"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_nav_1",
+        "label": "Select Footer Nav 1"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_nav_2",
+        "label": "Select Footer Nav 2"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_nav_3",
+        "label": "Select Footer Nav 3"
+      },
+      {
+        "type": "header",
+        "content": "About Section",
+        "info": "The logo specified in the Branding Theme settings will be used here."
+      },
+      {
+        "type": "text",
+        "id": "footer_tagline",
+        "label": "Tagline",
+        "info": "This will be displayed right below the logo."
+      },
+      {
+        "type": "text",
+        "id": "footer_tagline_2",
+        "label": "Tagline 2",
+        "info": "This will be displayed right below Tagline."
+      },
+      {
+        "type": "text",
+        "id": "footer_copyright",
+        "label": "Copyright Text"
+      },
+      {
+        "type": "header",
+        "content": "Code Injection"
+      },
+      {
+        "type": "textarea",
+        "id": "body_code_injection",
+        "label": "Body Code Injection",
+        "info": "This is to add any additional code right before the closing <\/body> tag on all pages. You must include proper HTML and\/or script tags."
+      }
+    ]
+  },
+  {
+    "name": "Footer - Promo ",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Promo",
+        "info": "Setup your Promo this section is located at the top of the Footer and right above the Footer Videos section. For best results use square images."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_promo",
+        "label": "Use Promo Section"
+      },
+      {
+        "type": "text",
+        "id": "footer_promo_link",
+        "label": "Promo Link"
+      },
+      {
+        "type": "text",
+        "id": "footer_promo_heading",
+        "label": "Promo Heading"
+      },
+      {
+        "type": "text",
+        "id": "footer_promo_sub_title",
+        "label": "Promo Sub Title"
+      },
+      {
+        "type": "textarea",
+        "id": "footer_promo_content",
+        "label": "Promo Content"
+      },
+      {
+        "type": "image",
+        "id": "promo_main_image.png",
+        "label": "Main Image"
+      },
+      {
+        "type": "text",
+        "id": "promo_main_image_title",
+        "label": "Main Image Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_1",
+        "label": "Use Slider Image 1"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_1.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_2",
+        "label": "Use Slider Image 2"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_2.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_3",
+        "label": "Use Slider Image 3"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_3.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_4",
+        "label": "Use Slider Image 4"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_4.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_5",
+        "label": "Use Slider Image 5"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_5.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_6",
+        "label": "Use Slider Image 6"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_6.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 6"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_7",
+        "label": "Use Slider Image 7"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_7.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 7"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_8",
+        "label": "Use Slider Image 8"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_8.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 8"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_9",
+        "label": "Use Slider Image 9"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_9.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 9"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_10",
+        "label": "Use Slider Image 10"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_10.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 10"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_11",
+        "label": "Use Slider Image 11"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_11.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 11"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_promo_slider_image_12",
+        "label": "Use Slider Image 12"
+      },
+      {
+        "type": "image",
+        "id": "promo_slider_image_12.jpg",
+        "max-width": 400,
+        "max-height": 400,
+        "label": "Slider Image 12"
+      }
+    ]
+  },
+  {
+    "name": "Footer - Videos",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Videos",
+        "info": "Setup your Videso this section is located in the footer of your theme right above the Footer Testimonials and riight below Footer Promo."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_videos",
+        "label": "Use Videos"
+      },
+      {
+        "type": "text",
+        "id": "video_1_title",
+        "label": "Video 1 - Title"
+      },
+      {
+        "type": "textarea",
+        "id": "video_1_embed",
+        "label": "Video 1 - Embed Code"
+      },
+      {
+        "type": "text",
+        "id": "video_2_title",
+        "label": "Video 2 - Title"
+      },
+      {
+        "type": "textarea",
+        "id": "video_2_embed",
+        "label": "Video 2 - Embed Code"
+      }
+    ]
+  },
+  {
+    "name": "Footer - Testimonials",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Testimonials",
+        "info": "Setup your testimonials this section is located in the footer of your theme right above the Footer Image Gallery and riight below Footer Videos."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonies",
+        "label": "Use Testimonials"
+      },
+      {
+        "type": "text",
+        "id": "testimonies_title",
+        "label": "Testimonials Title"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonies_1",
+        "label": "Testimonials 1"
+      },
+      {
+        "type": "text",
+        "id": "testimonies_1_author",
+        "label": "Testimonials 1 Author"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonie_logo_1",
+        "label": "Use Testimonials 1 Image"
+      },
+      {
+        "type": "image",
+        "id": "testimonie_logo_1.png",
+        "label": "Testimonials 1 Image"
+      },
+      {
+        "type": "text",
+        "id": "testimonie_logo_1_alt",
+        "label": "Testimonials 1 Image Alt Text"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonies_2",
+        "label": "Testimonials 2"
+      },
+      {
+        "type": "text",
+        "id": "testimonies_2_author",
+        "label": "Testimonials 2 Author"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonie_logo_2",
+        "label": "Use Testimonials 2 Image"
+      },
+      {
+        "type": "image",
+        "id": "testimonie_logo_2.png",
+        "label": "Testimonials 2 Image"
+      },
+      {
+        "type": "text",
+        "id": "testimonie_logo_2_alt",
+        "label": "Testimonials 2 Image Alt Text"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonies_3",
+        "label": "Testimonials 3"
+      },
+      {
+        "type": "text",
+        "id": "testimonies_3_author",
+        "label": "Testimonials 3 Author"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonie_logo_3",
+        "label": "Use Testimonials 3 Image"
+      },
+      {
+        "type": "image",
+        "id": "testimonie_logo_3.png",
+        "label": "Testimonials 3 Image"
+      },
+      {
+        "type": "text",
+        "id": "testimonie_logo_3_alt",
+        "label": "Testimonials 3 Image Alt Text"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonies_4",
+        "label": "Testimonials 4"
+      },
+      {
+        "type": "text",
+        "id": "testimonies_4_author",
+        "label": "Testimonials 4 Author"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonie_logo_4",
+        "label": "Use Testimonials 4 Image"
+      },
+      {
+        "type": "image",
+        "id": "testimonie_logo_4.png",
+        "label": "Testimonials 4 Image"
+      },
+      {
+        "type": "text",
+        "id": "testimonie_logo_4_alt",
+        "label": "Testimonials 4 Image Alt Text"
+      }
+    ]
+  },
+  {
+    "name": "Footer - Image Gallery",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Image Gallery",
+        "info": "Setup your image gallery this section is located in the footer of your theme."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery",
+        "label": "Use Image Gallery"
+      },
+      {
+        "type": "color",
+        "id": "footer_image_gallery_bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_content",
+        "label": "Image Gallery Title"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_hover_text",
+        "label": "Image Hover Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_1",
+        "label": "Use Image 1"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_1.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 1"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_1",
+        "label": "Image 1 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_2",
+        "label": "Use Image 2"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_2.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 2"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_2",
+        "label": "Image 2 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_3",
+        "label": "Use Image 3"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_3.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 3"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_3",
+        "label": "Image 3 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_4",
+        "label": "Use Image 4"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_4.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 4"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_4",
+        "label": "Image 4 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_5",
+        "label": "Use Image 5"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_5.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 5"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_5",
+        "label": "Image 5 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_6",
+        "label": "Use Image 6"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_6.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 6"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_6",
+        "label": "Image 6 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_7",
+        "label": "Use Image 7"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_7.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 7"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_7",
+        "label": "Image 7 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_8",
+        "label": "Use Image 8"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_8.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 8"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_8",
+        "label": "Image 8 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_9",
+        "label": "Use Image 9"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_9.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 9"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_9",
+        "label": "Image 9 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_10",
+        "label": "Use Image 10"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_10.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 10"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_10",
+        "label": "Image 10 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_11",
+        "label": "Use Image 11"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_11.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 11"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_11",
+        "label": "Image 11 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_12",
+        "label": "Use Image 12"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_12.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 12"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_12",
+        "label": "Image 12 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_13",
+        "label": "Use Image 13"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_13.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 13"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_13",
+        "label": "Image 13 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_14",
+        "label": "Use Image 14"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_14.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 14"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_14",
+        "label": "Image 14 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_15",
+        "label": "Use Image 15"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_15.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 15"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_15",
+        "label": "Image 15 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_16",
+        "label": "Use Image 16"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_16.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 16"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_16",
+        "label": "Image 16 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_17",
+        "label": "Use Image 17"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_17.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 17"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_17",
+        "label": "Image 17 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_18",
+        "label": "Use Image 18"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_18.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 18"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_18",
+        "label": "Image 18 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_19",
+        "label": "Use Image 19"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_19.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 19"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_19",
+        "label": "Image 19 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_20",
+        "label": "Use Image 20"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_20.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 20"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_20",
+        "label": "Image 20 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_21",
+        "label": "Use Image 21"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_21.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 21"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_21",
+        "label": "Image 21 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_22",
+        "label": "Use Image 22"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_22.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 22"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_22",
+        "label": "Image 22 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_23",
+        "label": "Use Image 23"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_23.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 23"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_23",
+        "label": "Image 23 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_24",
+        "label": "Use Image 24"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_24.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 24"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_24",
+        "label": "Image 24 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_25",
+        "label": "Use Image 25"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_25.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 25"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_25",
+        "label": "Image 25 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_26",
+        "label": "Use Image 26"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_26.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 26"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_26",
+        "label": "Image 26 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_27",
+        "label": "Use Image 27"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_27.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 27"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_27",
+        "label": "Image 27 Link Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_gallery_image_28",
+        "label": "Use Image 28"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_gallery_image_28.jpg",
+        "max-width": 190,
+        "max-height": 190,
+        "label": "Image 28"
+      },
+      {
+        "type": "text",
+        "id": "footer_image_gallery_link_28",
+        "label": "Image 28 Link Url"
+      }
+    ]
+  },
+  {
+    "name": "Footer - Press Slider",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Footer Press Slide Show Gallery",
+        "info": "Setup a slideshow of featured press images in the footer of your theme."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_press_slider",
+        "label": "Use Press Slider"
+      },
+      {
+        "type": "text",
+        "id": "footer_slider_headline",
+        "label": "Image Gallery Headline"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_1",
+        "label": "Use Image 1"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_1.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_2",
+        "label": "Use Image 2"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_2.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_3",
+        "label": "Use Image 3"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_3.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_4",
+        "label": "Use Image 4"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_4.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_5",
+        "label": "Use Image 5"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_5.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_6",
+        "label": "Use Image 6"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_6.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 6"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_7",
+        "label": "Use Image 7"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_7.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 7"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_8",
+        "label": "Use Image 8"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_8.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 8"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_9",
+        "label": "Use Image 9"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_9.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 9"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_10",
+        "label": "Use Image 10"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_10.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 10"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_11",
+        "label": "Use Image 11"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_11.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 11"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_12",
+        "label": "Use Image 12"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_12.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 12"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_13",
+        "label": "Use Image 13"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_13.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 13"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_14",
+        "label": "Use Image 14"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_14.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 14"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_image_slider_image_15",
+        "label": "Use Image 15"
+      },
+      {
+        "type": "image",
+        "id": "footer_image_slider_image_15.jpg",
+        "max-width": 172,
+        "max-height": 225,
+        "label": "Image 15"
+      }
+    ]
+  },
+  {
+    "name": "Footer - Call To Action ",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Call To Action",
+        "info": "Setup your CTA this section is located in the footer of your theme right below the Footer Image Gallery. The primary color you have chosen will be used for the background color of this section."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_cta",
+        "label": "Use CTA"
+      },
+      {
+        "type": "text",
+        "id": "footer_cta_1",
+        "label": "Unique Selling Propisition",
+        "info": "Wrap words in <strong\/> tag to bold words."
+      },
+      {
+        "type": "text",
+        "id": "footer_cta_2",
+        "label": "Footer Call To Action",
+        "info": "Wrap words in <strong\/> tag to bold words."
+      },
+      {
+        "type": "text",
+        "id": "footer_cta_button_text",
+        "label": "CTA Button Text",
+        "info": "Wrap words in <strong\/> tag to bold words."
+      },
+      {
+        "type": "text",
+        "id": "footer_cta_button_url",
+        "label": "CTA Button URL"
+      }
+    ]
+  },
+  {
+    "name": "Footer - Brand Logos",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logos",
+        "info": "Setup your Brand Logos this section is located in the footer of your theme right below the Footer CTA. For best results upload images with transparent backgrounds (.gifs or .pngs)."
+      },
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_logos",
+        "label": "Use Footer Brand Logos"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_1",
+        "label": "Use Brand Logo 1"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_1.png",
+        "label": "Select Brand Logo 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_2",
+        "label": "Use Brand Logo 2"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_2.png",
+        "label": "Select Brand Logo 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_3",
+        "label": "Use Brand Logo 3"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_3.png",
+        "label": "Select Brand Logo 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_4",
+        "label": "Use Brand Logo 4"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_4.png",
+        "label": "Select Brand Logo 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_5",
+        "label": "Use Brand Logo 5"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_5.png",
+        "label": "Select Brand Logo 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_6",
+        "label": "Use Brand Logo 6"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_6.png",
+        "label": "Select Brand Logo 6"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_7",
+        "label": "Use Brand Logo 7"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_7.png",
+        "label": "Select Brand Logo 7"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_8",
+        "label": "Use Brand Logo 8"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_8.png",
+        "label": "Select Brand Logo 8"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_9",
+        "label": "Use Brand Logo 9"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_9.png",
+        "label": "Select Brand Logo 9"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_10",
+        "label": "Use Brand Logo 10"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_10.png",
+        "label": "Select Brand Logo 10"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_footer_brand_11",
+        "label": "Use Brand Logo 11"
+      },
+      {
+        "type": "image",
+        "id": "footer_brand_11.png",
+        "label": "Select Brand Logo 11"
+      }
+    ]
+  },
+  {
+    "name": "Home",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "home_separator",
+        "label": "Use separator between content section?"
+      },
+      {
+        "type": "header",
+        "content": "Ads"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_home_full_ad",
+        "label": "Use Full Width Banner"
+      },
+      {
+        "type": "image",
+        "id": "home_full_width.jpg",
+        "max-width": 1400,
+        "max-height": 390,
+        "label": "Select Full Width Banner",
+        "info": "For the best results upload an image 940px wide by 260px tall"
+      },
+      {
+        "type": "text",
+        "id": "home_full_width_alt",
+        "label": "Full Width Banner alt text"
+      },
+      {
+        "type": "text",
+        "id": "home_full_width_URL",
+        "label": "Full Width Banner URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_home_video_block",
+        "label": "Use Video Block"
+      },
+      {
+        "type": "textarea",
+        "id": "home_video_embed",
+        "label": "Video - Embed Code"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_home_image_block",
+        "label": "Use Ad Block"
+      },
+      {
+        "type": "image",
+        "id": "home_50_width.jpg",
+        "max-width": 1036,
+        "max-height": 999,
+        "label": "Select 50% Width banner",
+        "info": "For the best results upload an image 691px by 666px."
+      },
+      {
+        "type": "text",
+        "id": "home_50_width_alt",
+        "label": "50% Width alt text"
+      },
+      {
+        "type": "text",
+        "id": "home_50_width_URL",
+        "label": "50% Width Banner URL"
+      },
+      {
+        "type": "image",
+        "id": "home_25_width_1.jpg",
+        "max-width": 1036,
+        "max-height": 474,
+        "label": "Select 25% Width Banner 1",
+        "info": "For the best results upload an image 691px by 316px."
+      },
+      {
+        "type": "text",
+        "id": "home_25_width_1_alt",
+        "label": "25% Width Banner 1 alt text"
+      },
+      {
+        "type": "text",
+        "id": "home_25_width_1_URL",
+        "label": "25% Width Banner 1 URL"
+      },
+      {
+        "type": "image",
+        "id": "home_25_width_2.jpg",
+        "max-width": 1036,
+        "max-height": 474,
+        "label": "Select 25% Width Banner 2",
+        "info": "For the best results upload an image 691px by 316px."
+      },
+      {
+        "type": "text",
+        "id": "home_25_width_2_alt",
+        "label": "25% Width Banner 2 alt text"
+      },
+      {
+        "type": "text",
+        "id": "home_25_width_2_URL",
+        "label": "25% Width Banner 2 URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_home_links_section",
+        "label": "Use Home Links Section"
+      },
+      {
+        "type": "link_list",
+        "id": "home_nav_1",
+        "label": "Select Home Nav Menu 1"
+      },
+      {
+        "type": "image",
+        "id": "home_nav_icon_1.png",
+        "label": "Home Nav Menu 1 Icon"
+      },
+      {
+        "type": "link_list",
+        "id": "home_nav_2",
+        "label": "Select Home Nav Menu 2"
+      },
+      {
+        "type": "image",
+        "id": "home_nav_icon_2.png",
+        "label": "Home Nav Menu 2 Icon"
+      },
+      {
+        "type": "link_list",
+        "id": "home_nav_3",
+        "label": "Select Home Nav Menu 3"
+      },
+      {
+        "type": "image",
+        "id": "home_nav_icon_3.png",
+        "label": "Home Nav Menu 3 Icon"
+      },
+      {
+        "type": "link_list",
+        "id": "home_nav_4",
+        "label": "Select Home Nav Menu 4"
+      },
+      {
+        "type": "image",
+        "id": "home_nav_icon_4.png",
+        "label": "Home Nav Menu 4 Icon"
+      },
+      {
+        "type": "header",
+        "content": "Collection Carousel"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_col_car_1",
+        "label": "Use Collection Carousel 1"
+      },
+      {
+        "type": "text",
+        "id": "col_car_title_1",
+        "label": "Heading"
+      },
+      {
+        "type": "collection",
+        "id": "col_car_1",
+        "label": "Select a collection you wish to display in Collection Carousel 1.",
+        "info": "It's recommended to have a minumum of 3 products in the collection you choose."
+      },
+      {
+        "type": "checkbox",
+        "id": "use_col_car_2",
+        "label": "Use Collection Carousel 2"
+      },
+      {
+        "type": "text",
+        "id": "col_car_title_2",
+        "label": "Heading"
+      },
+      {
+        "type": "collection",
+        "id": "col_car_2",
+        "label": "Select a collection you wish to display in Collection Carousel 2.",
+        "info": "It's recommended to have a minumum of 3 products in the collection you choose."
+      },
+      {
+        "type": "header",
+        "content": "Trio Banner Block"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_trio_block",
+        "label": "Use Trio Banner Block"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_1.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Banner Image 1",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_1",
+        "label": "Trio Image 1 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_1",
+        "label": "Trio Image 1 url"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_2.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 2",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_2",
+        "label": "Trio image 2 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_2",
+        "label": "Trio image 2 url"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_3.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 3",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_3",
+        "label": "Trio Image 3 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_3",
+        "label": "Trio Image 3 url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_trio_block_2",
+        "label": "Use Second Trio Image Block"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_4.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 4",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_4",
+        "label": "Trio ad image alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_4",
+        "label": "Trio image 4 url"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_5.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 5",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_5",
+        "label": "Trio image 5 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_5",
+        "label": "Trio image 5 url"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_6.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 6",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_6",
+        "label": "Trio Image 6 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_6",
+        "label": "Trio image 6 url"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_trio_block_3",
+        "label": "Use Third Trio Image Block"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_7.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 7",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_alt_7",
+        "label": "Trio 7 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_7",
+        "label": "Trio image 7 url"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_8.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 8",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_8",
+        "label": "Trio Image 8 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_8",
+        "label": "Trio image 8 url"
+      },
+      {
+        "type": "image",
+        "id": "trio_image_9.jpg",
+        "max-width": 520,
+        "max-height": 520,
+        "label": "Select Trio Image 9",
+        "info": "For the best results upload an image 520px by 520px."
+      },
+      {
+        "type": "text",
+        "id": "trio_image_alt_9",
+        "label": "Trio Image 9 alt text"
+      },
+      {
+        "type": "text",
+        "id": "trio_image_url_9",
+        "label": "Trio image 9 url"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_home_content",
+        "label": "Use Page Content 1"
+      },
+      {
+        "type": "page",
+        "id": "home_content",
+        "label": "Select Page",
+        "info": "This will show the content from the selected page under the main banner."
+      },
+      {
+        "type": "checkbox",
+        "id": "use_home_content_two",
+        "label": "Use Page Content 2"
+      },
+      {
+        "type": "page",
+        "id": "home_content_two",
+        "label": "Select Page",
+        "info": "This will show the content from the selected page under trio advertisement block."
+      }
+    ]
+  },
+  {
+    "name": "Collection Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Collection With Sidebar",
+        "info": "The following settings are for the collection template with a sidebar."
+      },
+      {
+        "type": "checkbox",
+        "id": "use_collection_sidebar",
+        "label": "Use Collection Sidebar"
+      },
+      {
+        "type": "header",
+        "content": "Sidebar Ads"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_collection_top_image",
+        "label": "Use Top Sidebar Image"
+      },
+      {
+        "type": "image",
+        "id": "collection_top_image.jpg",
+        "label": "Top Sidebar Image",
+        "info": "This is the banner to be displayed at the top of the sidebar. For the best results upload an image 179px wide."
+      },
+      {
+        "type": "text",
+        "id": "collection_top_image_alt",
+        "label": "Top Sidebar Image alt text"
+      },
+      {
+        "type": "text",
+        "id": "collection_top_image_URL",
+        "label": "Top Sidebar Image URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_collection_bottom_image",
+        "label": "Use Bottom Image"
+      },
+      {
+        "type": "image",
+        "id": "collection_bottom_image.jpg",
+        "label": "Bottom Sidebar Image",
+        "info": "This is the banner to be displayed at the top of the sidebar. For the best results upload an image 179px wide."
+      },
+      {
+        "type": "text",
+        "id": "collection_bottom_image_alt",
+        "label": "Bottom Sidebar Image alt text"
+      },
+      {
+        "type": "text",
+        "id": "collection_bottom_image_URL",
+        "label": "Bottom Sidebar Image URL"
+      },
+      {
+        "type": "header",
+        "content": "Filtering",
+        "info": "Notice: Tags used for filtering are case sensitive."
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_use_filters",
+        "label": "Use filters on collections?"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_show_filter_type",
+        "label": "Display Filter by Type"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_type_title",
+        "label": "Filter by Type Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_show_filter_vendor",
+        "label": "Display Filter by Vendor"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_vendor_title",
+        "label": "Filter by Vendor Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_show_filter_price",
+        "label": "Display Filter by Price"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_price_title",
+        "label": "Filter by Price"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_by_price",
+        "label": "Price filtering ranges",
+        "default": "$0-$25,$25-$50,$50-$100,$100-$200,$200-$300",
+        "info": "Separate each tag with a comma. You must also appropriately add these to your product as tags."
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_show_filter_generic",
+        "label": "Display Filter by Generic"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_generic_title",
+        "label": "Filter by Generic Title"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_by_generic",
+        "label": "Generic filtering options",
+        "info": "Separate each tag with a comma. You must also appropriately add these to your product as tags."
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_show_filter_generic_2",
+        "label": "Display Filter by Generic 2"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_generic_title_2",
+        "label": "Filter by Generic Title 2"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_by_generic_2",
+        "label": "Generic filtering options 2",
+        "info": "Seperate each tag with a comma. You must also appropriately add these to your product as tags."
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_show_filter_generic_3",
+        "label": "Display Filter by Generic 3"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_generic_title_3",
+        "label": "Filter by Generic Title 3"
+      },
+      {
+        "type": "text",
+        "id": "collection_filter_by_generic_3",
+        "label": "Generic filtering options 3",
+        "info": "Seperate each tag with a comma. You must also appropriately add these to your product as tags."
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_use_stackable_filters",
+        "label": "Use Stackable Filters",
+        "info": "With this option you can filter your collections by multiple filters simultaneously. Recommended for stores with many products. To use this option products' 'type' and 'vendor' must be added as tags to that product in addition to being selected as type and vendor. A product should not have a tag that is a type or vendor on your store that is not it's type or vendor."
+      },
+      {
+        "type": "checkbox",
+        "id": "use_collection_banner",
+        "label": "Use Banner on Collection.Wide Template"
+      },
+      {
+        "type": "image",
+        "id": "collection_wide_banner.jpg",
+        "label": "Banner Image For collection.wide template",
+        "max-width": 940,
+        "info": "This is the banner to be displayed at the top of the page, above the store items on the collection.wide template. Image should be approximately 940px wide."
+      }
+    ]
+  },
+  {
+    "name": "Product - Global Settings",
+    "settings": [
+      {
+        "type": "image",
+        "id": "product_banner.jpg",
+        "label": "Add To Cart Banner",
+        "info": "This is the banner to be displayed under the add to cart button. For the best results upload an image 329px wide by 89px tall"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_second_cart_button",
+        "label": "Use second 'add to cart' button at bottom of product page"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_quick_view",
+        "label": "Use 'quick view' of product feature on collection page"
+      },
+      {
+        "type": "header",
+        "content": "Video Gallery"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_video_gallery",
+        "label": "Use Video Gallery"
+      },
+      {
+        "type": "text",
+        "id": "video_gallery_title",
+        "label": "Video Gallery Title"
+      },
+      {
+        "type": "header",
+        "content": "Related Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_related_products",
+        "label": "Use Related Products"
+      },
+      {
+        "type": "text",
+        "id": "related_products_title",
+        "label": "Related Products Title"
+      },
+      {
+        "type": "text",
+        "id": "text_under_variants",
+        "label": "Text Under Variants"
+      },
+      {
+        "type": "text",
+        "id": "in_stock_text",
+        "label": "In Stock Text"
+      },
+      {
+        "type": "text",
+        "id": "out_of_stock_text",
+        "label": "Out of Stock Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "out_of_stock_purchase",
+        "label": "Show out of stock text on out of stock products when those products are still available for purchase."
+      },
+      {
+        "type": "text",
+        "id": "few_left_in_stock_text",
+        "label": "Few Left In Stock Text"
+      },
+      {
+        "type": "text",
+        "id": "few_left_in_stock_number",
+        "label": "Inventory left in stock to display few left in stock text"
+      },
+      {
+        "type": "color",
+        "id": "product_image_link_color",
+        "label": "Product Image Link Color"
+      },
+      {
+        "type": "select",
+        "id": "product_image_link_font_size",
+        "options": [
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          },
+          {
+            "value": "20px",
+            "label": "20px"
+          },
+          {
+            "value": "22px",
+            "label": "22px"
+          },
+          {
+            "value": "24px",
+            "label": "24px"
+          }
+        ],
+        "label": "Product Image Popup Link Font Size"
+      },
+      {
+        "type": "text",
+        "id": "view_product_details",
+        "label": "View Product Details Link Text"
+      },
+      {
+        "type": "color",
+        "id": "view_details_color",
+        "label": "View Details Link Text Color"
+      },
+      {
+        "type": "textarea",
+        "id": "product_code_injection",
+        "label": "Product Template Code Injection",
+        "info": "This is to add any additional code on product.liquid and product.video.liquid template pages. You must include proper HTML and\/or script tags."
+      }
+    ]
+  },
+  {
+    "name": "Product - Product Template",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Tabs",
+        "info": "Product description will be displayed under tab 1."
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tabs",
+        "label": "Use Product Tabs"
+      },
+      {
+        "type": "text",
+        "id": "tab_one_title",
+        "label": "Tab 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "tab_two_title",
+        "label": "Tab 2 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "tab_two_content",
+        "label": "Tab 2 Content"
+      },
+      {
+        "type": "text",
+        "id": "tab_three_title",
+        "label": "Tab 3 Text"
+      },
+      {
+        "type": "textarea",
+        "id": "tab_three_content",
+        "label": "Tab 3 Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_tab_four",
+        "label": "Use Tab 4"
+      },
+      {
+        "type": "text",
+        "id": "tab_four_title",
+        "label": "Tab 4 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "tab_four_content",
+        "label": "Tab 4 Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_tab_five",
+        "label": "Use Tab 5"
+      },
+      {
+        "type": "text",
+        "id": "tab_five_title",
+        "label": "Tab 5 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "tab_five_content",
+        "label": "Tab 5 Content"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "use_cart_sidebar",
+        "label": "Use Cart Sidebar"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_cart_top_image",
+        "label": "Use Top Sidebar Image"
+      },
+      {
+        "type": "image",
+        "id": "cart_top_image.jpg",
+        "label": "Top Sidebar Image",
+        "info": "This is the banner to be displayed at the top of the sidebar. For the best results upload an image 179px wide."
+      },
+      {
+        "type": "text",
+        "id": "cart_top_image_alt",
+        "label": "Top Sidebar Ad alt text"
+      },
+      {
+        "type": "text",
+        "id": "cart_top_image_URL",
+        "label": "Top Sidebar Image URL"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_cart_bottom_image",
+        "label": "Use Bottom Sidebar Image"
+      },
+      {
+        "type": "image",
+        "id": "cart_bottom_image.jpg",
+        "label": "Bottom Sidebar Ad",
+        "info": "This is the banner to be displayed at the top of the sidebar. For the best results upload an image 179px wide."
+      },
+      {
+        "type": "text",
+        "id": "cart_bottom_image_alt",
+        "label": "Bottom Sidebar Ad alt text"
+      },
+      {
+        "type": "text",
+        "id": "cart_bottom_image_URL",
+        "label": "Bottom Sidebar Image URL"
+      },
+      {
+        "type": "link_list",
+        "id": "cart_nav",
+        "label": "Select Sidebar Navigation"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_cart_yotpo_carousel",
+        "label": "Use Yotpo reviews carousel on cart page (requires Yotpo app)"
+      }
+    ]
+  }
+]

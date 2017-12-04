@@ -1,0 +1,97 @@
+{% assign count = count | plus: 1 %}
+
+<article class="product round-borders animated fadeIn" itemscope itemtype="http://schema.org/Product">
+  
+   <header class="product-header">
+    <span data-profits-panda-id="{{ product.id }}" style="display:none"></span>
+    <h2 {%if product.title.size > 45 %}{%if product.title.size > 80%}class = "twoacross-very-long"{% else %} class = "twoacross-long-title" {% endif %}{% endif %} itemprop="name"><a href="{{ product.url | within:collection }}" itemprop="url">{{ product.title }}</a></h2>
+    <span class="product-pricing" temprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <span itemprop="price" class="product-price">{{ product.variants.first.price | money | remove: '.00' }}</span>
+      {% if product.variants.first.compare_at_price > product.variants.first.price %} 
+      <span class="product-price-old">{{ product.variants.first.compare_at_price | money | remove: '.00' }}</span>
+      {% endif %}
+    </span><!-- product-pricing -->
+  </header><!-- product-header -->
+  
+  <div class="product-image-wrapper">
+    <a href="{{ product.url | within:collection }}" itemprop="url">
+      <img class="product-image" itemprop="image" srcset="{{ product.featured_image | product_img_url: 'grande' }} 2x" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}"/>
+    </a>
+  </div><!-- product-image-wrapper -->
+  
+  <div class = "product-image-wrapper">
+ {% if product.metafields.video_template.embed1 %}
+  	<div class="product-video">
+
+		{% unless product.metafields.video_template.image1 %}
+        	{{ product.metafields.video_template.embed1 }}
+  		{%endunless%}
+		{%if product.metafields.video_template.image1%}
+			<div class = "video-with-image">
+				<a class="product-video-popup" href='#product-video-1'>
+      {% if product.metafields.video_template.image1 %}
+      <img src="{{ product.metafields.video_template.image1 }}">
+      {% else %}
+      {{ product.metafields.video_template.embed1 }}
+      {% endif %}
+    </a>
+      		</div>
+      <div style="display:none">
+    <div id="product-video-1">
+      {{ product.metafields.video_template.embed1 }}
+    </div>
+  </div>
+    	{%endif%}
+    </div>
+  
+  {%elsif product.metafields.video_template.image1%}
+    	<div class="product-video">
+          	{% if product.metafields.video_template.banner %}
+    		<span>{{ product.metafields.video_template.banner }}</span>
+    	{% endif %}
+<div class = "video-with-image">
+				<a class="product-video-popup" href='#product-video-1'>
+                        <img src="{{ product.metafields.video_template.image1 }}">
+  </a></div></div>
+  {% endif %}
+    
+     {% if product.available %}
+    {% if product.variants.size > 1 %}
+    <a class="btn btn-secondary" href="{{ product.url | within:collection }}" title="View {{ product.title | escape }}" itemprop="url">More Info</a>   
+    {% else %}
+    {% assign variant = product.variants.first %}
+    <form id="product-{{ product.id }}" action="/cart/add" method="post"> 
+ 
+      <input type="hidden" name="id" value="{{ variant.id }}" />
+      <input id="product-quantity-{{product.id}}" name="quantity" type="hidden" value="1">
+      <input type="submit" id="add-{{ product.id}}" class="btn" name="add" value="Add to cart" />
+    </form> 
+    {% endif %}
+    {% else %}
+    <p class="lead">         	{% if product.metafields.pdetails.outofstock %}
+    			{{ product.metafields.pdetails.outofstock }}
+    		{%else%}  
+  				{{ settings.out_of_stock_text }}
+  			{%endif%}</p>
+    {% endif %}
+    
+  </div><!-----product-image-wrapper----->
+  
+  
+   <div class="product-details">
+    <p onclick="location.href='{{ product.url }}'" style="cursor:pointer;">
+      {% if product.metafields.description.short %}
+      {{ product.metafields.description.short }}
+      {% else %}
+      {{ product.description | strip_html | truncatewords: 40}}
+      {% endif %} 
+      <a class = "pdetails-prod-link" href = "{{ product.url }}">Click Here For Details</a>
+    </p>
+  </div>
+  
+</article><!--product-->
+
+      {%assign countEval = count | modulo: 2%}
+      {%if countEval == 0%}
+      	<hr class = "two-across-hr" />
+      {%endif%}

@@ -1,0 +1,71 @@
+<script>
+    var upsell_checkout_button_selectors = "[name='checkout'], [href='/checkout'], form[action='/checkout'] input[type='submit'], #checkout";
+    if (!smartmarketerapps.hotlistapp) {
+        jQuery('body').on('click', upsell_checkout_button_selectors, upsellsCheckoutRedirect);
+    }
+    function upsellsCheckoutRedirect(event,email,first_name,last_name) {
+        if (event) {
+            event.preventDefault();
+        }
+        var shop = Shopify.shop,
+            landing_site  =  sessionStorage.getItem('shopify_landing_site'),
+            referring_site =  sessionStorage.getItem('shopify_referring_site');
+        try {
+            jQuery.ajax({
+                url: '/cart.js',
+                dataType: 'json'
+            }).then(function( data, textStatus, jqXHR ) {
+                if (textStatus == 'success') {
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: 'https://oneclickupsell12.mocstage.com/checkouts/check_upsells.json',
+                        crossDomain: true,
+                        async: false,
+                        data: {
+                            shop: shop,
+                            cart: data,
+                            customer: {
+                                email: email,
+                                first_name: first_name,
+                                last_name: last_name
+                            },
+                            landing_site: landing_site,
+                            referring_site: referring_site
+                        },
+                        success: function (data, textStatus, jqXHR) {
+                            if (data.status) {
+                                window.location = data.checkout_url;
+                            } else {
+                                window.location = '/checkout';
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            window.location = '/checkout';
+                        }
+                    });
+                }
+            });
+        } catch (e) {
+            window.location = '/checkout';
+        }
+    }
+    if (sessionStorage.getItem('shopify_landing_site') == null){
+        if (getCookie('shopify_landing_site') != undefined){
+            sessionStorage.setItem('shopify_landing_site', getCookie('shopify_landing_site'));
+            sessionStorage.setItem('shopify_referring_site', getCookie('shopify_referring_site'));
+        }else{
+            sessionStorage.setItem('shopify_landing_site', window.location.pathname);
+            sessionStorage.setItem('shopify_referring_site', document.referrer);
+        }
+    }
+    if (getCookie('shopify_landing_site') == undefined){
+        document.cookie = 'shopify_landing_site=' + sessionStorage.getItem('shopify_landing_site');
+        document.cookie = 'shopify_referring_site=' + sessionStorage.getItem('shopify_referring_site')
+    }
+    function getCookie(name) {
+        var matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+</script>

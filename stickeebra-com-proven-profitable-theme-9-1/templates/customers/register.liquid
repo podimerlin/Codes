@@ -1,0 +1,27 @@
+{% layout settings.customer_layout %}
+<div id="generic-page" class="container-wrapper textile customers-page">
+  <h1>Register</h1>
+  {% form 'create_customer' %}
+  {{ form.errors | default_errors }}
+  <fieldset id="first_name">
+    <label for="first_name">First Name</label><br>
+    <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
+  </fieldset>
+  <fieldset id="last_name">
+    <label for="last_name">Last Name</label><br>
+    <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
+  </fieldset>
+  <fieldset id="email">
+    <label for="email">Email Address</label><br>
+    <input type="email" value="" name="customer[email]" id="email" class="large" size="30" />
+  </fieldset>
+  <fieldset id="password">
+    <label for="password">Password</label><br>
+    <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
+  </fieldset>
+  <fieldset class="action_bottom">
+    <input class="btn" type="submit" value="Register" />
+    <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
+  </fieldset>
+  {% endform %}
+</div><!-- generic-page -->

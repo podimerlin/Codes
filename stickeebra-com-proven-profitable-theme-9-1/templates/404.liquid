@@ -1,0 +1,11 @@
+<div id="generic-page" class="container-wrapper textile">
+  <h1>Nothing found - 404</h1>
+  <p class="lead">Sorry, there was nothing found for that specific request. You can try searching below or <a href="{{ shop.url }}">return to our homepage</a>.</p>
+  <h4>Search {{ shop.name }}</h4>
+  <form id="search-404-form" action="/search" class="clearfix" method="get">
+    <fieldset>
+      <input type="text" name="q" value="{{search.terms | escape}}" size="25" />
+      <input type="submit" class="btn" value="Search" />
+    </fieldset>
+  </form>
+</div><!-- generic-page -->

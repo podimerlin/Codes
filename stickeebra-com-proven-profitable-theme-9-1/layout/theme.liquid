@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8"><![endif]-->
+<!--[if IE 9]><html class="ie9"><![endif]-->
+<!--[if IE 10]><html class="ie10"><![endif]-->
+<!--[if !IE]><!--><html class="non-ie"><!--<![endif]-->
+{%comment%}
+
+9.1
+-fixed bug on product.related showing compare at price from different variant than the price
+-fixed bug with product.liquid additional product images not displaying
+
+
+
+9.0
+- updated h1 tag styles for page headers
+- updated product-tab-wrapper to account for long urls
+- added account buttons to footer on mobile
+- added left/right buttons back to home carousels with fewer than 4 products on mobile only (or fewer than 5 with settings.use_wide_layout)
+- fixed glitch with image under second add to cart button not being editable
+- added option for custom out of stock text on a product through metafields - product.metafields.pdetails.outstock
+- added collection - 2 across as a collection template
+- added recharge app code to theme for easy app integration
+- put add to cart button above product image on mobile on product.liquid
+- changed add to cart active link background color from green to button background color setting
+- added code for yotpo reviews carousel on cart page
+- added option for wide layout to increase max-width of theme layout to 1300px - in settings - branding
+- edited cart page to look better with various size product images
+- added settings for links and hover text for image gallery in footer - footer image gallery
+- added settings for "few left" text on product pages and product quick view - product global settings
+- added settings for home linklists section - home settings
+- added option for popover image on product page (i.e. for a size chart, etc.) in metafields - metafields.pdetails.popup, metafields.pdetails.popup-text
+- added metafield for custom text under variants on product page - product.metafields.pdetails.textundervariants
+- added setting option for home page video block in home settings
+
+
+
+{%endcomment%}
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSCWFRP');</script>
+<!-- End Google Tag Manager -->
+  
+  <script type="text/javascript">
+(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/24sQeA6kMyY9IgiauNin7DfOk6gDToenbfeuTCpv/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+</script>
+  
+
+  {% include 'html-meta' %}
+  {% include 'scripts' %}
+  {% include 'styles' %}
+  {{content_for_header}}
+  {% if template contains 'customers' %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {{ 'customer_area.js' | shopify_asset_url | script_tag }}
+  {% endif %} 
+  {% include 'header-code-injection' %}
+  
+</head>
+<body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' }}-template" id="{{ page_title | handle }}">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSCWFRP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  {% capture the_snippet_content %}{% include 'socialshopwave-helper' %}{% endcapture %}
+  {% unless the_snippet_content contains 'Liquid error' %}
+  {% include 'socialshopwave-helper' %}
+  {% endunless %}
+
+  {% include 'header' %}
+
+  {{ content_for_layout }}
+  {% include 'footer' %}
+  {% include 'body-code-injection' %} 
+  {% include 'cart-comments-script' %}
+  {% include 'smartmarketer' %}{% include 'upsellapp-theme' %}            
+  {% include 'subscription-theme-footer' %}
+  <script type="text/javascript" src="https://s3.amazonaws.com/profitspanda/splittests/JCtqDYveBocp9LC87.min.js"></script>
+  
+</body>
+<!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com --><script>var om5940fa1be49a7,om5940fa1be49a7_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){om5940fa1be49a7_poll(function(){if(window['om_loaded']){if(!om5940fa1be49a7){om5940fa1be49a7=new OptinMonsterApp();return om5940fa1be49a7.init({"s":"33378.5940fa1be49a7","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="//a.optnmstr.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;om5940fa1be49a7=new OptinMonsterApp();om5940fa1be49a7.init({"s":"33378.5940fa1be49a7","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script><!-- / OptinMonster -->
+
+</html>

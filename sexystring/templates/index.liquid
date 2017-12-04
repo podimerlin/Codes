@@ -1,0 +1,42 @@
+<div id="home-page" class="container-wrapper textile">
+  {% if settings.use_home_full_ad %}
+  {% include 'home-full-ad' %}
+  {% endif %}
+  {% if settings.use_home_video_block %}
+  {% include 'home-video-block' %}
+  {% endif %}
+  {% if settings.use_home_content %}
+  {% include 'home-content-1' %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% endif %}
+  {% if settings.use_home_image_block %}
+  {% include 'home-image-block' %}
+  {% endif %}
+  {% if settings.use_col_car_1 %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% include 'home-col-car-1' %}
+  {% endif %}
+  {% if settings.use_col_car_2 %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% include 'home-col-car-2' %}
+  {% endif %}
+  {% if settings.use_trio_block %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% include 'home-trio-images' %}
+  {% endif %}
+  {% if settings.use_trio_block_2 %}
+  {% include 'home-trio-images-2' %}
+  {% endif %} 
+  {% if settings.use_trio_block_3 %}
+  {% include 'home-trio-images-3' %}
+  {% endif %}
+  {% if settings.use_home_content_two %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% include 'home-content-2' %}
+  {% endif %}  
+  {% if settings.use_home_links_section %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% include 'home-links-section' %}
+  {% if settings.home_separator %}<hr>{% endif %}
+  {% endif %}  
+</div><!-- content-wrapper -->

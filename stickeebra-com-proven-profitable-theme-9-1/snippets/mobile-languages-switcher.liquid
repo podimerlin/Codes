@@ -1,0 +1,11 @@
+{% for language in shop.metafields.languages %}
+{% assign key = language | first %}
+{% assign value = language | last %}
+{% if key != "default" %}
+{% assign language_id = key | split: 'ly' | last %}
+{% assign img = 'ly-icon-' | append: language_id | append:'.png' %}
+<li>
+<a href="#" id="{{ key }}" class="ly-languages-switcher-link{% assign selectedLanguage = cart.attributes["language"] %}{% if selectedLanguage == nil %}{% assign selectedLanguage = shop.metafields["languages"]["default"] %}{% endif %}{% if selectedLanguage == key %} current_lang{% endif %}"><img style="position:relative;top:4px;" src="{{ img | asset_url }}" alt="{{ value }}"> {{ value }}</a>
+</li>
+{% endif %}
+{% endfor %}

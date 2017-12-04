@@ -1,0 +1,140 @@
+   
+<header id="main-header-wrapper">
+  <div id="utility-nav-wrapper" class="clearfix">
+    <div class="container-wrapper">
+        
+  
+      <h4>{{ settings.store_slogan }}</h4> 
+      <ul id="utility-nav">
+       
+        {% if customer %}
+
+        <li><a href="{{ shop.url }}/account/logout" title="Logout">Logout</a></li>
+        <li>&nbsp;|&nbsp;</li>
+        <li{% if template contains 'customer' %}{% unless template contains 'login' or template contains 'register' %} class="active"{% endunless %}{% endif %}><a href="{{ shop.url }}/account" title="View Account">Account</a> </li>
+        {% else %}
+        <li{% if template contains 'register' %}   class="active"{% endif %}><a href="{{ shop.url }}/account/register" title="Register">Register</a></li>
+        <li>&nbsp;|&nbsp;</li>
+      
+        <li{% if template contains 'customer' %}{% unless template contains 'register' %} class="active"{% endunless %}{% endif %}><a href="{{ shop.url }}/account/login" title="Account">Account</a></li>
+        {% endif %}
+        <li>{% include'cart-button' %}</li>
+      </ul><!--utility-nav-->
+
+        {% if settings.use_header_flags %}
+        <ul class = "header-flags">
+        
+          {% if settings.use_header_flag_1 %}
+          <li><a href = "{{settings.flag_1_url}}"><img src = "{{ 'Header_flag_1.png' | asset_url }}" /></a></li>
+          {%endif%}
+          {% if settings.use_header_flag_2 %}
+          <li><a href = "{{settings.flag_2_url}}"><img src = "{{ 'Header_flag_2.png' | asset_url }}" /></a></li>
+          {%endif%} 
+          {% if settings.use_header_flag_3 %}
+          <li><a href = "{{settings.flag_3_url}}"><img src="{{ 'Header_flag_3.png' | asset_url }}" /></a></li>
+          {%endif%} 
+          {% if settings.use_header_flag_4 %}
+              
+          <li><a href = "{{settings.flag_4_url}}"><img src = "{{ 'Header_flag_4.png' | asset_url }}" /></a></li>
+          {%endif%} 
+          {% if settings.use_header_flag_5 %}
+           <li></li>
+         
+          <li><a href = "{{settings.flag_5_url}}"><img src = "{{ 'Header_flag_5.png' | asset_url }}" /></a></li>
+       
+          {%endif%}
+      	</ul>	
+      {% endif %}
+    </div><!--container-wrapper-->
+  </div><!--utility-nav-wrapper-->
+  <div id="main-header" class="container-wrapper clearfix">
+    <a id="logo-wrapper" href="/" title="{{ shop.name }}">
+      {% if settings.use_logo %}
+      <h1 class = "header-shop-logo"><img src="{{ 'logo.png' | asset_url }}" id="logo"  alt="{{ shop.name }}"></h1>
+      {% else %}
+      <h1 class = "header-shop-name">{{ shop.name }}</h1>
+      {% endif %}
+    </a>
+    <div id="header-cta"{% if settings.use_header_promo %} class="header-promo"{% endif %}>
+      <div id="header-search">
+        {% include 'search-input' %}
+      </div><!--haeder-search-->
+      {% if settings.use_header_promo %}
+      <div id="header-promo">
+        {% if settings.header_promo_link != '' %}
+        	<a href="{{ settings.header_promo_link }}">{{ settings.header_promo_content }}</a>
+        {% else %}
+        {{ settings.header_promo_content }}
+        {% endif %}
+      </div><!--header-promo-->
+      {% endif %}
+    </div><!--header-cta-->
+    <div id="call-us">
+      {% if settings.store_phone != '' %}
+      <h3>{{ settings.phone_headline | truncate: 25}} <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></h3>
+      <h4><a href="tel:+1-{{ settings.store_phone | truncate: 20}}">{{ settings.store_phone | truncate: 20}}</a></h4>      
+      {% endif %}
+    </div>
+  </div><!--main-header-->
+  <nav id="main-nav-wrapper" class="clearfix">
+    <div class="container-wrapper">
+      <ul id="main-nav">
+        {% for link in linklists.main-menu.links limit:8 %}
+        {% assign dropdown = false %}
+        {% assign ulClass = "single" %}
+        {% capture child_list_handle %}{{ link.title | handleize }}{% endcapture %}
+        {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+        {% assign dropdown = true %}
+        {% if linklists[child_list_handle].links.size > 10 and linklists[child_list_handle].links.size < 20 %}
+        {%assign ulClass = "double"%}
+        {%elsif linklists[child_list_handle].links.size > 20 %}
+        {%assign ulClass = "triple"%}
+        {%endif%}
+        {% endif %}
+        <li class="{% if link.active %}active {% endif %}{% if dropdown %}has-dropdown{% endif %}">
+          <a href="{{ link.url }}">{{ link.title }} {% if dropdown %}<span class="fa fa-angle-down"></span>{% endif %}</a>
+          {% if dropdown %}
+          <ul class="dropdown {{ulClass}}">
+            {% for l in linklists[child_list_handle].links %}
+            <li{% if l.active %} class="active"{% endif %}><a href="{{ l.url }}">{{ l.title }}</a></li>
+            {% endfor %}
+          </ul><!-- dropdown -->
+          {% endif %}
+        </li>
+        {% endfor %}
+      {% if settings.main_nav_cta_text  != '' %}
+      <a class="join" href="{{ settings.main_nav_cta_url }}" title="{{ settings.main_nav_cta_text | escape }}">{{ settings.main_nav_cta_text }}</a>
+      {% endif %}
+      </ul><!--main-nav-->
+      <span id="mobile-nav-toggle" class="fa fa-bars"></span>
+      <a id="mobile-cart-icon" class="fa fa-shopping-cart" href="/cart"></a>
+      <ul id="mobile-nav" class="animated-fast fadeIn">
+        {% assign children = false %}
+        {% for link in linklists.main-menu.links %}
+        {% capture child_list_handles %}{{ link.title | handleize }}{% endcapture %}
+        {% if linklists[child_list_handles] and linklists[child_list_handles].links.size > 0 %}
+        {% assign children = true %}
+        {% else %}
+        {% assign children = false %}
+        {% endif %}
+        <li id="{{ link.title | handleize }}-link" class="mobile-link {% if link.active %}active{% endif %}{% if children %} clearfix children{% endif %}">
+          <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }} 
+            {% unless children %}
+            <span class="fa fa-angle-right"></span>
+            {% endunless %}
+          </a>
+          {% if children %}
+          <span class="mobile-dropdown-toggle fa fa-plus-circle"></span>
+          <ul class="mobile-dropdown">
+            {% for l in linklists[child_list_handles].links %}
+            <li{% if l.active %} class="active"{% endif %}><a href="{{ l.url }}">{{ l.title }} <span class="fa fa-angle-right"></span></a></li>
+            {% endfor %}
+          </ul><!-- dropdown -->
+          {% endif %}
+        </li>
+        {% endfor %}
+        {% include 'mobile-languages-switcher' %}
+      </ul><!-- main-nav -->
+    </div><!--container-wrapper-->
+  </nav><!--nav-->
+</header><!--main-header-wrapper-->

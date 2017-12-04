@@ -1,0 +1,107 @@
+<div class = "press-slider-wrapper container-wrapper">
+  <h2 class = "press-slider-headline">{{ settings.footer_slider_headline }}</h2>
+  <div id = "press-slider">
+{%assign counter = "" %}   
+{% for i in (1..15) %}  
+ {% capture use_slider_image %}use_footer_image_slider_image_{{ i }}{% endcapture %}
+  {% if settings[use_slider_image] %}    
+   {% capture counter %}{{ counter| append: "1" }}{% endcapture %}
+  {%endif%}
+{% endfor %}
+    
+{% if counter.size < 8 %}
+ <div class = "footer-slider-wrapper">
+  {%for i in (1..15)%}
+   {% capture use_slider_image %}use_footer_image_slider_image_{{ i }}{% endcapture %}
+   {% capture slider_image_url %}footer_image_slider_image_{{ i }}.jpg{% endcapture %}
+   {% if settings[use_slider_image] %}
+    <div class = "press-slider-img">
+     {{ slider_image_url | asset_url | img_tag }}
+    </div>
+   {% endif %}
+  {%endfor%}
+ </div>
+{% else %}
+ <div class = "footer-slider-wrapper" id = "press-slider-inner">
+  {%for i in (1..15)%}
+   {% capture use_slider_image %}use_footer_image_slider_image_{{ i }}{% endcapture %}
+   {% capture slider_image_url %}footer_image_slider_image_{{ i }}.jpg{% endcapture %}
+   {% if settings[use_slider_image] %}
+    <div class = "press-slider-img">
+     {{ slider_image_url | asset_url | img_tag }}
+    </div>
+   {% endif %}
+  {%endfor%}
+  {%for i in (1..15)%}
+   {% capture use_slider_image %}use_footer_image_slider_image_{{ i }}{% endcapture %}
+   {% capture slider_image_url %}footer_image_slider_image_{{ i }}.jpg{% endcapture %}
+   {% if settings[use_slider_image] %}
+    <div class = "press-slider-img">
+     {{ slider_image_url | asset_url | img_tag }}
+    </div>
+   {% endif %}
+  {%endfor%}
+  {%for i in (1..15)%}
+   {% capture use_slider_image %}use_footer_image_slider_image_{{ i }}{% endcapture %}
+   {% capture slider_image_url %}footer_image_slider_image_{{ i }}.jpg{% endcapture %}
+   {% if settings[use_slider_image] %}
+    <div class = "press-slider-img">
+     {{ slider_image_url | asset_url | img_tag }}
+    </div>
+   {% endif %}
+  {%endfor%}
+{% endif %}
+</div></div></div>
+   
+
+<script>
+document.ready = function (){
+  /*This is for the footer press slider -
+  **so have a css transform that moves the slider one image over, then immediately after 
+  **(maybe on a timed delay equal to the time it takes to move the img?), add the next image to
+  **the end, get rid of the image that just disappeared, and recall the function
+  */
+  var pressImages = $("#press-slider-inner img")
+  //set press-slider-inner to the size of the images it contains
+  $("#press-slider-inner").css("width", (pressImages.length*125))  
+} //end document.onload
+
+window.onload = function(){ 
+  var pressImages = $("#press-slider img")
+  var num = 0; 
+  var pressTimer = $("#press-slider-inner img").length*3-30
+  var timeOut = pressTimer*950
+  var pressImagesLength = $("#press-slider-inner img").length*125
+  {%if settings.use_wide_layout%}
+    var pressImagesTrans = $("#press-slider-inner img").length*125-1240
+  {%else%}
+      var pressImagesTrans = $("#press-slider-inner img").length*125-940
+  {%endif%}
+  var translation = pressImagesTrans*-1;
+    
+function pressSlide()   { 
+ 	$("#press-slider-inner").css("width", pressImagesLength) 
+  	$("#press-slider-inner").css("transform", "translate("+translation+"px)")
+  	$("#press-slider-inner").css("transition", ""+pressTimer+"s linear")
+  	/*//translation = translation - 500;
+  	//var pressImagesLength = $("#press-slider-inner img").length*125
+    $("#press-slider-inner div:nth-child(" + num + ")").css("display", "none");
+   	$("#press-slider-inner").css("transform", "translate(0px)")
+    $("#press-slider-inner").css("transition", "0s")*/
+    
+  setTimeout(function(){
+   toSlide()
+  }, timeOut);
+  //}, 1000); 
+    } //end pressSlide
+  
+    function toSlide(){
+        $("#press-slider-inner").css("transform", "translate(0px)")
+  		$("#press-slider-inner").css("transition", "0s linear")
+    setTimeout(function(){
+    pressSlide()
+  }, 10);
+    }
+    pressSlide()  
+  } //end window.onload
+</script>

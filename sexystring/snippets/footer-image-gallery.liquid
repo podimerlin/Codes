@@ -1,0 +1,26 @@
+<div id="footer-image-gallery-wrapper">
+  <div class="container-wrapper">
+    <h2>{{ settings.footer_image_gallery_content }}</h2>
+    {% for i in (1..28) %}  
+    {% capture use_footer_image %}use_footer_image_gallery_image_{{ i }}{% endcapture %}
+    {% capture footer_gallery_image %}footer_image_gallery_image_{{ i }}.jpg{% endcapture %}
+    {% capture footer_image_gallery_link %}footer_image_gallery_link_{{ i }}{% endcapture %}
+
+    {% if settings[use_footer_image] %}
+    	{%if settings[footer_image_gallery_link] != "" %}
+    		<a href = "{{ settings[footer_image_gallery_link] }}" >
+      	{%endif%}
+    	<span class="footer-image-gallery-image" style="background: url({{ footer_gallery_image | asset_url }}) no-repeat 50% 50%;background-size:cover;">
+            {%if settings.footer_image_gallery_hover_text != "" and settings[footer_image_gallery_link] != "" %}
+    			<span class = "footer-image-gallery-overlay">{{ settings.footer_image_gallery_hover_text }}</span>
+    		{%endif%}      
+        </span><!--footer-image-gallery-image-->
+    	{%if settings[footer_image_gallery_link] != "" %}
+    		</a>
+      	{%endif%}    
+    {% endif %}
+    {% endfor %}
+    <span class="break"></span>
+    <span class="break"></span>    
+  </div><!--container-wrapper-->
+</div><!--footer-image-gallery-->

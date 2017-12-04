@@ -1,0 +1,27 @@
+<div class="col-car-wrapper">
+  <h2>{{ settings.col_car_title_1 }}</h2>
+  <div id="col-car-slider-one" class="col-car-slider flexslider">
+    {%assign collectionSize = collections[settings.col_car_1].products | size %}
+    <a class="previous {% if collectionSize < 5 %}med-collection-arrow{%endif%} {% if collectionSize < 4 %}small-collection-arrow{%endif%}" href="#"><i class="fa fa-angle-left"></i></a>
+    <a class="next {% if collectionSize < 5 %}med-collection-arrow{%endif%} {% if collectionSize < 4 %}small-collection-arrow{%endif%}" href="#"><i class="fa fa-angle-right"></i></a>
+    <ul class="slides">
+      {% for product in collections[settings.col_car_1].products %}
+      {% assign titleSize = product.title | size %}
+      <li{% if titleSize > 65 %} class = "collection-long-title" {%endif%}><a href="{{ product.url | within: collection }}">
+        <img {% if product.available and product.variants.size <= 1%} class="carousel-cart-image"{%endif%} src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
+        <h4>
+          <a href="{{ product.url | within: collection }}" title="{{ product.title | strip_html | escape }}">{{ product.title }}</a>
+     
+        </h4>
+      </li>
+      {% endfor %}
+    </ul><!--slides -->
+  </div><!--col-car-slider-->
+</div><!--col-car-wrapper-->
+
+{%if settings.use_wide_layout%}
+{%include 'carousel-wide-script'%}
+{%else%}
+{%include 'carousel-script'%}
+{%endif%}

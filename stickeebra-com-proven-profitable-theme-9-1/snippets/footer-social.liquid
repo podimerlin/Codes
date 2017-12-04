@@ -1,0 +1,20 @@
+<div id="footer-social">
+  {% if settings.footer_use_facebook %}
+  <a target="_blank" href="{{ settings.facebook_url }}" title="{{ shop.name }} on Facebook"><img src="{{ 'facebook_icon.jpg' | asset_url }}" title="{{ shop.name }} on Facebook" alt="{{ shop.name }} on Facebook"><span>Facebook</span></a>
+  {% endif %}
+  {% if settings.footer_use_twitter %}
+  <a target="_blank" href="{{ settings.twitter_url }}" title="{{ shop.name }} on Twitter"><img src="{{ 'twitter_icon.jpg' | asset_url }}" title="{{ shop.name }} on Twitter" alt="{{ shop.name }} on Facebook"><span>Twitter</span></a>
+  {% endif %}
+  {% if settings.footer_use_pinterest %}
+  <a target="_blank" href="{{ settings.pinterest_url }}" title="{{ shop.name }} on Pinterest"><img src="{{ 'pinterest_icon.jpg' | asset_url }}" title="{{ shop.name }} on Pinterest" alt="{{ shop.name }} on Pinterest"><span>Pinterest</span></a>
+  {% endif %}
+  {% if settings.footer_use_google_plus %}
+  <a target="_blank" href="{{ settings.google_plus_url }}" title="{{ shop.name }} on Google Plus"><img src="{{ 'google_plus_icon.jpg' | asset_url }}" title="{{ shop.name }} on Google+" alt="{{ shop.name }} on Google+"><span>Google+</span></a>
+  {% endif %}
+  {% if settings.footer_use_instagram %}
+  <a target="_blank" href="{{ settings.instagram_url }}" title="{{ shop.name }} on Instagram"><img src="{{ 'instagram_icon.jpg' | asset_url }}" title="{{ shop.name }} on Instagram" alt="{{ shop.name }} on Google+"><span>Instagram</span></a>
+  {% endif %}
+  {% if settings.footer_use_youtube %}
+  <a target="_blank" href="{{ settings.youtube_url }}" title="{{ shop.name }} on YouTube"><img src="{{ 'youtube_icon.jpg' | asset_url }}" title="{{ shop.name }} on YouTube" alt="{{ shop.name }} on YouTube"><span>YouTube</span></a>
+  {% endif %}  
+</div><!--footer-social-->

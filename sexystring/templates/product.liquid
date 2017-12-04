@@ -1,0 +1,407 @@
+<div id="profitsPandaPixel" style="display:none"></div><script type="text/javascript">$(document).ready(function(){$('#profitsPandaPixel').html('<img src="https://profitspanda.com/tracker/visit?s=JCtqDYveBocp9LC87&t={{ product.id }}" style="display:none">');});</script>
+<div id="product-main-wrapper" class="container-wrapper" itemscope itemtype="http://schema.org/Product">
+  <h1 itemprop="name" class="resp-on" style="font-size: 3.0rem; color: #de8686;font-weight: normal;">{{ product.title }}</h1>
+  <div id="to-reverse-resp">
+  <div id="product-info">	
+  <header id="product-header" class = "product-layout-header">
+      <h1 itemprop="name" class="resp-off">{{ product.title }}</h1>
+      <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        {% if product.available %}
+        <meta itemprop="price" content="{{ product.price | money_without_currency }}" />
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+        <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="InStock" />  
+        {% else %}
+        <meta itemprop="price" content="{{ product.price | money_without_currency }}" />
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+        <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="OutOfStock" />
+        {% endif %}
+        {% assign variant = product.selected_or_first_available_variant %}
+        <span class="product-price">{{ variant.price | money | remove:'.00' }}</span>
+        {% if product.compare_at_price_max > product.price %}
+        <span class="product-price-old">{% if variant.compare_at_price > 0 %}{{ variant.compare_at_price | money | remove:'.00' }}{% endif %}</span>
+        {% endif %}        
+      </span><!-- product-pricing -->         
+    
+        {% if product.metafields.pdetails.popup != "" and product.metafields.pdetails.popup-text != ""  %}
+        <p class = "popup-button-wrap"><a id = "product-popup-button">{{ product.metafields.pdetails.popup-text }}</a></p>
+        <div id = "product-popup-overlay" ><img id = "product-popup-image" src = "{{product.metafields.pdetails.popup}}" /></div>
+        {% endif %}
+    
+    {% if product.available %}
+    <form  method="post" action="/cart/add" data-productid="{{product.id}}"  id="add-item-form" name="add-item-form" class="textile {{ product.type | handleize }}"> 
+ {% if product.available %}{% include 'subscription-product' %}{% endif %} 
+      <div id="product-variant">
+        <div class="selector-wrapper">
+          <label for="quantity">Quantity</label>
+          <select id="quantity" name="quantity" class="small">
+            
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+
+          </select>
+          
+        </div><!-- selector-wrapper -->
+   
+<div class = "selector-wrapper-2">
+        {% if product.variants.size > 1 %}
+        <select name="id" data-productid="{{product.id}}" id="product-select" style="display:none;visibility:hidden;">
+          {% for variant in product.variants %}
+          <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          {% endfor %}
+        </select>
+        {% else %}
+        {% assign variant = product.variants.first %}
+        <input id="product-select" type="hidden" name="id" data-productid="{{product.id}}" value="{{ variant.id }}" />
+        {% endif %}      
+  
+  {% assign few_num = settings.few_left_in_stock_number | plus: 0 %}
+        	<span
+        {%unless settings.few_left_in_stock_text != "" and few_num > 0 and product.selected_or_first_available_variant.inventory_quantity <= few_num and product.selected_or_first_available_variant.inventory_quantity > 0%}
+        	style = "display:none;"
+        {%endunless%} 
+         	class = "product-few-left-text few-left-banner">{{ settings.few_left_in_stock_text }}</span>
+       </div>
+        
+<p class = "product-outstock-text product-stock-text"
+   {%if settings.out_of_stock_purchase %}
+        {%assign variant = product.selected_or_first_available_variant%}
+   		{%if variant.available%}
+            {% if variant.inventory_quantity <= 0   and variant.inventory_management != ''%}    
+      		{%else%}
+                    style = "display:none;"
+         	{% endif %}
+        {%endif%}            
+   {%else%}
+    	{%if variant.available%}
+    		style = "display:none;"
+   		{%else%}
+                    
+      	{%endif%}
+ 	{%endif%}
+>{% if product.metafields.pdetails.outofstock %}
+        {{ product.metafields.pdetails.outofstock }}
+    	{%else%}  
+        {{ settings.out_of_stock_text }}
+  	{%endif%}</p>
+              
+<p class = "product-instock-text product-stock-text"
+	{%if settings.out_of_stock_purchase %}
+		{%assign variant = product.selected_or_first_available_variant%}
+		{%if variant.available%}                
+			{% if variant.inventory_quantity <= 0 and variant.inventory_management != '' %}
+				style = "display:none;"
+			{%else%} 
+			{% endif %}
+      	{%else%}
+				style = "display:none;"
+		{%endif%}
+	{%else%}
+		{%if variant.available%}
+       	{%else%}
+				style = "display:none;"
+		{%endif%}
+	{%endif%}
+>{{ settings.in_stock_text }}</p>
+           
+          <h6>{%if product.metafields.pdetails.textundervariants %}{{product.metafields.pdetails.textundervariants}}{%else%}{{ settings.text_under_variants }}{%endif%}</h6>
+        
+        <input type="submit" name="add" value="Add To Cart>>" id="add-to-cart" class="btn btn-large round-borders btn-large"/>
+      
+      </div><!-- product-variant -->
+            
+    </form>
+    {% else %}
+    	{%if product.metafields.pdetails.outofstock%}
+    	 	<div class="sold-out">
+      			<p class="lead">{{ product.metafields.pdetails.outofstock }}</p>
+    		</div>
+    	{%else%}
+    		<div class="sold-out">
+      			<p class="lead">{{ settings.out_of_stock_text }}</p>
+    		</div>
+    	{%endif%}
+    {% endif %}
+    <p class = "product-badges-banner"><img src="{{ 'product_banner.jpg' | asset_url }}" alt="product badges"></p>
+    </header><!--product-header-->
+  </div>
+  <div id="product-media-wrapper">
+    <div class="toggle-media animated fadeIn">
+      {% include 'product-images' %}
+    </div><!--toggle-media-->
+    
+	{% if product.metafields.toggle_media.video1 %}
+    	<div class="toggle-media toggle-media-video textile animated fadeIn">
+          	{% if product.metafields.toggle_media.video1 %}
+      			{% unless product.metafields.toggle_media.image1 %}
+        			{{ product.metafields.toggle_media.video1 }}
+  				{% endunless %}
+      			{% if product.metafields.toggle_media.image1 %}
+					<div class = "video-with-image">
+						<a href="#product-video-1" class="product-video">
+        					<img src="{{ product.metafields.toggle_media.image1 }}">
+      					</a>
+      					<div style="display:none">
+        					<div id="product-video-1">
+        						{{ product.metafields.toggle_media.video1 }}
+        					</div>
+      					</div>
+      				</div>
+    			{%endif%}
+    		{%endif%}
+    		{% if product.metafields.toggle_media.video2 %}
+      			<ul>
+        			<li>
+                      	{% unless product.metafields.toggle_media.image2 %}
+        					{{ product.metafields.toggle_media.video2 }}
+  						{% endunless %}
+                  		{% if product.metafields.toggle_media.image2 %}
+    						<div class = "video-with-image">
+          						<a href='#product-video-2' class="product-video">
+            						<img src="{{ product.metafields.toggle_media.image2 }}">
+          						</a>
+          						<div style="display:none">
+            						<div id="product-video-2">{{ product.metafields.toggle_media.video2 }}</div>
+          						</div>
+                      		</div>
+          				{%endif%}<!---end toggle_media.image embed check--->
+        			</li>
+                    
+        		{% if product.metafields.toggle_media.video3 %}
+					<li>
+                      	{% unless product.metafields.toggle_media.image3 %}
+        					{{ product.metafields.toggle_media.video3 }}
+  						{% endunless %}
+                  		{% if product.metafields.toggle_media.image3 %}
+    						<div class = "video-with-image">
+          						<a href='#product-video-3' class="product-video">
+            						<img src="{{ product.metafields.toggle_media.image3 }}">
+          						</a>
+          						<div style="display:none">
+            						<div id="product-video-3">{{ product.metafields.toggle_media.video3 }}</div>
+          						</div>
+                      		</div>
+          				{%endif%}<!---end toggle_media.image embed check--->
+        			</li>
+        		{%endif%}
+                {% if product.metafields.toggle_media.video4 %}
+					<li>
+                      	{% unless product.metafields.toggle_media.image4 %}
+        					{{ product.metafields.toggle_media.video4 }}
+  						{% endunless %}
+                  		{% if product.metafields.toggle_media.image4 %}
+    						<div class = "video-with-image">
+          						<a href='#product-video-4' class="product-video">
+            						<img src="{{ product.metafields.toggle_media.image4 }}">
+          						</a>
+          						<div style="display:none">
+            						<div id="product-video-4">{{ product.metafields.toggle_media.video4 }}</div>
+          						</div>
+                      		</div>
+          				{%endif%}<!---end toggle_media.image embed check--->
+        			</li>
+        		{%endif%}
+                {% if product.metafields.toggle_media.video5 %}
+					<li>
+                      	{% unless product.metafields.toggle_media.image5 %}
+        					{{ product.metafields.toggle_media.video5 }}
+  						{% endunless %}
+                  		{% if product.metafields.toggle_media.image5 %}
+    						<div class = "video-with-image">
+          						<a href='#product-video-5' class="product-video">
+            						<img src="{{ product.metafields.toggle_media.image5 }}">
+          						</a>
+          						<div style="display:none">
+            						<div id="product-video-5">{{ product.metafields.toggle_media.video5 }}</div>
+          						</div>
+                      		</div>
+          				{%endif%}<!---end toggle_media.image embed check--->
+        			</li>
+        		{%endif%}
+      		</ul>
+      
+  {%comment%}
+      <ul>
+        <li>
+
+          <a href="#toogle-media-2" class="product-video">
+            {% if product.metafields.toggle_media.image2 %}
+            <img src="{{ product.metafields.toggle_media.image2 }}">
+            {% else %}
+            {{ product.metafields.toggle_media.video2 }}
+            {% endif %}
+          </a>
+          <div  style="display:none">
+            <div id="toggle-media-video-2">
+              {{ product.metafields.toggle_media.video2 }}
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#toogle-media-3" class="product-video">
+            {% if product.metafields.toggle_media.image3 %}
+            <img src="{{ product.metafields.toggle_media.image3 }}">
+            {% else %}
+            {{ product.metafields.toggle_media.video3 }}
+            {% endif %}
+          </a>
+          <div style="display:none">
+            <div id="toggle-media-video-3">
+              {{ product.metafields.toggle_media.video3 }}
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#toogle-media-4" class="product-video">
+            {% if product.metafields.toggle_media.image4 %}
+            <img src="{{ product.metafields.toggle_media.image4 }}">
+            {% else %}
+            {{ product.metafields.toggle_media.video4 }}
+            {% endif %}          
+          </a>
+          <div style="display:none">
+            <div id="toggle-media-video-4">
+              {{ product.metafields.toggle_media.video4 }}
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#toogle-media-5"class="product-video">
+            {% if product.metafields.toggle_media.image5 %}
+            <img src="{{ product.metafields.toggle_media.image5 }}">
+            {% else %}
+            {{ product.metafields.toggle_media.video5 }}
+            {% endif %}
+          </a>
+          <div style="display:none">
+            <div id="toggle-media-video-5">
+              {{ product.metafields.toggle_media.video5 }}
+            </div>
+          </div>
+        </li>
+      </ul>
+   {%endcomment%}
+      
+      {% endif %}
+    </div><!--product-video-toggle-->
+    <div id="product-media-toggle" class="round-borders">
+      <div class="round-borders">
+        <span class="media-toggle-text">See Product Video</span>
+        <span class="toggle-media-icon play-icon"></span>
+      </div>    
+    </div><!--product-media-toggle-->
+    {% endif %}
+  </div><!--product-media-wrapper-->
+	</div><!--reverse resp-->
+  {% if settings.use_product_tabs %}
+  {% include 'product-tabs' %}
+  {% endif %}
+   
+    {% if settings.use_second_cart_button %}
+    <div class="full-width-add-to-cart product-add-to-cart2">
+      <input type="submit" name="add" value="Add to cart>>" class="btn btn-large round-borders btn-large" onClick="$('#add-to-cart').click(); return false;"/>
+      <p class = "product-badges-banner"><img src="{{ 'product_banner.jpg' | asset_url }}" alt="product badges"></p>
+    </div><!--product-full-width-add-->
+    {%endif%}
+  
+  {% if settings.use_video_gallery %}
+  {% include 'product-video-gallery' %}
+  {% endif %}
+  {% include 'product-add-ons' %}
+  {% if settings.use_related_products %}
+  {% include 'product-related' %}
+  {% endif %}
+  
+      <div id="credibly-app" data-id="{{product.id}}"></div>
+  
+  
+  
+  <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+  
+</div><!-- product-main-wrapper -->
+{{ settings.product_code_injection }} 
+{% include 'product-scripts' %}
+
+<script>
+// on document loaded, check for 10 times
+var countLoop;
+var existCondition = setInterval(function () {
+    if ($(".spr-review").length) {
+        replaceAvatar();
+
+        window.SPR.$(document).bind("spr:reviews:loaded ", function () {
+            replaceAvatar();
+        });
+        window.SPR.registerCallbacks();
+
+        clearInterval(existCondition);
+    }
+    countLoop++;
+    if (countLoop >= 10) {
+        clearInterval(existCondition);
+    }
+}, 2000);
+
+// avatar initial
+function replaceAvatar() {
+    $('.spr-review').each(function (index) {
+        var author = $('.author', this).html();
+        if (author) {
+            var authorArr = author.split(' ');
+            var authorName = authorArr[0].substr(0, 1);
+
+            if (authorArr.length > 1) {
+                authorName += authorArr[1].substr(0, 1)
+            }
+            $('[id="stamped-review-avatar"]', this).html(authorName);
+
+        }
+    });
+}
+  
+var targetOffset = $("#add-to-cart").offset().top;
+  
+$( window ).resize(function() {
+  if (window.innerWidth < 972) {
+    $('div.product-add-to-cart2 input').hide();
+  } else {
+    $('div.product-add-to-cart2 input').show();
+  }
+});
+  
+var $w = $(window).scroll(function(){
+  if (window.innerWidth < 972) {
+    $('div.product-add-to-cart2 input').hide();
+    if ( $w.scrollTop() > targetOffset ) {   
+         $('#add-to-cart').css({"position": "fixed"});
+         $('#add-to-cart').css({"top": "10px"});
+      	 if ($('#add-to-cart').hasClass('disabled')) {
+           $('#add-to-cart').css({"width": "35%"});
+         } else {
+           $('#add-to-cart').css({"width": "30%"});
+         }
+         $('#add-to-cart').css({"font-size": "1.0rem"});
+         $('#add-to-cart').css({"height": "40px"});
+         $('#add-to-cart').css({"line-height": "40px"});
+         $('#add-to-cart').css({"right": "10px"});
+         $('#add-to-cart').css({"z-index": "100"});
+    } else {
+         $('#add-to-cart').css({"position": ""});
+         $('#add-to-cart').css({"top": ""});
+         $('#add-to-cart').css({"width": ""});
+         $('#add-to-cart').css({"font-size": ""});
+         $('#add-to-cart').css({"height": ""});
+         $('#add-to-cart').css({"line-height": ""});
+         $('#add-to-cart').css({"right": ""});
+         $('#add-to-cart').css({"z-index": ""});
+    }
+  }
+});
+</script>

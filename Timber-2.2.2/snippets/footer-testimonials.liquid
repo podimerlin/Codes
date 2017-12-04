@@ -1,0 +1,35 @@
+<div id="footer-testimonies" class="clearfix">
+  <h2>{{ settings.testimonies_title }}</h2>
+  <div class="testimony">
+    {% if settings.use_testimonie_logo_1 %}
+    <div class="testimony-img">
+      <img src="{{ 'testimonie_logo_1.png' | asset_url }}" alt="{{ settings.testimonie_logo_1_alt }}" title="{{ settings.testimonie_logo_1_alt }}">
+    </div>
+    {% endif %}
+    <p{% if settings.use_testimonie_logo_1 == false %} class="testimony-full-width"{% endif %}>{{ settings.testimonies_1 }}<br/> <span class="author">{{ settings.testimonies_1_author }}</span></p>
+  </div><!--testimony-->
+  <div class="testimony">
+    {% if settings.use_testimonie_logo_2 %}
+    <div class="testimony-img">
+      <img src="{{ 'testimonie_logo_2.png' | asset_url }}" alt="{{ settings.testimonie_logo_2_alt }}" title="{{ settings.testimonie_logo_2_alt }}">
+    </div>
+    {% endif %}
+    <p{% if settings.use_testimonie_logo_2 == false %} class="testimony-full-width"{% endif %}>{{ settings.testimonies_2 }}<br/> <span class="author">{{ settings.testimonies_2_author }}</span></p>
+  </div><!--testimony-->
+  <div class="testimony">
+    {% if settings.use_testimonie_logo_3 %}
+    <div class="testimony-img">
+      <img src="{{ 'testimonie_logo_3.png' | asset_url }}" alt="{{ settings.testimonie_logo_3_alt }}" title="{{ settings.testimonie_logo_3_alt }}">
+    </div>
+    {% endif %}
+    <p{% if settings.use_testimonie_logo_3 == false %} class="testimony-full-width"{% endif %}>{{ settings.testimonies_3 }}<br/> <span class="author">{{ settings.testimonies_3_author }}</span></p>
+  </div><!--testimony-->
+  <div class="testimony">
+    {% if settings.use_testimonie_logo_4 %}
+    <div class="testimony-img">
+      <img src="{{ 'testimonie_logo_4.png' | asset_url }}" alt="{{ settings.testimonie_logo_4_alt }}" title="{{ settings.testimonie_logo_4_alt }}">
+    </div>
+    {% endif %}
+    <p{% if settings.use_testimonie_logo_4 == false %} class="testimony-full-width"{% endif %}>{{ settings.testimonies_4 }}<br/> <span class="author">{{ settings.testimonies_4_author }}</span></p>
+  </div><!--testimony-->        
+</div><!--footer-testimonies-->

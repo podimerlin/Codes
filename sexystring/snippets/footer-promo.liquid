@@ -1,0 +1,41 @@
+<div id="footer-promo-wrapper" class="clearfix">
+  <a class="promo-main-image" href="{{ settings.footer_promo_link }}" title="{{ settings.promo_main_image_title }}">
+    <img src="{{ 'promo_main_image.png' | asset_url }}" alt="{{ settings.promo_main_image_title }}" >
+  </a>
+  <div id="footer-promo-content">
+    <h2><a href="{{ settings.footer_promo_link }}">{{ settings.footer_promo_heading }}</a></h2>
+    <h3>{{ settings.footer_promo_sub_title }}</h3>
+    <p>{{ settings.footer_promo_content }}</p>
+    <div id="footer-slider-wrapper" class="flexslider">
+      <a class="previous" href="#"><i class="fa fa-angle-left"></i></a>
+      <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
+      <ul id="footer-slider-image-wrapper" class="slides">
+        {% for i in (1..12) %}  
+        {% capture use_promo_image %}use_promo_slider_image_{{ i }}{% endcapture %}
+        {% capture promo_image %}promo_slider_image_{{ i }}.jpg{% endcapture %}
+        {% if settings[use_promo_image] %}
+        <li style = "background-image: url('{{ promo_image | asset_url }}');">
+          {%comment%}<img src="{{ promo_image | asset_url }}"/>{%endcomment%}
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div><!--footer-promo-content-->
+</div><!--footer-promo-wrapper-->
+
+<script type="text/javascript">
+  (function($){
+    $('#footer-slider-wrapper').flexslider({
+      animation: "slide",
+      animationLoop: true,
+      controlNav: false,
+      directionNav: false,
+      slideshow: true,
+      itemWidth: 280,
+      itemMargin: 20,
+      minItems: 2,
+      maxItems: 12
+    }).flexsliderManualDirectionControls();
+  })(jQuery)
+</script>

@@ -1,0 +1,28 @@
+<div class="antennaShopifyContainer" style="width: 100%;">
+    <div class="antennaMetaData" style="display:none;">
+        <span class="antennaShop" data-shop-name="{{ shop.name | escape }}" data-shop-domain="{{ shop.permanent_domain | escape }}"></span>
+        <span class="antennaProduct" data-product-id="{{ product.id | escape }}" data-product-title="{{ product.title | escape }}"></span>
+        <span class="antennaThemeColors" data-color_primary="{{ settings.color_primary | escape }}"></span>
+        {% if customer %}
+        <span class="antennaCustomer" data-customer-id="{{ customer.id | escape }}"></span>
+            {% for order in customer.orders %}
+                {% for line_item in order.line_items %}
+                    {% if line_item.product_id == product.id %}
+                        <span class="antennaPurchaseVerified"></span>
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        {% for tag in product.tags %}
+            <span class="antennaTag" data-tag="{{tag | escape}}"></span>
+        {% endfor %}
+        {% for collection in product.collections %}
+            <span class="antennaCollection" data-collection-id="{{ collection.id | escape }}" data-collection-title="{{ collection.title | escape }}"">
+            </span>
+        {% endfor %}
+    </div>
+    <script>
+        window.antenna_host = '{{ shop.permanent_domain | escape }}';
+    </script>
+</div>

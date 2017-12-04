@@ -1,0 +1,34 @@
+<div id="product-tabs-wrapper" class="textile clearfix">
+  <div id="product-tabs-toolbar">
+    <span class="tab-item tab-item-active" data-content="#one">{{ settings.tab_one_title }}</span>
+    <span class="tab-item" data-content="#two">{% if product.metafields.tab.two_title %}{{ product.metafields.tab.two_title }}{% else %}{{ settings.tab_two_title }}{% endif %}</span>
+    <span class="tab-item" data-content="#three">{% if product.metafields.tab.three_title %}{{ product.metafields.tab.three_title }}{% else %}{{ settings.tab_three_title }}{% endif %}</span>
+    {% if settings.use_tab_four %}
+    <span class="tab-item" data-content="#four">{% if product.metafields.tab.four_title %}{{ product.metafields.tab.four_title }}{% else %}{{ settings.tab_four_title }}{% endif %}</span>
+    {% endif %}
+    {% if settings.use_tab_five %}
+    <span class="tab-item" data-content="#five">{% if product.metafields.tab.five_title %}{{ product.metafields.tab.five_title }}{% else %}{{ settings.tab_five_title }}{% endif %}</span>
+    {% endif %}
+  </div><!-- tabs-toolbar -->
+  <div id="product-tabs-content">
+    <div id="one" class="animated-fast fadeIn">
+      <p>{% if product.metafields.tab.one_content %}{{ product.metafields.tab.one_content }}{% else %}{{ product.description }}{% endif %}</p>
+    </div><!--two-->
+    <div id="two" class="animated-fast">
+      <p>{% if product.metafields.tab.two_content %}{{ product.metafields.tab.two_content }}{% else %}{{ settings.tab_two_content }}{% endif %}</p>
+    </div><!--two-->
+    <div id="three" class="animated-fast">
+      <p>{% if product.metafields.tab.three_content %}{{ product.metafields.tab.three_content }}{% else %}{{ settings.tab_three_content }}{% endif %}</p>
+    </div><!--three-->
+    {% if settings.use_tab_four %}
+    <div id="four" class="animated-fast">
+      <p>{% if product.metafields.tab.four_content %}{{ product.metafields.tab.four_content }}{% else %}{{ settings.tab_four_content }}{% endif %}</p>
+    </div><!--four-->
+    {% endif %}
+    {% if settings.use_tab_five %}
+    <div id="five" class="animated-fast">
+      {% if product.metafields.tab.five_content %}<p>{{ product.metafields.tab.five_content }}{% else %}{{ settings.tab_five_content }}{% endif %}</p>
+    </div><!--five-->
+    {% endif %}
+  </div><!--product-tabs-content-->
+</div><!--product-tabs-wrapper-->

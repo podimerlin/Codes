@@ -1,0 +1,106 @@
+{% if product.metafields.video_gallery.video1 %}
+<div id="product-video-gallery-wrapper" class="textile clearfix">
+  <h2>{{ settings.video_gallery_title }}</h2>
+  <ul>
+    {% if product.metafields.video_gallery.video1 %}
+    <li>
+		{% unless product.metafields.video_gallery.image1 %}
+        	{{ product.metafields.video_gallery.video1 }}
+  		{%endunless%}
+		{%if product.metafields.video_gallery.image1%}
+			<div class = "video-with-image">
+				<a href="#toggle-media-video-1" class="product-video">
+        			{% if product.metafields.video_gallery.image1 %}
+        				<img src="{{ product.metafields.video_gallery.image1 }}">
+        			{% else %}
+        				{{ product.metafields.video_gallery.video1 }}
+        			{% endif %}
+      			</a>
+      			<div style="display:none">
+        			<div id="toggle-media-video-1">
+        				{{ product.metafields.video_gallery.video1 }}
+        			</div>
+      			</div>
+      		</div>
+    	{%endif%}
+    </li>
+    {% endif %}
+    {% if product.metafields.video_gallery.video2 %}
+    <li>
+		{% unless product.metafields.video_gallery.image2 %}
+        	{{ product.metafields.video_gallery.video2 }}
+  		{%endunless%}
+		{%if product.metafields.video_gallery.image2%}
+			<div class = "video-with-image">
+				<a href="#toggle-media-video-2" class="product-video">
+        			<img src="{{ product.metafields.video_gallery.image2 }}">
+      			</a>
+      			<div style="display:none">
+        			<div id="toggle-media-video-2">
+        				{{ product.metafields.video_gallery.video2}}
+        			</div>
+      			</div>
+      		</div>
+    	{%endif%}
+    </li>
+    {% endif %}
+    {% if product.metafields.video_gallery.video3 %}
+    <li>
+		{% unless product.metafields.video_gallery.image3 %}
+        	{{ product.metafields.video_gallery.video3 }}
+  		{% endunless %}
+		{% if product.metafields.video_gallery.image3 %}
+			<div class = "video-with-image">
+				<a href="#toggle-media-video-3" class="product-video">
+        			<img src="{{ product.metafields.video_gallery.image3 }}">
+      			</a>
+      			<div style="display:none">
+        			<div id="toggle-media-video-3">
+        				{{ product.metafields.video_gallery.video3 }}
+        			</div>
+      			</div>
+      		</div>
+    	{%endif%}
+    </li>
+    {% endif %}
+    {% if product.metafields.video_gallery.video4 %}
+    <li>
+		{% unless product.metafields.video_gallery.image4 %}
+        	{{ product.metafields.video_gallery.video4 }}
+  		{% endunless %}
+		{% if product.metafields.video_gallery.image4 %}
+			<div class = "video-with-image">
+				<a href="#toggle-media-video-4" class="product-video">
+        			<img src="{{ product.metafields.video_gallery.image4 }}">
+      			</a>
+      			<div style="display:none">
+        			<div id="toggle-media-video-4">
+        				{{ product.metafields.video_gallery.video4 }}
+        			</div>
+      			</div>
+      		</div>
+    	{%endif%}
+    </li>
+    {% endif %}    
+    {% if product.metafields.video_gallery.video5 %}
+    <li>
+		{% unless product.metafields.video_gallery.image5 %}
+        	{{ product.metafields.video_gallery.video5 }}
+  		{% endunless %}
+		{% if product.metafields.video_gallery.image5 %}
+			<div class = "video-with-image">
+				<a href="#toggle-media-video-5" class="product-video">
+        			<img src="{{ product.metafields.video_gallery.image5 }}">
+      			</a>
+      			<div style="display:none">
+        			<div id="toggle-media-video-5">
+        				{{ product.metafields.video_gallery.video5 }}
+        			</div>
+      			</div>
+      		</div>
+    	{%endif%}
+    </li>
+    {% endif %}    
+  </ul>
+</div><!--product-video-gallery-wrapper-->
+{% endif %}

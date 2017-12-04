@@ -1,0 +1,167 @@
+<div id="article-page" class="container-wrapper textile">
+  <article id="main" class="textile" itemscope itemtype="http://schema.org/Article">
+    <header id="article-header">
+      <h1 id="page-title" class="article-title" itemprop="name">{{ article.title }}</h1>
+      <p class="article-meta">by <span itemprop="author">{{ article.author }}</span> {% if article.tags.size > 0 %}<span class="sep"> | </span>Posted in <span class="article-tags" itemprop="keywords">{% for tag in article.tags %}{% if forloop.last %} and {% else %}{% unless forloop.first %}, {% endunless %}{% endif %}<a class="blogArticleTags" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% endfor %}</span>{% endif %} <span class="sep">|</span> <time class="article-published" pubdate date="{{ article.published_at | date: "%B %d, %Y" }}"><span itemprop="datePublished">{{ article.published_at | date: "%B %d, %Y" }}</span></time>{% if article.comments_enabled? %}{% if settings.use_disqus %} <span class="sep">|</span> <a title="View Comments" class="article-comments" itemprop="interactionCount" href="#disqus_thread" data-disqus-identifier="{{ article.id }}"></a>{% endif %}{% endif %}</p><!-- article-meta -->
+    </header><!-- article -->
+    <div id="article-content" itemprop="articleBody">
+      <!-- insert here -->
+      <!-- FB likes/share -->
+      <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.stickeebra.com{{ article.url }}&amp;width=450&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80&amp;appId" height="80" style="border: none; overflow: hidden;" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+        {%comment%} <img src="{{ article.image.src | img_url: 'medium' }}"> {%endcomment%}
+      {{ article.content }}  
+    </div><!-- article-content -->
+    
+    
+    <p><a href="https://stickeebra.com/collections/stickybra?utm_source=jon&amp;utm_campaign=imageatendofcontent&amp;utm_medium=ContentArticle%0A"><img src="//cdn.shopify.com/s/files/1/1402/6745/files/main_1_large.jpg?v=1478585930" alt="" style="display: block; margin-left: auto; margin-right: auto;" /></a></p>
+    <p style="text-align: center;"><a href="https://stickeebra.com/collections/stickybra?utm_source=jon&amp;utm_campaign=shopnstickeebrabuttonatendofcontent&amp;utm_medium=ContentArticle%0A" style="background-color: #44c767; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: 1px solid #18ab29; display: inline-block; cursor: pointer; color: #ffffff; font-family: Arial; font-size: 17px; font-weight: bold; padding: 5px 15px; text-decoration: none; text-shadow: 0px 1px 0px #2f6627;">SHOP STICKEEBRA</a></p>
+    <iframe id="fbiframe" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FStickeeBra%2F&amp;width=450&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80&amp;appId" width="100%" height="80" style="border: none; overflow: hidden;" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+    <form id="email_signup" class="klaviyo_styling klaviyo_standard_embed_AAx6sv" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate" action="//manage.kmail-lists.com/subscriptions/subscribe">
+        <input type="hidden" name="g" value="AAx6sv" />
+        <div class="klaviyo_field_group">
+            <label for="k_id_email">Enjoyed reading our articles? Join the Stickee Family for more!</label>
+            <input type="email" value="" name="email" id="k_id_email" placeholder="Your email" />
+        </div>
+        <div class="klaviyo_messages">
+            <div class="success_message" style="display: none;"></div>
+            <div class="error_message" style="display: none;"></div>
+        </div>
+        <div class="klaviyo_form_actions">
+            <button type="submit" class="klaviyo_submit_button">Join Now!</button>
+        </div>
+    </form>
+    
+    <div id="fb-reviews" style="height:300px;">
+        <p style="text-align: center;"><strong><span style="color: #0000ff;">What people are saying about us...</span></strong></p>
+        <div class="w3-content w3-display-container" style="max-width:400px;">
+            <p class="carousell-footer" style="text-align: center;"><strong><span style="color: #0000ff;"><img src="//cdn.shopify.com/s/files/1/1402/6745/files/testimonial_3_large.png?v=1483518686" alt="" /></span></strong></p>
+            <p class="carousell-footer" style="text-align: center;"><strong><span style="color: #0000ff;"><img src="//cdn.shopify.com/s/files/1/1402/6745/files/testimonial_4_7f564000-a48d-4d44-952d-d36683fab026_large.png?v=1484196037" alt="" /></span></strong></p>
+            <p class="carousell-footer" style="text-align: center;"><strong><span style="color: #0000ff;"><img src="//cdn.shopify.com/s/files/1/1402/6745/files/testimonial_2_large.png?v=1483518664" alt="" /></span></strong></p>
+            <p class="carousell-footer" style="text-align: center;"><strong><span style="color: #0000ff;"><img src="//cdn.shopify.com/s/files/1/1402/6745/files/testimonial_1_large.png?v=1483518642" alt="" /></span></strong></p>
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)" style="width:5px;">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)" style="width:5px;">&#10095;</button>
+        </div>
+    </div>    
+    
+    
+    {% if article.comments_enabled? %}
+   <!-- Begin comments -->
+    {% if blog.comments_enabled? %}
+    <div id="comments" class="comments">
+      {% if article.comments.size > 0 or comment.created_at %}
+      <h2 class="comment-title">Comments</h2>
+      {% if comment and comment.created_at %}
+        <div id="comment-{{ comment.id }}" class="comment border-bottom clearfix">
+          <h3 class="author"><strong>{{ comment.author }}</strong> on <span class="date">{{ comment.created_at | date: "%B %d %Y at %I:%M%p" }}</span></h3>
+          <div>{{ comment.content }}</div>
+        </div> <!-- /.comment -->
+      {% endif %}
+      {% for comment in article.comments %}
+        <div id="comment-{{ comment.id }}" class="comment border-bottom clearfix">
+          <h3 class="author"><strong>{{ comment.author }}</strong> on <span class="date">{{ comment.created_at | date: "%B %d %Y at %I:%M%p" }}</span></h3>
+          <div>{{ comment.content }}</div>
+        </div> <!-- /.comment -->
+      {% endfor %}
+      {% include 'pagination' %}
+      {% endif %}
+      <div class="comment_form">
+        {% form article %}
+        <h2 class="comment-title">Leave a comment</h2>
+        {% if form.posted_successfully? %}
+        {% if blog.moderated? %}
+        <p class="subtext success">Successfully posted your comment. It will have to be approved by the blog owner first before showing up.</p>
+        {% else %}
+        <p class="subtext success">Successfully posted your comment.</p>
+        {% endif %}
+        {% endif %}
+        {% if form.errors %}
+        <p class="subtext error">Not all the fields have been filled out correctly</p>
+        {% endif %}
+        <div class = "article-comment-section">
+        <label for="comment_author">Your name</label>
+        <input type="text" id="comment_author" name="comment[author]" size="40" class="text" />
+        </div> <div class = "article-comment-section">
+        <label for="comment_email">Your email</label>
+        <input type="text" id="comment_email" name="comment[email]" size="40" class="text" />
+        </div> <div class = "article-comment-section">
+        <label for="comment_body">Comment</label>
+        <textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="text">{{form.body}}</textarea>
+        </div> <div class = "article-comment-section">
+        <input type="submit" value="Post comment" class="btn" id="comment-submit" />
+        </div> 
+        {% if blog.moderated? %}
+        <div class="notice">Comments have to be approved before showing up</div>
+        {% endif %}
+        {% endform %}
+      </div>
+    </div> 
+    {% endif %}
+    <!-- End comments -->
+    {% endif %}
+    <div id="prev-next" class="clearfix">
+      {% if blog.previous_article %}
+      <a href="{{ blog.previous_article }}" class="previous float-left"><i class="fa fa-angle-left"></i> Previous</a>
+      {% endif %}
+      {% if blog.next_article %}
+      <a href="{{ blog.next_article }}" class="next float-right">Next <i class="fa fa-angle-right"></i></a>
+      {% endif %}
+    </div><!-- prev-next -->
+  </article><!-- article -->
+</div><!-- article-page -->
+
+<style>
+  #fbiframe table {
+    margin: 0 auto;
+  }
+  .w3-display-container {
+    position: relative;
+    background-color: #f6f7f9;
+    margin: 0 auto;
+  }
+
+  .w3-button {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%,-50%);
+    padding: 10px !important;
+    font-size: 10px !important;
+    line-height: 0px !important;
+    background-color: #de8686 !important;
+    color: white !important;
+  }
+
+  .w3-button:hover {
+    background-color: #f0e4e4 !important;
+    color: black !important;
+  }
+
+  .w3-display-left {
+    left: 0%;
+  }
+
+  .w3-display-right {
+    right: 0%;
+  }
+
+</style>
+
+<script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("carousell-footer");
+    if (n > x.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";  
+  }
+
+</script>

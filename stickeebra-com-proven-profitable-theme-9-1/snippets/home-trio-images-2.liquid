@@ -1,0 +1,12 @@
+<div class="row row-no-margins">
+  {% for i in (4..6) %}
+  {% capture trio_image %}trio_image_{{ i }}.jpg{% endcapture %}
+  {% capture trio_image_alt %}trio_image_alt_{{ i }}{% endcapture %}
+  {% capture trio_image_url %}trio_image_url_{{ i }}{% endcapture %}
+  <div class="col col30">
+    <a href="{{ settings[trio_image_url] }}" title="{{ settings[trio_image_alt] }}">
+      <img  src="{{ trio_image | asset_url }}" alt="{{ settings[trio_image_alt] }}" />
+    </a>
+  </div><!--col30-->
+  {% endfor %}
+</div><!--row-->

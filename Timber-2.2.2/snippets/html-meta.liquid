@@ -1,0 +1,64 @@
+{% if template == 'index' %}
+<title>{{ shop.name }} | {{ page_title }}</title>
+{% elsif template == '404' %}
+<title>404 Nothing Found | {{ shop.name }}</title>
+{% elsif template == 'cart' %}
+<title>Cart | {{ shop.name }}</title>
+{% elsif template == 'search' %}
+<title>Search | {{ shop.name }}</title>
+{% elsif template == 'list-collections' %}
+<title>Collections | {{ shop.name }}</title>
+{% elsif template contains 'register' %}
+<title>Register | {{ shop.name }}</title>
+{% elsif template contains 'login' %}
+<title>Login | {{ shop.name }}</title>
+{% elsif template contains 'address' %}
+<title>Manage Addresses | {{ shop.name }}</title>
+{% elsif template contains 'account' %}
+<title>Account | {{ shop.name }}</title>
+{% elsif template contains 'order' %}
+<title>Order - {{ order.name }} | {{ shop.name }}</title>
+{% else %}
+<title>{{ page_title }} | {{ shop.name }}</title>
+{% endif %}
+<meta property="og:site_name" content="{{ shop.name }}" />
+<meta property="og:title" content="{{ page_title }}" />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="canonical" href="{{ canonical_url }}" />
+<link rel="shortcut icon" type="image/png" href="{{ 'favicon.png' | asset_url }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+{% if page_description %}
+<meta name="description" content="{{ page_description }}" />
+<meta property="og:description" content="{{ page_description }}" />
+{% endif %}
+{% if template contains 'product' %}
+<meta property="og:type" content="product" />
+<meta property="og:brand" content="{{ product.vendor }}" />
+<meta property="og:url" content="{{ shop.url }}{{ product.url }}" />
+<meta property="og:image" content="{{ product.featured_image | product_img_url: 'large' }}" />
+<meta property="og:price:amount" content="{{ product.price | money_without_currency }}" />
+<meta property="og:price:currency" content="USD" />
+{% if product.available %}
+<meta property="og:availability" content="instock" />
+{% else %}
+<meta property="og:availability" content="out of stock" />
+{% endif %}
+{% elsif template contains 'article' %}
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ shop.url }}{{ article.url }}" />
+{% if article.content contains "<img" %}
+{% assign src = article.content | split: 'src="' %}
+{% assign src = src[1] | split: '"' | first | replace: '//cdn', 'http://cdn' | replace: 'http:http://', 'http://' | remove: 'https:'  %}
+{% if src %}<meta property="og:image" content="{{ src }}" />{% endif %}
+{% endif %}
+{% else %}
+<meta property="og:image" content="{{ 'retina_logo.png' | asset_url }}" />
+{% endif %}
+<meta name="l" content="{{ settings.license_key }}" />
+<meta name="ld" content="{{ shop.permanent_domain }}" />
+{% if template contains 'blog' or 'article' %}
+<meta property="fb:pages" content="648637201968548" />
+{% endif %}
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="x38p1cSQ3rHbxIQcfLn4_IMwIJc7O_ZoVPqh7YeCDro" />

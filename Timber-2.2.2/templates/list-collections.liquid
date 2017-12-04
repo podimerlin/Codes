@@ -1,0 +1,26 @@
+<div id="collection-page" class="container-wrapper textile">
+  <div class="grid-view">
+    {% for product in collections %}
+    <article class="product round-borders animated fadeIn" itemscope itemtype="http://schema.org/Product">
+      <a href="{{ product.url | within:collection }}" title="View {{ product.title | escape }}">
+        
+        
+ {% if product.image %}
+         <img class="product-image" itemprop="image"  src="{{ product | img_url: 'large' }}" alt="{{ product.image.alt }}"/>
+        {%else%}
+        
+        <img class="product-image" itemprop="image" srcset="{{ product.products.first.featured_image | product_img_url: '1024x1024' }} 2x" src="{{ product.products.first.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}"/>>
+       {%endif%}
+        
+        
+        <header class="product-header clearfix">
+          <h2 itemprop="name">{{product.title}}</h2>
+        </header>
+        <span class="product-pricing" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">{% if product.compare_at_price_max > product.price %}<span class="old-price"> {{ product.compare_at_price_max | money | remove: '.00' }}</span>{% endif %}</span>{{ product.price | money | remove: '.00' }}</span>
+      </a>
+    </article><!--product--> 
+    {% endfor %}
+    <span class="product-break"></span>
+    <span class="product-break"></span>    
+  </div><!--grid-view-->      
+</div><!-- content-wrapper -->

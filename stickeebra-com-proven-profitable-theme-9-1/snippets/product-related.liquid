@@ -1,0 +1,107 @@
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+{% assign found_a_collection = false %}
+{% for c in product.collections %}
+{% capture currentType %}{{ product.type | handleize }}{% endcapture %}
+{% if c.handle == currentType %}
+{% assign found_a_collection = true %}
+{% assign collection = c %}
+{% else %}
+{% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+{% assign found_a_collection = true %}
+{% assign collection = c %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{%assign count = 0%}
+{% if collection and collection.products_count > 1 %}
+<div id="product-related" class="textile clearfix">
+  <h2>{{ settings.related_products_title }}</h2>
+  <div class="grid-view">
+    {% assign current_product_found = false %}
+    {% for prod in collection.products limit:5 %}
+    {% if prod.title == product.title %}
+    {% assign current_product_found = true %}
+    {% else %}
+    {% unless current_product_found == false and forloop.last %}
+	{% include 'product-loop-related' %}
+    {% endunless %}
+    {% endif %}    
+    {% endfor %}
+    <span class="product-break"></span>    
+  </div><!--grid-view-->    
+</div><!-- product-related -->
+{% endif %}
+<script type="text/javascript">
+          (function($){
+            $(function(){
+                {%assign counter = 0 %}
+     			{% for prodz in collection.products limit:5 %}
+               	{%unless prodz.title == product.title%}
+              	{% assign counter = counter | plus: 1 %}
+                                  
+                {%assign varfirst = prodz.variants | first%}
+         
+                $(".product-instock-text-{{counter}}").css("display", "none");
+                $(".product-outstock-text-{{counter}}").css("display", "none");
+                
+                var logvariant = $(".product-outstock-text-{{counter}}");
+              
+              	{%if varfirst.available %}
+              		$(".product-instock-text-{{counter}}").css("display", "block");
+                 	$(".product-outstock-text-{{counter}}").css("display", "none");
+                  	$("#add-{{ prodz.id}}").attr("value", "Add To Cart").removeClass("disabled").removeAttr("disabled");
+                {%else%}                      
+                    $(".product-instock-text-{{counter}}").css("display", "none");
+                    $(".product-outstock-text-{{counter}}").css("display", "block");
+                  	$("#add-{{ prodz.id}}").addClass("disabled").attr("disabled", "disabled").attr("value", "Sold Out");
+   	           {%endif%}
+                
+                {% assign few_num = settings.few_left_in_stock_number | plus: 0 %}
+				{% if settings.few_left_in_stock_text != "" and few_num > 0 and varfirst.inventory_quantity <= few_num and varfirst.inventory_quantity > 0 %}
+                	$(".product-few-left-text-{{counter}}").css("display", "inline");
+          		{%else%}
+          			$(".product-few-left-text-{{counter}}").css("display", "none");
+            	{% endif %}                                       
+                                        
+       			$(".product-variant-select-{{counter}}").change(function(){                      
+               	var numOptions = $('.product-variant-select-{{counter}} option').size();
+                for (x=0; x<=numOptions; x++){   
+                	if ( $(".product-variant-select-{{counter}} option:nth-child("+x+")" ).val() == $( ".product-variant-select-{{counter}}" ).val()){
+               			{%for variant in prodz.variants%}
+							if ({{variant.id}} == $( ".product-variant-select-{{counter}}" ).val() ){
+            							{% if settings.few_left_in_stock_text != "" and few_num > 0 and variant.inventory_quantity <= few_num and variant.inventory_quantity > 0 %}
+                							$(".product-few-left-text-{{counter}}").css("display", "inline");
+          								{%else%}
+          									$(".product-few-left-text-{{counter}}").css("display", "none");
+            							{% endif %}   		
+                       			 var varPrice = "{{ variant.price | money }}"
+                                $(".quickview-price-{{counter}}").html(varPrice);   
+                                {% if variant.compare_at_price > variant.price %} 
+                               		var oldPrice = "{{ variant.compare_at_price | money }}"
+                                  	$(".quickview-old-price-{{counter}}").css("display", "inline");
+                           			$(".quickview-old-price-{{counter}}").html(oldPrice);
+                        		{% else %}   
+                        			$(".quickview-old-price-{{counter}}").css("display", "none");
+                                {%endif %}
+                                  } //endif - if ({{variant.id}} == $( ".product-variant-select-{{counter}}" )                                                  
+                    	{%endfor%}
+                      	if ( $(".product-variant-select-{{counter}} option:nth-child("+x+")" ).hasClass("available")){
+                    		$(".product-instock-text-{{counter}}").css("display", "block");
+                        	$(".product-outstock-text-{{counter}}").css("display", "none");
+                        	$("#add-{{ prodz.id}}").attr("value", "Add To Cart").removeClass("disabled").removeAttr("disabled");
+                      	}//endif
+                      	else{
+                      		$(".product-instock-text-{{counter}}").css("display", "none");
+                        	$(".product-outstock-text-{{counter}}").css("display", "block");
+                        	$("#add-{{ prodz.id}}").addClass("disabled").attr("disabled", "disabled").attr("value", "Sold Out");
+                      	}//endelse
+                    }//endfor	
+                }//end if val == val
+              });//end .change
+                                    
+                {%endunless%}
+            	{% endfor %}// ends for product in collection loop
+                  });
+                })(jQuery)
+</script>

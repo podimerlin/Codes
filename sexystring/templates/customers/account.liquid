@@ -1,0 +1,40 @@
+{% if customer.metafields.subscriptions.customer_string %}
+<!--BeginRechargeCode-->
+<p><a href="/tools/recurring/customer/{{customer.metafields.subscriptions.customer_string}}/subscriptions/">Manage Subscriptions</a></p>
+<!--EndRechargeCode-->
+{% endif %}
+{% layout settings.customer_layout %}
+<div id="generic-page" class="container-wrapper textile customers-page">
+  {% include 'customer-sidebar' %}
+  <main id="main-content">
+    <h1>Account</h1>
+    <div id="customer_orders" style="min-height: 0px;">
+      {% if customer.orders.size != 0 %}
+      <table>
+        <thead>
+          <tr>
+            <th class="order_number">Order</th>
+            <th class="date">Date</th>
+            <th class="payment_status">Payment</th>
+            <th class="fulfillment_status">Fulfillment</th>
+            <th class="total">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in customer.orders %}
+          <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+            <td>{{ order.name | link_to: order.customer_url }}</td>
+            <td><span class="note">{{ order.created_at | date: "%m/%d/%y" }}</span></td>
+            <td><span class="status_{{ order.financial_status }}">{{ order.financial_status }}</span></td>
+            <td><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status }}</span></td>
+            <td><span class="total money">{{ order.total_price | money | replace: '$ ','$' }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="lead">You haven't placed any orders yet. <a href="/collections/all">Starting Shopping</a>.</p>
+      {% endif %}
+    </div>
+  </main><!--main-content-->
+</div><!-- generic-page -->

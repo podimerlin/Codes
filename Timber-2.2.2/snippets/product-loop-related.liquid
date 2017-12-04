@@ -1,0 +1,110 @@
+{%assign count = count | plus: 1%}
+<article class="product round-borders animated fadeIn" itemscope itemtype="http://schema.org/Product">
+  <div class="product-image-wrapper">
+    <span data-profits-panda-id="{{ prod.id }}" style="display:none"></span>
+    <img class="product-image" itemprop="image" srcset="{{ prod.featured_image | product_img_url: '1024x1024' }} 2x" src="{{ prod.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}"/>
+  </div><!-- product-image-wrapper -->
+  <header class="product-header">
+    <h2 itemprop="name"><a href="{{ prod.url | within:collection }}" itemprop="url">{{ prod.title }}</a></h2>
+    <span class="product-pricing" itemprop="offers" itemscope itemtype="http://schema.org/Offer">    
+      <span class="product-price" itemprop="price">{{ prod.price | money | remove: '.00' }}</span>
+      {% if prod.first_available_variant.compare_at_price > prod.first_available_variant.price %}
+      <span class="product-price-old"> {{ prod.first_available_variant.compare_at_price | money | remove: '.00' }}</span>
+      {% endif %}
+    </span><!-- product-pricing -->
+  </header><!-- product-header -->
+  <footer class="product-footer">
+    {% if settings.use_quick_view %}
+    <span class="btn btn-secondary product-quick-shop" data-fancybox-href="#product-{{ prod.id }}" data-gallery="#product-{{ prod.id }}-gallery" data-gallery-thumbs="#product-{{ prod.id }}-gallery-thumbs">Quick View</span>
+    {% endif %}
+    <a class="btn" href="{{ prod.url | within: collection }}" title="View Details">View Details</a>
+  </footer><!-- product-footer -->
+  <div id="product-{{ prod.id }}" class="product-modal">
+    <div class="clearfix">
+      <div class="product-gallery-wrapper">
+        <div id="product-{{ prod.id }}-gallery" class="flexslider">
+          {% if prod.images.size > 1 %}
+          <a class="previous" href="#"><i class="fa fa-angle-left"></i></a>
+          <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
+          {% endif %}
+          <ul class="slides">
+            {% for image in prod.images limit:6 %}
+            <li>
+              <img itemprop="image" src="{{ image | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape  }}" data-retina="{{ image | product_img_url: '2048x2048' }}">
+            </li>
+            {% endfor %}
+          </ul><!-- slides -->
+        </div><!-- product_gallery -->
+        {% if prod.images.size > 1 %}
+        <div id="product-{{ prod.id }}-gallery-thumbs" class="product-gallery-thumbs flexslider">
+          <ul class="slides">
+            {% for image in prod.images limit:6 %}
+            <li data-image-id="{{ image.id }}" class="product-thumbnail-wrapper {% if forloop.first %}flex-active-slide{% endif %}">
+              <img itemprop="image" class="product-thumbnail" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-retina="{{ image | product_img_url: 'compact' }}" />
+            </li>
+            {% endfor %}
+          </ul>
+        </div><!-- product-thumbnails-wrapper -->
+        {% endif %}
+      </div><!-- product-gallery-wrapper -->
+      <div class="product-modal-details textile">
+        <h2>{{ prod.title }}</h2>
+        <span class="product-pricing">    
+          <span class="product-price quickview-price-{{count}}">{{ prod.price | money | remove: '.00' }}</span>
+          {% if prod.compare_at_price_max > prod.price %}
+          <span class="product-price-old quickview-old-price-{{count}}"> {{ prod.compare_at_price_max | money | remove: '.00' }}</span>
+          {% endif %}
+        </span><!-- product-pricing -->
+        <p>{{ prod.description | strip_html | truncate: 250 }} <a href="{{ prod.url }}">Read More <span class="fa fa-angle-right"></span></a></p>
+      {% if prod.available %}
+        <form id="product-{{ prod.id }}-form" action="/cart/add" method="post"> 
+          {% if prod.variants.size > 1 %}
+            <select name="id"  id="product-select" class = "product-variant-select2 product-variant-select-{{count}}" >
+              {% for variant in prod.variants %}
+	              <option {% if variant == prod.variants.first %} selected="selected" {% endif %} value="{{ variant.id }}" {%if variant.available%} class="available" {%endif%} >{{ variant.title }} - {{ variant.price | money }}</option>      
+              {% endfor %}
+            </select>
+            {% else %}
+            {% assign variant = prod.variants.first %}
+            <input id="product-select" type="hidden" name="id" value="{{ variant.id }}" />
+            {% endif %}
+         <span style = "display:none;" class = "product-few-left-text product-few-left-text-{{count}}">{{ settings.few_left_in_stock_text }}</span>
+          
+            <p  class = "product-outstock-text-{{count}} product-out-stock-text" style="display:none;">{% if prod.metafields.pdetails.outofstock %}{{ prod.metafields.pdetails.outofstock }}{%else%} {{ settings.out_of_stock_text }}{%endif%}</p>
+            <p  class = "product-instock-text-{{count}} product-in-stock-text">{{ settings.in_stock_text }}</p>
+
+          <input id="product-quantity-{{prod.id}}" name="quantity" type="hidden" value="1">
+          <input type="submit" id="add-{{ prod.id}}" class="btn" name="add" value="Add to cart"/>
+          <a href="{{ prod.url }}" title="{{ prod.title }}" class="view-details btn btn-secondary">or view details</a>
+        </form>
+        
+        {%comment%}
+        <script type="text/javascript">
+          (function($){
+            $(function(){
+              
+              {% if prod.available and prod.variants.size > 1 %}
+              var selectCallback = function(variant, selector){
+                if (variant && variant.available) {
+                  $("#add-{{ prod.id}}").attr("value", "Add To Cart").removeClass("disabled").removeAttr("disabled");
+                    }
+                    else {
+                    $("#add-{{ prod.id}}").addClass("disabled").attr("disabled", "disabled").attr("value", "Sold Out");
+                    }
+                    if (variant && variant.featured_image){
+                    $('#product-{{ prod.id }}-gallery-thumbs .product-thumbnail-wrapper[data-image-id="' + variant.featured_image.id + '"] img').trigger('click');
+                      }
+                      }
+                      new Shopify.OptionSelectors("product-select-{{ prod.id }}", { product: {{ product | json }}, onVariantSelected: selectCallback});
+                    {% endif %} // ends if prod.variants.size > 1
+                  });
+                })(jQuery)
+        </script>
+        {%endcomment%}
+        {% else %}    
+        <p class="secondary">{% if prod.metafields.pdetails.outofstock %}{{ product.metafields.pdetails.outofstock }}{%else%}{{ settings.out_of_stock_text }}{%endif%}</p>
+        {% endif %}
+      </div><!-- product-modal-details -->
+    </div><!-- clearfix -->
+  </div><!-- product-modal -->
+</article><!--product-->

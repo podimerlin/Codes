@@ -1,0 +1,26 @@
+<div id="main-product-images" class="flexslider{% if product.images.size == 1 %} product-image-single{% endif %}">
+  {% if product.images.size > 1 %}
+  <a class="previous" href="#"><i class="fa fa-angle-left"></i></a>
+  <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
+  {% endif %}
+  <ul class="slides">
+    {% for image in product.images %}
+    <li>
+      <a class="product-image-gallery" href="{{ image | product_img_url: '1024x1024' }}" title="{{ product.title }} - {{ image.alt | escape }}" rel="group" data-thumbnail="{{ image | product_img_url: 'thumb' }}">
+        <img itemprop="image" src="{{ image | product_img_url: 'large' }}" alt="{{ image.alt | escape  }}" data-retina="{{ image | product_img_url: 'grande' }}">
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div><!-- main-product-images -->
+{% if product.images.size > 1 %}
+<div id="product-thumbnails-wrapper" class="flexslider">
+  <ul class="slides">
+    {% for image in product.images %}
+    <li data-image-id="{{ image.id }}" class="product-thumbnail-wrapper {% if forloop.first %}flex-active-slide{% endif %}">
+      <img itemprop="image" class="product-thumbnail" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-retina="{{ image | product_img_url: 'compact' }}" />
+    </li>
+    {% endfor %}
+  </ul>
+</div><!-- product-thumbnails-wrapper -->
+{% endif %}

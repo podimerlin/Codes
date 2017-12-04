@@ -1,0 +1,19 @@
+<aside id="left-sidebar">
+  {% if settings.use_collection_top_image %}
+  <div class="banner">
+    <a href="{{ settings.collection_top_image_URL }}" title="{{ settings.collection_top_image_alt }}"><img src="{{ 'collection_top_image.jpg' | asset_url }}" alt="{{ settings.collection_top_image_alt }}"></a>
+  </div>
+  {% endif %}
+  {% if settings.collection_use_stackable_filters %}
+    {% include 'collection-filtering-2' %}
+  {%else%}
+	{% include 'collection-filtering' %}
+  {%endif%}
+  {% if settings.use_collection_bottom_image %}
+  <div class="banner">
+    <a href="{{ settings.collection_bottom_image_URL }}" title="{{ settings.collection_bottom_image_alt }}">
+      <img src="{{ 'collection_bottom_image.jpg' | asset_url }}" alt="{{ settings.collection_bottom_alt }}">
+    </a>
+  </div>
+  {% endif %}  
+</aside><!--left-sidebar-->

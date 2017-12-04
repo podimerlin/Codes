@@ -1,0 +1,145 @@
+<script type="text/javascript">
+  (function($){
+    $(function(){  
+    
+  $("#product-popup-overlay").click(function(evt){
+	if(evt.target.id == "product-popup-image"){return;}
+    else{
+        $("#product-popup-image").fadeOut(); 
+      	$("#product-popup-overlay").fadeOut();
+        }; 
+}); 
+  
+$("#product-popup-button").click(function(){
+    $("#product-popup-image").fadeIn();
+  	$("#product-popup-overlay").fadeIn();
+    });
+      
+      {% if product.available and product.variants.size > 1 %}
+      {% assign few_num = settings.few_left_in_stock_number | plus: 0 %}
+      var selectCallback = function(variant, selector){
+        
+        {% if product.url contains 'angel-lacing-stickeebra'%}
+            if (variant == null || variant.option1 == 'Pink' || variant.option1 == 'Blue') {
+              $('#product-select-option-1 option:nth-child(4)' ).css('display', 'none');
+              if ($('#product-select-option-1').val() == 'D' || (variant !== null && variant.option2 == 'D')) {
+                  $('#product-select-option-1').val('A').trigger('change');
+                  return;
+              }
+            } else {
+              $('#product-select-option-1 option:nth-child(4)' ).css('display', '');
+            }
+    	{% endif %}
+                
+        $("#product-info .product-price").html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
+        if ( variant.inventory_quantity <= {{few_num}} && variant.inventory_quantity > 0){
+            {% if settings.few_left_in_stock_text != "" and few_num > 0 %}
+          		$(".few-left-banner").css("display", "inline");
+          	{%else%}
+          		$(".few-left-banner").css("display", "none");
+            {% endif %}
+        }  else { $(".few-left-banner").css("display", "none"); }
+                                                                   
+       if (variant && variant.available) {           
+        	                       
+        $(".product-instock-text").css("display", "block");
+    	$(".product-outstock-text").css("display", "none");
+        $("#add-to-cart").attr("value", "Add to Cart").removeClass("disabled").removeAttr("disabled");
+        $("#add-to-cart-mobile").attr("value", "Add to Cart").removeClass("disabled").removeAttr("disabled");
+        $("div.product-add-to-cart2 input").attr("value", "Add to Cart").removeClass("disabled").removeAttr("disabled");
+         
+        $("#add-to-cart").off("click");
+        $("#add-to-cart-mobile").off("click");
+        $("div.product-add-to-cart2 input").off("click");
+        
+        $("#product-tabs-toolbar span:nth-child(1)").trigger('click');
+  
+        if (variant.compare_at_price){
+          $("#product-info .product-price-old").html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}"));
+          if (variant.compare_at_price <= variant.price){
+          $("#product-info .product-price-old").empty();
+        }
+      }
+      else {
+        $("#product-info .product-price-old").empty();
+      }
+    }
+      else {
+      $(".product-instock-text").css("display", "none");
+      $(".product-outstock-text").css("display", "block");
+      $("#add-to-cart").addClass("disabled").attr("value", "Notify me when in stock");
+      $("#add-to-cart-mobile").addClass("disabled").attr("value", "Notify me when in stock");
+      $("div.product-add-to-cart2 input").addClass("disabled").attr("value", "Notify me when in stock");
+    
+      $( "#add-to-cart, div.product-add-to-cart2 input" ).on( "click", function() {
+        $('html, body').animate({
+          scrollTop: $("#product-tabs-toolbar span:nth-child(4)").offset().top
+        }, 1000);
+        $("#product-tabs-toolbar span:nth-child(4)").trigger('click');
+       	//track notify me event
+        fbq('track', 'OutOfStock',{content_name: "{{product.title}}", variant: variant.title});
+        return false;
+      });
+      $( "#add-to-cart-mobile" ).on( "click", function() {
+        $('html, body').animate({
+          scrollTop: $("#product-tabs-toolbar span:nth-child(4)").offset().top
+        }, 1000);
+        $("#product-tabs-toolbar span:nth-child(4)").trigger('click');
+        //track notify me event
+        fbq('track', 'OutOfStock',{content_name: "{{product.title}}", variant: variant.title});
+        return false;
+      });
+
+    $("#product-info .old-price").empty();
+  }
+   if (variant && variant.featured_image){
+   $('.product-thumbnail-wrapper[data-image-id="' + variant.featured_image.id + '"]').trigger('click');
+  }
+  }
+  
+  new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback, enableHistoryState: true});
+
+if ($('#product-secondary-layout').length){   
+  new Shopify.OptionSelectors("product-select-mobile", { product: {{ product | json }}, onVariantSelected: selectCallback, enableHistoryState: true});                               
+}
+  // Add label if only one product option and it isn't 'Title'.
+  {% if product.options.size == 1 and product.options.first != 'Title' %}
+  $('.selector-wrapper-2').prepend('<label>{{ product.options.first }}</label>');
+  {% endif %}
+  {% endif %} // ends if product.variants.size > 1
+                                   
+  $('#main-product-images').flexslider({
+    animation: "fade",
+    controlNav: false,
+    animationLoop: true,
+    directionNav: false,
+    {% if product.images.size > 1 %}
+    sync: "#product-thumbnails-wrapper",
+    {% endif %}
+    slideshow: false
+  }).flexsliderManualDirectionControls();
+  
+  {% if product.images.size > 1 %}
+  $('#product-thumbnails-wrapper').flexslider({
+    controlNav: false,
+    directionNav: false,
+    animation: "slide",
+    direction: "horizontal",
+    animationLoop: true,
+    slideshow: false,
+    itemWidth: 1,
+    itemMargin: 1,
+    asNavFor: '#main-product-images'
+  });
+  {% endif %}
+  
+  });
+  
+  
+  
+
+
+  
+  })(jQuery)
+</script>
+

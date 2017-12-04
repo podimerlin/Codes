@@ -1,0 +1,28 @@
+<script>
+   window.location.href = "stickeebra";
+</script>
+{% assign collexion = collection.products %}
+{% include 'collection-scripts' %}
+{% paginate collection.products by 12 %}
+<div id="collection-page" class="container-wrapper textile">
+  <main id="main-content">
+    <div class="grid-view">
+        {%assign count = 0%}
+      {% for product in collection.products %}
+      {% include 'product-loop-grid' %}
+      {% endfor %}
+      <span class="product-break"></span>
+      <span class="product-break"></span>    
+    </div><!--grid-view-->      
+    {% if paginate.pages > 1 %}
+    <footer id="template-footer" class="clearfix">
+      {% include 'pagination' %}
+    </footer><!-- template-footer -->
+    {% endif %}
+  </main><!--main-content-->
+    <div class = "mobile-clearfix"></div>
+  {% include 'collection-sidebar' %}  
+ {% include 'collection-description' %}
+</div><!-- content-wrapper -->
+{% endpaginate %}'
+

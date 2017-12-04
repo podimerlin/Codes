@@ -1,0 +1,22 @@
+{% paginate collection.products by 12 %}
+<div id="collection-page" class="container-wrapper textile">
+  {%if settings.use_collection_banner%}
+  	<div class = "collection-banner-wrapper">
+    	<img src = "{{'collection_wide_banner.jpg' | asset_url}}" />
+  	</div>
+  {%endif%}
+  <div class="list-view">
+      {%assign count = 0%}
+    {% for product in collection.products %}
+    {% include 'product-loop-list' %}
+    {% endfor %}
+  </div><!--list-view-->
+  {% if paginate.pages > 1 %}
+  <footer id="template-footer" class="clearfix">
+    {% include 'pagination' %}
+  </footer><!-- template-footer -->
+  {% endif %}
+  {% include 'collection-description' %}
+</div><!-- content-wrapper -->
+<div class="wrapper-popup" style="display: none;"></div>  
+{% endpaginate %}

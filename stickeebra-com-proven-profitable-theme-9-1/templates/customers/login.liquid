@@ -1,0 +1,68 @@
+{% layout settings.customer_layout %}
+<div id="generic-page" class="container-wrapper textile customers-page">
+  <h1>Login</h1>
+  <div id="customer-left">
+    <div id="customer-login">
+      {% form 'customer_login' %}
+      {{ form.errors | default_errors }}
+      <fieldset>
+        <label for="customer_email" class="login">Email Address</label><br>
+        <input type="email" value="" name="customer[email]" id="customer_email" size="30" />
+      </fieldset>
+      {% if form.password_needed %}
+      <fieldset>
+        <label for="customer_password" class="login">Password</label><br>
+        <input type="password" value="" name="customer[password]" id="customer_password" class="password" size="30" /><br>
+        <a href="#" id="forgotPasswordLink" class="note" onclick="showRecoverPasswordForm();return false;">Forgot your password?</a>
+      </fieldset>
+      {% endif %}
+      <fieldset>
+        <input class="btn" type="submit" value="Sign In" />
+        <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
+      </fieldset>
+      {% endform %}
+    </div><!-- customerLoginForm -->
+    <div id="recover-password" style='display:none'>
+      <p class="lead">We will send you an email to reset your password.</p>
+      {% form 'recover_customer_password' %}
+      {{ form.errors | default_errors }}
+      <fieldset>
+        <label for="email" >Email Address</label><br>
+        <input type="email" value="" size="30" name="email" id="recover-email" />
+      </fieldset>
+      <fieldset>
+        <input class="btn" type="submit" value="Submit" />
+        <span class="note">or <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a></span>
+      </fieldset>
+      {% endform %}
+    </div><!-- recover-password -->
+    <script type="text/javascript">
+      function showRecoverPasswordForm() {
+        document.getElementById('recover-password').style.display = 'inline-block';
+        document.getElementById('customer-login').style.display='none';
+      }
+      function hideRecoverPasswordForm() {
+        document.getElementById('recover-password').style.display = 'none';
+        document.getElementById('customer-login').style.display = 'inline-block';
+      }
+      if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+    </script>
+  </div><!-- customerLeft -->
+  <div id="customer-right">
+    {% if shop.checkout.guest_login %}
+    <div id="guest-form" class="textile">
+      <h2>Guest Login</h2>
+      {% form 'guest_login' %}
+      <p><input class="btn" type="submit" value="Guest Checkout" /></p>
+      {% endform %}
+    </div><!-- guest-form -->
+    <h2>Register</h2>
+    <p class="lead">You will also be given the opportunity to register an account after completing your purchase.</p>
+    {% endif %}
+    {% unless shop.checkout.guest_login %}
+    <h2>Register Today</h2>
+    <p class="lead">Register your account to receive promotions news and access to a faster checkout process.</p>
+    <a href="/account/register" title="Register Today" class="btn btn-secondary">Register Today</a>
+    {% endunless %}
+  </div><!-- customer-right -->
+</div><!-- generic-page -->{% layout settings.customer_layout %}

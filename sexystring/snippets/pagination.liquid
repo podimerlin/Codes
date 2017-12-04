@@ -1,0 +1,19 @@
+<div id="{{ template | split: '.' | first | remove: '/' | remove: '_' }}-pagination" class="pagination">
+  {% if paginate.previous %}
+  <a class="pagination-prev fa fa-chevron-circle-left" href="{{ paginate.previous.url }}"></a>
+  {% endif %}
+  {% for part in paginate.parts %}
+  {% if part.is_link %}
+  <span class="pagination-link">{{ part.title | link_to: part.url }}</span>
+  {% else %}
+  {% if part.title == '&hellip;' %}
+  <span class="pagination-link">{{ part.title }}</span>
+  {% else %}
+  <span class="pagination-current">{{ part.title }}</span>
+  {% endif %}
+  {% endif %}        
+  {% endfor %}
+  {% if paginate.next %}
+  <a class="pagination-next fa fa-chevron-circle-right" href="{{ paginate.next.url }}"></a>
+  {% endif %}
+</div><!-- pagination -->

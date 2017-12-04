@@ -1,0 +1,45 @@
+<div id="collection-page" class="container-wrapper textile">
+  <h1>{{ page.title }}</h1>
+  {% if page.content != '' %}  
+  <div class="collection-descr">
+    {{ page.content }}
+  </div><!--collection-descr"-->
+  {% endif %}
+  <div class="grid-view">
+    {% if linklists[page.handle].links.size > 0 %}
+    {% assign number_of_links = 0 %}
+    {% for link in linklists[page.handle].links %}
+    {% if link.type == 'collection_link' %}
+    {% assign collection = link.object %}
+    {% assign number_of_links = number_of_links | plus: 1 %}
+    {% if collection.products.size < 1 %}
+    <p>This collection does not have any products yet. Try adding one <a href="/admin/products/new">here.</a></p>
+    {% else %}
+    <article class="product round-borders animated fadeIn" itemscope itemtype="http://schema.org/Product">
+      <div class="product-image-wrapper">
+        <a href="{{ link.url }}" title="{{ link.title }}" itemscope="url">
+          {% if collection.image %}
+          <img class="product-image" src="{{ collection | img_url: 'large' }}" data-retina="{{ product.featured_image.src | product_img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image" />
+          {% else %}
+          {% assign product = collection.products.first %}
+          <img class="product-image" src="{{ product | img_url: 'large' }}" data-retina="{{ product.featured_image.src | product_img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image">{% endif %}
+        </a>
+      </div><!-- product-image-wrapper -->
+      <header class="product-header">
+        <h2 itemprop="name"><a href="{{ collection.url }}" itemprop="url">{{ collection.title }}</a></h2>
+        <span class="product-pricing" temprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <span itemprop="price" class="product-price">{{ collection.products_count }} products</span>
+        </span><!-- product-pricing -->
+      </header><!-- product-header -->
+    </article><!--product-->
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <span class="product-break"></span>
+    <span class="product-break"></span>
+    <span class="product-break"></span>   
+    {% else %}
+    <p class="text-center">You do not have a link list called <b>{{ page.title }}</b>, or you do and it's empty.</p>
+    {% endif %}
+  </div><!-- grid-view -->  
+</div><!--collection-page-->

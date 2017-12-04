@@ -1,0 +1,85 @@
+<script type="text/javascript">
+          (function($){
+            $(function(){
+                    {% assign counter = 0 %}
+     				{% for product in collexion %}
+              		{% assign counter = counter | plus: 1 %}
+              {% assign varvar =  product.variants.first %}  
+        	{% if product.variants.first.available %}
+              	{% if settings.out_of_stock_purchase %}
+              		{% if varvar.inventory_quantity <= 0 and varvar.inventory_management != ''%}    
+						$(".product-in-stock-text-{{counter}}").css("display", "none");
+              			$(".product-out-stock-text-{{counter}}").css("display", "block");           
+                    {% else %}
+						$(".product-in-stock-text-{{counter}}").css("display", "block");
+              			$(".product-out-stock-text-{{counter}}").css("display", "none");
+                  	{%endif%}
+                {%else%} 
+              		$(".product-in-stock-text-{{counter}}").css("display", "block");
+             		$(".product-out-stock-text-{{counter}}").css("display", "none");
+                {%endif%}
+                    $("#add-{{ product.id}}").attr("value", "Add To Cart").removeClass("disabled").removeAttr("disabled");
+           	{%else%}
+                    $(".product-in-stock-text-{{counter}}").css("display", "none");
+                    $(".product-out-stock-text-{{counter}}").css("display", "block");
+                  	$("#add-{{ product.id}}").addClass("disabled").attr("disabled", "disabled").attr("value", "Sold Out");
+            {%endif%}
+              
+                {% assign few_num = settings.few_left_in_stock_number | plus: 0 %}
+                {% assign varvar = product.variants[0] %}
+				{% if settings.few_left_in_stock_text != "" and few_num > 0 and varvar.inventory_quantity <= few_num and varvar.inventory_quantity > 0 %}
+                	$(".product-few-left-text-{{counter}}").css("display", "inline");
+          		{%else%}
+          			$(".product-few-left-text-{{counter}}").css("display", "none");
+            	{% endif %}           
+                          
+              $(".product-variant-select-{{counter}}").change(function(){
+               var numOptions = $('.product-variant-select-{{counter}} option').size();
+                for (x=0; x<=numOptions; x++){
+                	if ( $( ".product-variant-select-{{counter}} option:nth-child("+x+")" ).val() == $( ".product-variant-select-{{counter}}" ).val()){
+                        {%for variant in product.variants%}
+                                     if ({{variant.id}} == $( ".product-variant-select-{{counter}}" ).val() ){
+            							
+                        				{% if settings.few_left_in_stock_text != "" and few_num > 0 and variant.inventory_quantity <= few_num and variant.inventory_quantity > 0 %}
+                							$(".product-few-left-text-{{counter}}").css("display", "inline");
+          								{%else%}
+          									$(".product-few-left-text-{{counter}}").css("display", "none");
+            							{% endif %}
+             
+                                     var varPrice = "{{ variant.price | money }}"
+                                     $(".quickview-price-{{counter}}").html(varPrice);
+
+                                         {% if variant.compare_at_price > variant.price %} 
+                                       var oldPrice = "{{ variant.compare_at_price | money }}"
+                                        $(".quickview-old-price-{{counter}}").css("display", "inline");
+
+                           				$(".quickview-old-price-{{counter}}").html(oldPrice);
+                        
+                        			{% else %}   
+                        				$(".quickview-old-price-{{counter}}").css("display", "none");
+                                     {%endif %}
+                                  }              
+                    {%endfor%}
+                       if ( $( ".product-variant-select-{{counter}} option:nth-child("+x+")" ).hasClass("available")){
+                        $("#add-{{ product.id}}").attr("value", "Add To Cart").removeClass("disabled").removeAttr("disabled");
+                      }
+                      else{
+                        $("#add-{{ product.id}}").addClass("disabled").attr("disabled", "disabled").attr("value", "Sold Out");
+                          }
+                          if ( $( ".product-variant-select-{{counter}} option:nth-child("+x+")" ).hasClass("variant-instock")){
+    
+                    	$(".product-in-stock-text-{{counter}}").css("display", "block");
+                        $(".product-out-stock-text-{{counter}}").css("display", "none");
+                          }   
+                   else{     
+                          
+                        $(".product-in-stock-text-{{counter}}").css("display", "none");
+                        $(".product-out-stock-text-{{counter}}").css("display", "block");
+                          }    
+                    }	
+                }
+              });
+            {% endfor %}// ends for product in collexion loop
+                  });
+                })(jQuery)
+        </script>

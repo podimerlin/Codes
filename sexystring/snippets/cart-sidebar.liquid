@@ -1,0 +1,19 @@
+<aside id="left-sidebar">
+  {% if settings.use_cart_top_image %}
+  <div class="banner">
+    <a href="{{ settings.cart_top_image_URL }}" title="{{ settings.cart_top_image_alt }}"><img src="{{ 'cart_top_image.jpg' | asset_url }}" alt="{{ settings.cart_top_image_alt }}"></a>
+  </div>
+  {% endif %}
+  <div class="sidebar-links">
+    <ul>
+      {% for link in linklists[settings.cart_nav].links %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div><!--sidebar-links-->
+  {% if settings.use_cart_bottom_image %}
+  <div class="banner">
+    <a href="{{ settings.cart_bottom_image_URL }}" title="{{ settings.cart_bottom_image_alt }}"><img src="{{ 'cart_bottom_image.jpg' | asset_url }}" alt="{{ settings.cart_bottom_image_alt }}"></a>
+  </div>
+  {% endif %}
+</aside><!--left-sidebar-->

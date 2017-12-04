@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Open+Sans:400,800,700,600,300);
+html {font-size:62.5%;}
+body {background:#fff;font-size:14px;font-size: 1.4rem;line-height:1.4;color:#a1a1a3;font-family: 'helvetica neue', sans-serif;font-style: normal; font-weight:normal;}
+h1,h2,h3,h4,h5,h6{color:#44423d;font-style: normal;font-weight: 100;line-height:1.2;text-transform:uppercase;letter-spacing:1px;}
+h1{font-size:26px;font-size:2.6rem;margin-bottom:25px;}
+h2{font-size:30px;font-size:3.0rem;margin-bottom:15px;color:#7b9f5d;font-weight:200;text-transform: none;letter-spacing: 1px;}
+h3{font-size:20px;font-size:2.0rem;margin-bottom:15px;}
+h4{font-size:18px;font-size:1.8rem;margin-bottom:15px;text-transform:none;}
+h5{font-size:16px;font-size:1.6rem;margin-bottom:15px;text-transform:capitalize;}
+h6{font-size:14px;font-size:1.4rem;}
+.textile .fluid-width-video-wrapper {margin:0 0 40px 0;}
+.wrap {width: 90.5%;max-width: 940px;margin: 0 auto;}
+div.header {border-bottom:25px solid {{ settings.main_nav_bg_color }};padding:0 !important;margin-bottom:46px;}
+div.main:before {display:block;content:'';width: 90.5%;max-width: 940px;margin:30px auto;height:58px;background: url({{ 'checkout-progress-bar.png' | asset_url }}) no-repeat 0 0;background-size:contain;}
+div.shop {width:190px;height:102px;margin:20px 0px 0px;display:block;}
+div.shop a {width:190px;height:102px;display:block;}
+.shop__logo {max-width:100%;height:auto;}
+.btn,
+.btn--primary {font-weight:500;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-border-radius:0;border-radius:0;-moz-border-radius:0;border-radius:0;text-transform: uppercase;text-align: center;cursor: pointer;display: inline-block;width: auto;outline: 0;border: 0;-webkit-transition: all 0.2s ease;-moz-transition: all 0.2s ease;-ms-transition: all 0.2s ease;-o-transition: all 0.2s ease;transition: all 0.2s ease;font-size:14px;font-size:1.4rem;background-color:{{ settings.secondary_button_bg_color }}; color:#fff;padding:0 20px;line-height:40px;height: 40px;margin:0;}
+.btn:hover,
+.btn--primary:hover {background-color:#aaaaab;}
+.btn.btn--primary {padding:0 20px;}
+.order-summary {background-color:#f1f1f1;}
+@media screen and (max-width: 700px) {
+  div.shop{width:141px;height:76px;margin:20px auto;display:block;text-align:center;float:none;}
+  div.shop a {width: 141px;height: 76px;}
+  div.main:before {display:none;}
+}

@@ -1,0 +1,23 @@
+<div id="blog-page" class="container-wrapper textile">
+  {% paginate blog.articles by 10 %}
+  {% for article in blog.articles %}
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+    <header class="article-header">
+      <h2 itemprop="name"><a href="{{ article.url }}" title="{{ article.title | escape }}" itemprop="url">{{ article.title }}</a></h2>
+      <p class="article-meta">by <span itemprop="author">{{ article.author }}</span> {% if article.tags.size > 0 %}<span class="sep"> | </span>Posted in <span class="article-tags" itemprop="keywords">{% for tag in article.tags %}{% if forloop.last %} and {% else %}{% unless forloop.first %}, {% endunless %}{% endif %}<a class="blogArticleTags" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% endfor %}</span>{% endif %} <span class="sep">|</span> <time class="article-published" pubdate date="{{ article.published_at | date: "%B %d, %Y" }}"><span itemprop="datePublished">{{ article.published_at | date: "%B %d, %Y" }}</span></time></p><!-- article-meta -->
+    </header><!-- article-header -->
+    <div class="article-excerpt" itemprop="description">
+      {% if article.excerpt.size > 0 %}
+      {{ article.excerpt }}
+      {% else %}
+      <p>{{ article.content | strip_html | truncatewords: 90 }}</p>
+      {% endif %}
+      <a href="{{ article.url }}" class="article-read-more" title="Continue Reading" itemprop="url">Continue Reading <span class="fa fa-angle-right"></span></a>
+    </div><!-- article-excerpt -->
+  </article><!-- article -->
+  {% endfor %}
+  {% if paginate.pages > 1 %}
+  {% include 'pagination' %}				
+  {% endif %}
+  {% endpaginate %}
+</div><!-- content-wrapper -->

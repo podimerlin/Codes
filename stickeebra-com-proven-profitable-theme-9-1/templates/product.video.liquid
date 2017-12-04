@@ -1,0 +1,408 @@
+<div id="product-main-wrapper" class="container-wrapper textile">
+  <div id="product-secondary-layout">
+
+              <div id="product-options-mobile" class="textile product-options-mobile">
+        {% if product.available %}
+        <form  method="post" action="/cart/add" data-productid="{{product.id}}"  id="add-item-form-mobile" name="add-item-form" class="textile {{ product.type | handleize }}"> 
+ {% if product.available %}{% include 'subscription-product' %}{% endif %} 
+          <div id="product-variant-mobile">
+            <div class="selector-wrapper-2 selector-wrapper">
+              {% if product.variants.size > 1 %}
+              <select name="id" data-productid="{{product.id}}" id="product-select-mobile" style="display:none;visibility:hidden;">
+                {% for variant in product.variants %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                {% endfor %}
+              </select>
+              {% else %}
+              {% assign variant = product.variants.first %}
+              <input id="product-select-mobile" type="hidden" name="id" data-productid="{{product.id}}" value="{{ variant.id }}" />
+              {% endif %}
+              
+                 <span style = "display:none;" class = "product-few-left-text few-left-banner">{{ settings.few_left_in_stock_text }}</span>
+              <div class = "product-quantity-mobile">
+              <label for="quantity">Quantity </label>
+              <select id="quantity" name="quantity" class="small">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              </div>
+              
+
+              
+<p class = "product-outstock-text product-stock-text"
+   {%if settings.out_of_stock_purchase %}
+        {%assign variant = product.selected_or_first_available_variant%}
+   		{%if variant.available%}
+            {% if variant.inventory_quantity <= 0   and variant.inventory_management != ''%}    
+      		{%else%}
+                    style = "display:none;"
+         	{% endif %}
+        {%endif%}            
+   {%else%}
+    	{%if variant.available%}
+    		style = "display:none;"
+   		{%else%}
+                    
+      	{%endif%}
+ 	{%endif%}
+>   
+   	{% if product.metafields.pdetails.outofstock %}
+    	{{ product.metafields.pdetails.outofstock }}
+    {%else%}  
+  		{{ settings.out_of_stock_text }}
+  	{%endif%}
+</p>           
+<p class = "product-instock-text product-stock-text"
+	{%if settings.out_of_stock_purchase %}
+		{%assign variant = product.selected_or_first_available_variant%}
+		{%if variant.available%}             
+			{% if variant.inventory_quantity <= 0 and variant.inventory_management != '' %}
+				style = "display:none;"
+			{%else%}
+			{% endif %}
+      	{%else%}
+				style = "display:none;"
+		{%endif%}
+	{%else%}
+		{%if variant.available%}
+       	{%else%}
+				style = "display:none;"
+		{%endif%}
+	{%endif%}
+>{{ settings.in_stock_text }}</p>
+              
+          <h6>{%if product.metafields.pdetails.textundervariants %}{{product.metafields.pdetails.textundervariants}}{%else%}{{ settings.text_under_variants }}{%endif%}</h6>
+            </div><!-- selector-wrapper-2 -->
+            <input type="submit" name="add" value="Add To Cart>>" id="add-to-cart-mobile" class="btn btn-large round-borders btn-large"/>
+          </div><!-- product-variant -->
+          {% else %}
+          <div class="sold-out"><p class="lead">
+         	{% if product.metafields.pdetails.outofstock %}
+    			{{ product.metafields.pdetails.outofstock }}
+    		{%else%}  
+  				{{ settings.out_of_stock_text }}
+  			{%endif%}
+			</p>
+          </div>
+          {% endif %}
+          <p class = "product-badges-banner"><img src="{{ 'product_banner.jpg' | asset_url }}" alt="product badges"></p>
+        </form> 
+      </div><!--product-options-->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <div id="product-images-wrapper" class="clearfix">
+      
+      {% include 'product-images' %}
+      {%comment%}
+     			<!---displays product options and add to cart button on left column---->
+      <div id="product-options" class="textile">
+        {% if product.available %}
+        <form method="post" action="/cart/add" data-productid="{{product.id}}"  id="add-item-form" name="add-item-form" class="textile {{ product.type | handleize }}">
+          <div id="product-variant">
+            <div class="selector-wrapper-2 selector-wrapper">
+              {% if product.variants.size > 1 %}
+              <select name="id" data-productid="{{product.id}}" id="product-select" style="display:none;visibility:hidden;">
+                {% for variant in product.variants %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                {% endfor %}
+              </select>
+              {% else %}
+              {% assign variant = product.variants.first %}
+              <input id="product-select" type="hidden" name="id" data-productid="{{product.id}}" value="{{ variant.id }}" />
+              {% endif %}
+              <div>
+              <label for="quantity">Quantity</label>
+              <select id="quantity" name="quantity" class="small">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              </div>
+              <span>{{ settings.in_stock_text }}</span>
+          <h6>{%if product.metafields.pdetails.textundervariants %}{{product.metafields.pdetails.textundervariants}}{%else%}{{ settings.text_under_variants }}{%endif%}</h6>
+            </div><!-- selector-wrapper -->
+            <input type="submit" name="add" value="Add To Cart>>" id="add-to-cart" class="btn btn-large round-borders btn-large"/>
+          </div><!-- product-variant -->
+          {% else %}
+          <div class="sold-out">
+            <p class="lead">{{ settings.out_of_stock_text }}</p>
+          </div>
+          {% endif %}
+          <p><img src="{{ 'product_banner.jpg' | asset_url }}" alt="product badges"></p>
+        </form> 
+      </div><!--product-options-->
+      {%endcomment%}
+      
+    </div><!--product-images-wrapper-->
+    <div id="product-info">
+      <header id="product-header">
+        <h1 itemprop="name">{{ product.title }}</h1>
+        <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          
+          {% if product.available %}
+          <meta itemprop="price" content="{{ product.price | money_without_currency }}" />
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+          <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="InStock" />  
+          {% else %}
+          <meta itemprop="price" content="{{ product.price | money_without_currency }}" />
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+          <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="OutOfStock" />
+          {% endif %}
+          {% assign variant = product.selected_or_first_available_variant %}
+          <span class="product-price">{{ variant.price | money | remove:'.00' }}</span>
+          {% if product.compare_at_price_max > product.price %}
+          <span class="product-price-old">{% if variant.compare_at_price > 0 %}{{ variant.compare_at_price | money | remove:'.00' }}{% endif %}</span>
+          {% endif %}        
+        </span><!-- product-pricing -->         
+      </header><!--product-header-->
+      <p>{{ product.description }}</p>
+    </div><!--product-info-->
+    <div id="product-video-wrapper" class="textile">
+    	{% if product.metafields.video_template.embed1 %}
+        <div class="row">
+         <div class="col col100">           
+           {% unless product.metafields.video_template.image1 %}
+           		{{ product.metafields.video_template.embed1 }}
+           {%endunless%}
+           {%if product.metafields.video_template.image1%}
+           		<div class = "video-with-image">
+           			{% if product.metafields.video_template.banner %}
+          				<span>{{ product.metafields.video_template.banner }}</span>
+          			{% endif %}
+          			<a href='#product-video-1' class="product-video">
+            			<img src="{{ product.metafields.video_template.image1 }}">
+          			</a>
+          			<div style="display:none">
+           				<div id="product-video-1">
+              				{{ product.metafields.video_template.embed1 }}
+            			</div>
+          			</div>
+           		</div>
+			{%endif%}
+        </div>
+        {%endif%}
+        {% if product.metafields.video_template.embed2 %}
+        	<div class="col col50">
+           		{% unless product.metafields.video_template.image2 %}
+           			{{ product.metafields.video_template.embed2 }}
+           		{%endunless%}
+      			{%if product.metafields.video_template.image2 %}
+          			<div class = "video-with-image">
+          				<a href='#product-video-2' class="product-video">
+            				<img src="{{ product.metafields.video_template.image2 }}">
+          				</a>
+          				<div style="display:none">
+            				<div id="product-video-2">{{ product.metafields.video_template.embed2 }}</div>
+          				</div>
+          			</div>
+  				{%endif%}<!---end image2 check--->
+        	</div><!-- col50 -->
+        {% endif %}
+        {% if product.metafields.video_template.embed3 %}
+        	<div class="col col50">
+           		{% unless product.metafields.video_template.image3 %}
+           			{{ product.metafields.video_template.embed3 }}
+           		{%endunless%}
+          		{%if product.metafields.video_template.image3 %}
+          			<a href='#product-video-3' class="product-video">
+            			<img src="{{ product.metafields.video_template.image3 }}">
+          			</a>
+          			<div style="display:none">
+            			<div id="product-video-3">{{ product.metafields.video_template.embed3 }}</div>
+          			</div>
+          		{%endif%}<!---end wistia popover embed check--->
+        	</div><!-- col50 -->
+        {% endif %}
+        
+                    
+
+          
+          
+        <div id="product-options" class="textile">
+          
+        {% if product.metafields.pdetails.popup != "" and product.metafields.pdetails.popup-text != "" %}
+        <p class = "popup-button-wrap"><a id = "product-popup-button">{{ product.metafields.pdetails.popup-text }}</a></p>
+        <div id = "product-popup-overlay" ><img id = "product-popup-image" src = "{{product.metafields.pdetails.popup}}" /></div>
+        {% endif %}
+          
+        {% if product.available %}
+        <form  method="post" action="/cart/add" data-productid="{{product.id}}"  id="add-item-form" name="add-item-form" class="textile {{ product.type | handleize }}"> 
+ {% if product.available %}{% include 'subscription-product' %}{% endif %} 
+          <div id="product-variant">
+            <div class="selector-wrapper-2 selector-wrapper">
+              {% if product.variants.size > 1 %}
+              <select name="id" data-productid="{{product.id}}" id="product-select" style="display:none;visibility:hidden;">
+                {% for variant in product.variants %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                {% endfor %}
+              </select>
+              {% else %}
+              {% assign variant = product.variants.first %}
+              <input id="product-select" type="hidden" name="id" data-productid="{{product.id}}" value="{{ variant.id }}" />
+              {% endif %}
+              
+                 <span style = "display:none;" class = "product-few-left-text few-left-banner">{{ settings.few_left_in_stock_text }}</span>
+              <div>
+              <label for="quantity">Quantity </label>
+              <select id="quantity" name="quantity" class="small">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              </div>
+              
+
+              
+<p class = "product-outstock-text product-stock-text"
+   {%if settings.out_of_stock_purchase %}
+        {%assign variant = product.selected_or_first_available_variant%}
+   		{%if variant.available%}
+            {% if variant.inventory_quantity <= 0   and variant.inventory_management != ''%}    
+      		{%else%}
+                    style = "display:none;"
+         	{% endif %}
+        {%endif%}            
+   {%else%}
+    	{%if variant.available%}
+    		style = "display:none;"
+   		{%else%}
+                    
+      	{%endif%}
+ 	{%endif%}
+>   
+   	{% if product.metafields.pdetails.outofstock %}
+    	{{ product.metafields.pdetails.outofstock }}
+    {%else%}  
+  		{{ settings.out_of_stock_text }}
+  	{%endif%}
+</p>           
+<p class = "product-instock-text product-stock-text"
+	{%if settings.out_of_stock_purchase %}
+		{%assign variant = product.selected_or_first_available_variant%}
+		{%if variant.available%}             
+			{% if variant.inventory_quantity <= 0 and variant.inventory_management != '' %}
+				style = "display:none;"
+			{%else%}
+			{% endif %}
+      	{%else%}
+				style = "display:none;"
+		{%endif%}
+	{%else%}
+		{%if variant.available%}
+       	{%else%}
+				style = "display:none;"
+		{%endif%}
+	{%endif%}
+>{{ settings.in_stock_text }}</p>
+              
+ 
+              
+          <h6>{%if product.metafields.pdetails.textundervariants %}{{product.metafields.pdetails.textundervariants}}{%else%}{{ settings.text_under_variants }}{%endif%}</h6>
+            </div><!-- selector-wrapper-2 -->
+            <input type="submit" name="add" value="Add To Cart>>" id="add-to-cart" class="btn btn-large round-borders btn-large"/>
+          </div><!-- product-variant -->
+          {% else %}
+          <div class="sold-out"><p class="lead">
+         	{% if product.metafields.pdetails.outofstock %}
+    			{{ product.metafields.pdetails.outofstock }}
+    		{%else%}  
+  				{{ settings.out_of_stock_text }}
+  			{%endif%}
+			</p>
+          </div>
+          {% endif %}
+          <p class = "product-badges-banner"><img src="{{ 'product_banner.jpg' | asset_url }}" alt="product badges"></p>
+        </form> 
+      </div><!--product-options-->
+      </div><!--product-video-wrapper-->
+    </div><!--product-secondary-layout-->
+   <div class="product-hr"></div>
+    {% if product.metafields.details_one.content or product.metafields.details_one.image_url %}
+    <div class="product-full-width product-video-full-width">
+      {% if product.metafields.details_one.image_url %}
+      <div class="product-full-width-image">
+        <img class="product-image" src="{{ product.metafields.details_one.image_url }}" alt="{{ product.title | strip_html | escape }}">
+      </div><!--product-image-->
+      {% endif %}
+      {% if product.metafields.details_one.content %}
+      <div class="product-full-width-details">
+        {{ product.metafields.details_one.content }}
+      </div><!--product-full-width-details-->
+      {% endif %}
+    </div><!--product-full-width-->
+    {% endif %}
+    {% if product.metafields.details_two.content or product.metafields.details_two.image_url %}
+    <div class="product-full-width product-full-width-2">
+      {% if product.metafields.details_two.content %}
+      <div class="product-full-width-details">
+        {{ product.metafields.details_two.content }}
+      </div><!--product-full-width-details-->
+      {% endif %}
+      {% if product.metafields.details_two.image_url %}
+      <div class="product-full-width-image">
+        <img class="product-image" src="{{ product.metafields.details_two.image_url }}" alt="{{ product.title | strip_html | escape }}">
+      </div><!--product-image-->   
+      {% endif %}
+    </div><!--product-full-width-->
+    {% endif %}
+    {% if product.available %}
+    {% if settings.use_video_gallery %}
+    {% include 'product-video-gallery' %}
+    {% endif %}
+
+    {% if settings.use_second_cart_button %}
+    <div class="full-width-add-to-cart product-add-to-cart2">
+      <input type="submit" name="add" value="Add to cart>>" class="btn btn-large round-borders btn-large" onClick="$('#add-to-cart').click(); return false;"/>
+      <p class = "product-badges-banner"><img src="{{ 'product_banner.jpg' | asset_url }}" alt="product badges"></p>
+    </div><!--product-full-width-add-->
+    {%endif%}
+    {% endif %}
+    {% include 'product-add-ons' %}
+    {% if settings.use_related_products %}
+    {% include 'product-related' %}
+    {% endif %}
+  </div><!-- product-main-wrapper -->
+  <div class="yotpo yotpo-main-widget"
+   data-product-id="{{ product.id }}"
+   data-name="{{ product.title | escape }}"
+   data-url="{{ shop.url }}{{ product.url }}"
+   data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+   data-description="{{ product.description | escape }}">
+</div>
+</div><!-- product-main-wrapper -->
+{{ settings.product_code_injection }} 
+{% include 'product-scripts' %}
+
+
+
+
+

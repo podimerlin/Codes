@@ -1,0 +1,71 @@
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+.custom-color select {
+  width : 100px !important;
+}
+.single-option-selector {
+  width : 100px !important;
+}
+.selector-wrapper {
+  width: 100%;
+}
+.selector-wrapper select {
+  float: right;
+}
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}
+
+<script>
+  var counter = 0;
+
+  function checkForSelector() { 
+      var sizes = $('div.selector-wrapper-2 div.selector-wrapper');
+
+      if (typeof sizes == 'undefined' || sizes.length < 3) { 
+          window.setTimeout(checkForSelector,100);
+      } else { 
+          $('#original-color').insertAfter( sizes[0]);
+          $('#original-color').addClass('selector-wrapper');
+          $('#original-color').css('display', '');
+          $('#front-color').insertAfter( sizes[1]);
+          $('#front-color').addClass('selector-wrapper');
+          $('#front-color').css('display', '');
+          $('#wings-color').insertAfter( sizes[2]);
+          $('#wings-color').addClass('selector-wrapper');
+          $('#wings-color').css('display', '');
+      } 
+  } 
+
+  checkForSelector(); 
+</script>
+
+<div id="original-color" class="custom-color" style="display: none;">
+  <label>Original Stickeebra Color</label>
+  <select id="color" name="properties[Original Stickeebra Color]">
+    <option value="Black">Black</option>
+    <option value="Nude">Nude</option>
+  </select>
+</div>
+<div id="front-color" class="custom-color" style="display: none;">
+  <label>Front-Lacing Stickeebra Color</label>
+  <select id="color" name="properties[Front-Lacing Stickeebra Color]">
+    <option value="Black">Black</option>
+    <option value="Nude">Nude</option>
+  </select>
+</div>
+<div id="wings-color" class="custom-color" style="display: none;">
+  <label>Wings Stickeebra Color</label>
+  <select id="color" name="properties[Wings Stickeebra Color]">
+    <option value="Black">Black</option>
+    <option value="Nude">Nude</option>
+  </select>
+</div>
